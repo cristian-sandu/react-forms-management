@@ -1,5 +1,9 @@
 {
   "UPLOAD": "رفع",
+  "ENTITY_FORM": "نموذج الكيان",
+  "ASSOCIATION_FORM": "نموذج الرابطة",
+  "STRING_70_CHARS_VALIDATOR": "يجب أن يصل طول القيمة إلى 70 حرفًا",
+  "NUMBER_20_CHARS_VALIDATOR": "يجب أن يصل طول القيمة إلى 20 رقمًا",
   "boilerplate.containers.HomePage.EntityForm.ENTITY_NAME.LABEL": "سلام على اللىي ذكرنا ف",
   "boilerplate.containers.HomePage.EntityForm.ENTITY_NAME.REQUIRED_MESSAGE": "سلام على اللىي ذكرنا ف",
   "boilerplate.containers.HomePage.EntityForm.TRADE_MARK.LABEL": "سلام على اللىي ذكرنا ف",

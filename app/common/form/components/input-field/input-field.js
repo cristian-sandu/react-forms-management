@@ -1,9 +1,11 @@
 import { Input } from 'antd';
-import { FormField } from 'common/form/components';
-import { TEXT_ALIGN } from 'common/form/constants';
 import PropTypes from 'prop-types';
 import { values } from 'ramda';
 import React, { memo } from 'react';
+
+import { FormField } from 'common/form/components';
+import { TEXT_ALIGN } from 'common/form/constants';
+import { STRING_70_CHARS_VALIDATION_RULES } from 'utils/validators/validators';
 
 const InputField = ({
   disabled,
@@ -41,6 +43,7 @@ InputField.defaultProps = {
   disabled: false,
   inputStyle: { width: '100%' },
   required: true,
+  rules: STRING_70_CHARS_VALIDATION_RULES,
 };
 
 InputField.propTypes = {
@@ -53,6 +56,7 @@ InputField.propTypes = {
   placeholder: PropTypes.string,
   required: PropTypes.bool,
   requiredMessage: PropTypes.any,
+  rules: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default memo(InputField);

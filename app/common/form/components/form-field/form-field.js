@@ -102,7 +102,7 @@ FormField.defaultProps = {
   required: true,
   requiredMessage: EMPTY_STRING,
   rules: EMPTY_ARRAY,
-  style: { width: '80%', paddingLeft: '20%' },
+  style: { width: '85%', paddingLeft: '15%' },
 };
 
 export default FormField;

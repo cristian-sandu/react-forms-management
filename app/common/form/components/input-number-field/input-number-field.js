@@ -1,9 +1,11 @@
-import { InputNumber } from 'antd';
-import { FormField } from 'common/form/components';
-import { TEXT_ALIGN } from 'common/form/constants';
+import { Input } from 'antd';
 import PropTypes from 'prop-types';
 import { values } from 'ramda';
 import React, { memo } from 'react';
+
+import { FormField } from 'common/form/components';
+import { TEXT_ALIGN } from 'common/form/constants';
+import { NUMBER_20_DIGITS_VALIDATION_RULES } from 'utils/validators/validators';
 
 // eslint-disable-next-line max-lines-per-function
 const InputNumberField = ({
@@ -22,6 +24,7 @@ const InputNumberField = ({
   required,
   requiredMessage,
   inputStyle,
+  rules,
 }) => (
   <FormField
     disabled={disabled}
@@ -31,8 +34,10 @@ const InputNumberField = ({
     labelAlign={labelAlign}
     required={required}
     requiredMessage={requiredMessage}
+    rules={rules}
   >
-    <InputNumber
+    <Input
+      type="number"
       disabled={disabled}
       formatter={formatter}
       max={max}
@@ -50,6 +55,7 @@ InputNumberField.defaultProps = {
   disabled: false,
   inputStyle: { width: '100%' },
   required: true,
+  rules: NUMBER_20_DIGITS_VALIDATION_RULES,
 };
 
 InputNumberField.propTypes = {
@@ -68,6 +74,7 @@ InputNumberField.propTypes = {
   precision: PropTypes.number,
   required: PropTypes.bool,
   requiredMessage: PropTypes.any,
+  rules: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default memo(InputNumberField);

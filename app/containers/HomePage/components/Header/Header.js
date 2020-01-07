@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Steps } from 'antd';
+import { getFormattedMessage as getMsg } from 'utils/formatted-message';
+
 import { FORM_BY_STEP } from '../../constants';
+import messages from './messages';
 
 const { Step } = Steps;
 
 const steps = [
-  <Step title="Entity Form" key="Entity_Form" />,
-  <Step title="Association Form" key="Association_Form" />,
+  <Step title={getMsg(messages.ENTITY_FORM)} key="Entity_Form" />,
+  <Step title={getMsg(messages.ASSOCIATION_FORM)} key="Association_Form" />,
 ];
 
 function Header({ step, onStepChange, hasAssociationForm }) {
@@ -19,18 +22,20 @@ function Header({ step, onStepChange, hasAssociationForm }) {
         </Steps>
       )}
       <h1 style={{ textAlign: 'center', marginTop: '1em' }}>
-        {FORM_BY_STEP[step].NAME}
+        {getMsg(messages[FORM_BY_STEP[step].ID])}
       </h1>
     </div>
   );
 }
 
 Header.propTypes = {
+  hasAssociationForm: PropTypes.bool,
   step: PropTypes.number,
   onStepChange: PropTypes.func.isRequired,
 };
 
 Header.defaultProps = {
+  hasAssociationForm: false,
   step: 0,
 };
 

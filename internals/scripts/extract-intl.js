@@ -95,7 +95,7 @@ const extractFromFile = async filename => {
     const code = await readFile(filename);
 
     const output = await transform(code, { filename, presets, plugins });
-    const messages = get(output, 'metadata.react-intl.messages', []);
+    const messages = get(output, 'messages', []);
 
     for (const message of messages) {
       for (const locale of appLocales) {

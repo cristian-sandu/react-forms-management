@@ -1,18 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
 
 import {
   InputField,
   InputNumberField,
   SelectField,
 } from 'common/form/components';
+import { getFormattedMessage as getMsg } from 'utils/formatted-message';
 
 import messages from './messages';
 import { ASSOCIATION_FORM_FIELDS_CONFIG as FIELDS } from './constants';
 import { CITIES_OPTIONS, PROVINCE_OPTIONS } from '../../utils/select-options';
-
-const getMsg = msg => <FormattedMessage {...msg} />;
 
 const AssociationForm = ({ isVisible }) => {
   return (

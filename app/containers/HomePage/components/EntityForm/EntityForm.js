@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
 
 import { useTextDirection } from 'common/hooks';
 import { TEXT_DIRECTION } from 'common/constants';
@@ -12,6 +11,7 @@ import {
   SelectField,
 } from 'common/form/components';
 import useFormContext from 'common/form/consumer/form-consumer';
+import { getFormattedMessage as getMsg } from 'utils/formatted-message';
 
 import { ENTITY_FORM_FIELDS_CONFIG as FIELDS } from './constants';
 import {
@@ -21,8 +21,6 @@ import {
   STATUS_OPTIONS,
 } from '../../utils/select-options';
 import messages from './messages';
-
-const getMsg = msg => <FormattedMessage {...msg} />;
 
 const EntityForm = ({ isVisible }) => {
   const form = useFormContext();
