@@ -1,17 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 
+import { useTextDirection } from 'common/hooks';
+import { TEXT_DIRECTION } from 'common/constants';
 import {
-  SelectField,
-  InputField,
-  InputNumberField,
   FormField,
   ImageUpload,
+  InputField,
+  InputNumberField,
+  SelectField,
 } from 'common/form/components';
 import useFormContext from 'common/form/consumer/form-consumer';
-import { isArabicLanguageSelector } from 'common/selectors';
 
 import { ENTITY_FORM_FIELDS_CONFIG as FIELDS } from './constants';
 import {
@@ -26,7 +26,8 @@ const getMsg = msg => <FormattedMessage {...msg} />;
 
 const EntityForm = ({ isVisible }) => {
   const form = useFormContext();
-  const isArabicLanguage = useSelector(isArabicLanguageSelector);
+  const textDirection = useTextDirection();
+  const isRTL = textDirection === TEXT_DIRECTION.RIGHT_TO_LEFT;
 
   const handleImageUpload = fieldID => img => {
     form.setFieldsValue({
@@ -46,7 +47,11 @@ const EntityForm = ({ isVisible }) => {
         label={getMsg(messages.TRADE_MARK.LABEL)}
         requiredMessage={getMsg(messages.TRADE_MARK.REQUIRED_MESSAGE)}
       >
-        <ImageUpload onUpload={handleImageUpload(FIELDS.TRADE_MARK.ID)} />
+        <ImageUpload
+          onUpload={handleImageUpload(FIELDS.TRADE_MARK.ID)}
+          title={getMsg(messages.UPLOAD.LABEL)}
+          isRTL={isRTL}
+        />
       </FormField>
       <SelectField
         id={FIELDS.SPECIALIZATION.ID}
@@ -78,6 +83,12 @@ const EntityForm = ({ isVisible }) => {
         id={FIELDS.EMAIL_ADDRESS.ID}
         label={getMsg(messages.EMAIL_ADDRESS.LABEL)}
         requiredMessage={getMsg(messages.EMAIL_ADDRESS.REQUIRED_MESSAGE)}
+        rules={[
+          {
+            type: 'email',
+            message: getMsg(messages.EMAIL_ADDRESS.EMAIL_INVALID_MESSAGE),
+          },
+        ]}
         type="email"
       />
       <InputField
@@ -145,6 +156,8 @@ const EntityForm = ({ isVisible }) => {
         )}
       >
         <ImageUpload
+          title={getMsg(messages.UPLOAD.LABEL)}
+          isRTL={isRTL}
           onUpload={handleImageUpload(FIELDS.COMMERCIAL_REGISTRATION.ID)}
         />
       </FormField>

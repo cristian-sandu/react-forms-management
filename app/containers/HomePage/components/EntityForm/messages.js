@@ -86,6 +86,11 @@ export default defineMessages({
       id: `${scope}.EMAIL_ADDRESS.REQUIRED_MESSAGE`,
       defaultMessage: ENTITY_FORM_FIELDS_CONFIG.EMAIL_ADDRESS.REQUIRED_MESSAGE,
     },
+    EMAIL_INVALID_MESSAGE: {
+      id: `${scope}.EMAIL_ADDRESS.EMAIL_INVALID_MESSAGE`,
+      defaultMessage:
+        ENTITY_FORM_FIELDS_CONFIG.EMAIL_ADDRESS.EMAIL_INVALID_MESSAGE,
+    },
   },
   SOCIAL_MEDIA: {
     LABEL: {
@@ -215,6 +220,12 @@ export default defineMessages({
       id: `${scope}.ISIC_CLASSIFICATION_NUMBER.REQUIRED_MESSAGE`,
       defaultMessage:
         ENTITY_FORM_FIELDS_CONFIG.ISIC_CLASSIFICATION_NUMBER.REQUIRED_MESSAGE,
+    },
+  },
+  UPLOAD: {
+    LABEL: {
+      id: 'UPLOAD',
+      defaultMessage: 'Upload',
     },
   },
 });

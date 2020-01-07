@@ -15,6 +15,7 @@ const InputField = ({
   required,
   requiredMessage,
   inputStyle,
+  rules,
   ...rest
 }) => (
   <FormField
@@ -25,6 +26,7 @@ const InputField = ({
     labelAlign={labelAlign}
     required={required}
     requiredMessage={requiredMessage}
+    rules={rules}
   >
     <Input
       disabled={disabled}

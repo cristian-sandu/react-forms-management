@@ -1,4 +1,5 @@
 {
+  "UPLOAD": "رفع",
   "boilerplate.containers.HomePage.EntityForm.ENTITY_NAME.LABEL": "سلام على اللىي ذكرنا ف",
   "boilerplate.containers.HomePage.EntityForm.ENTITY_NAME.REQUIRED_MESSAGE": "سلام على اللىي ذكرنا ف",
   "boilerplate.containers.HomePage.EntityForm.TRADE_MARK.LABEL": "سلام على اللىي ذكرنا ف",
@@ -15,6 +16,7 @@
   "boilerplate.containers.HomePage.EntityForm.OFFICE_TEL_NUMBER.REQUIRED_MESSAGE": "سلام على اللىي ذكرنا ف",
   "boilerplate.containers.HomePage.EntityForm.EMAIL_ADDRESS.LABEL": "سلام على اللىي ذكرنا ف",
   "boilerplate.containers.HomePage.EntityForm.EMAIL_ADDRESS.REQUIRED_MESSAGE": "سلام على اللىي ذكرنا ف",
+  "boilerplate.containers.HomePage.EntityForm.EMAIL_ADDRESS.EMAIL_INVALID_MESSAGE": "سلام على اللىي ذكرنا ف",
   "boilerplate.containers.HomePage.EntityForm.SOCIAL_MEDIA.LABEL": "سلام على اللىي ذكرنا ف",
   "boilerplate.containers.HomePage.EntityForm.SOCIAL_MEDIA.REQUIRED_MESSAGE": "سلام على اللىي ذكرنا ف",
   "boilerplate.containers.HomePage.EntityForm.ADDRESS.LABEL": "سلام على اللىي ذكرنا ف",
@@ -54,8 +56,10 @@
   "boilerplate.containers.HomePage.AssociationForm.PROVINCE.REQUIRED_MESSAGE": "سلام على اللىي ذكرنا ف",
   "boilerplate.containers.HomePage.AssociationForm.EMAIL.LABEL": "سلام على اللىي ذكرنا ف",
   "boilerplate.containers.HomePage.AssociationForm.EMAIL.REQUIRED_MESSAGE": "سلام على اللىي ذكرنا ف",
+  "boilerplate.containers.HomePage.AssociationForm.EMAIL.EMAIL_INVALID_MESSAGE": "سلام على اللىي ذكرنا ف",
   "boilerplate.containers.HomePage.AssociationForm.WEBSITE.LABEL": "سلام على اللىي ذكرنا ف",
   "boilerplate.containers.HomePage.AssociationForm.WEBSITE.REQUIRED_MESSAGE": "سلام على اللىي ذكرنا ف",
+  "boilerplate.containers.HomePage.AssociationForm.WEBSITE.WEBSITE_INVALID_MESSAGE": "سلام على اللىي ذكرنا ف",
 
   "boilerplate.components.Footer.author.message": "Mit Liebe gemacht von {author}.",
   "boilerplate.components.Footer.license.message": "Dieses Projekt wird unter der MIT-Lizenz veröffentlicht.",

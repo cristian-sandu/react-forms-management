@@ -40,6 +40,7 @@ export const ENTITY_FORM_FIELDS_CONFIG = {
     ID: `${ENTITY_FORM_PREFIX}.EmailAddress`,
     LABEL: 'Email Address',
     REQUIRED_MESSAGE: 'Email Address is required',
+    EMAIL_INVALID_MESSAGE: 'Email Address is not valid',
   },
   SOCIAL_MEDIA: {
     ID: `${ENTITY_FORM_PREFIX}.SocialMedia`,

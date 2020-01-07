@@ -1,4 +1,5 @@
 {
+  "UPLOAD": "Upload",
   "boilerplate.containers.HomePage.EntityForm.ENTITY_NAME.LABEL": "Entity Name",
   "boilerplate.containers.HomePage.EntityForm.ENTITY_NAME.REQUIRED_MESSAGE": "Entity Name is required",
   "boilerplate.containers.HomePage.EntityForm.TRADE_MARK.LABEL": "Trade Mark",
@@ -15,6 +16,7 @@
   "boilerplate.containers.HomePage.EntityForm.OFFICE_TEL_NUMBER.REQUIRED_MESSAGE": "Office Tel Number is required",
   "boilerplate.containers.HomePage.EntityForm.EMAIL_ADDRESS.LABEL": "Email Address",
   "boilerplate.containers.HomePage.EntityForm.EMAIL_ADDRESS.REQUIRED_MESSAGE": "Email Address is required",
+  "boilerplate.containers.HomePage.EntityForm.EMAIL_ADDRESS.EMAIL_INVALID_MESSAGE": "Email Address is not valid",
   "boilerplate.containers.HomePage.EntityForm.SOCIAL_MEDIA.LABEL": "Social Media",
   "boilerplate.containers.HomePage.EntityForm.SOCIAL_MEDIA.REQUIRED_MESSAGE": "Social Media is required",
   "boilerplate.containers.HomePage.EntityForm.ADDRESS.LABEL": "Address",
@@ -54,8 +56,10 @@
   "boilerplate.containers.HomePage.AssociationForm.PROVINCE.REQUIRED_MESSAGE": "Province is required",
   "boilerplate.containers.HomePage.AssociationForm.EMAIL.LABEL": "Email",
   "boilerplate.containers.HomePage.AssociationForm.EMAIL.REQUIRED_MESSAGE": "Email is required",
+  "boilerplate.containers.HomePage.AssociationForm.EMAIL.EMAIL_INVALID_MESSAGE": "Email is not valid",
   "boilerplate.containers.HomePage.AssociationForm.WEBSITE.LABEL": "Website",
   "boilerplate.containers.HomePage.AssociationForm.WEBSITE.REQUIRED_MESSAGE": "Website is required",
+  "boilerplate.containers.HomePage.AssociationForm.WEBSITE.WEBSITE_INVALID_MESSAGE": "Website is not valid",
 
   "boilerplate.components.Footer.author.message": "Made with love by {author}.",
   "boilerplate.components.Footer.license.message": "This project is licensed under the MIT license.",

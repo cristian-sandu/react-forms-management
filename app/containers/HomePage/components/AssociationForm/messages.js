@@ -73,6 +73,10 @@ export default defineMessages({
       id: `${scope}.EMAIL.REQUIRED_MESSAGE`,
       defaultMessage: FIELDS.EMAIL.REQUIRED_MESSAGE,
     },
+    EMAIL_INVALID_MESSAGE: {
+      id: `${scope}.EMAIL.EMAIL_INVALID_MESSAGE`,
+      defaultMessage: FIELDS.EMAIL.EMAIL_INVALID_MESSAGE,
+    },
   },
   WEBSITE: {
     LABEL: {
@@ -82,6 +86,10 @@ export default defineMessages({
     REQUIRED_MESSAGE: {
       id: `${scope}.WEBSITE.REQUIRED_MESSAGE`,
       defaultMessage: FIELDS.WEBSITE.REQUIRED_MESSAGE,
+    },
+    WEBSITE_INVALID_MESSAGE: {
+      id: `${scope}.WEBSITE.WEBSITE_INVALID_MESSAGE`,
+      defaultMessage: FIELDS.WEBSITE.WEBSITE_INVALID_MESSAGE,
     },
   },
 });

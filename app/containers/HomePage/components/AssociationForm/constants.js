@@ -35,10 +35,12 @@ export const ASSOCIATION_FORM_FIELDS_CONFIG = {
     ID: `${ASSOCIATION_FORM_PREFIX}.Email`,
     LABEL: 'Email',
     REQUIRED_MESSAGE: 'Email is required',
+    EMAIL_INVALID_MESSAGE: 'Email is not valid',
   },
   WEBSITE: {
     ID: `${ASSOCIATION_FORM_PREFIX}.WebSite`,
     LABEL: 'Website',
     REQUIRED_MESSAGE: 'Website is required',
+    WEBSITE_INVALID_MESSAGE: 'Website is not valid',
   },
 };
