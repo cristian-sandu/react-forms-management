@@ -1,15 +1,7 @@
-/**
- *
- * App
- *
- * This component is the skeleton around the actual pages, and should only
- * contain code that should be seen on all pages. (e.g. navigation bar)
- */
-
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
-import { Switch, Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import { Steps } from 'antd';
 
 import HomePage from 'containers/HomePage/Loadable';
 import FeaturePage from 'containers/FeaturePage/Loadable';
@@ -18,6 +10,9 @@ import Header from 'components/Header';
 import Footer from 'components/Footer';
 
 import GlobalStyle from '../../global-styles';
+import 'antd/dist/antd.css';
+
+const { Step } = Steps;
 
 const AppWrapper = styled.div`
   max-width: calc(768px + 16px * 2);
@@ -28,19 +23,21 @@ const AppWrapper = styled.div`
   flex-direction: column;
 `;
 
-export default function App() {
+function App() {
   return (
     <AppWrapper>
-      <Helmet
-        titleTemplate="%s - React.js Boilerplate"
-        defaultTitle="React.js Boilerplate"
-      >
-        <meta name="description" content="A React.js Boilerplate application" />
-      </Helmet>
+      <Steps current={0}>
+        <Step title="Finished" description="This is a description." />
+        <Step
+          title="In Progress"
+          subTitle="Left 00:00:08"
+          description="This is a description."
+        />
+        <Step title="Waiting" description="This is a description." />
+      </Steps>
       <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/features" component={FeaturePage} />
         <Route path="" component={NotFoundPage} />
       </Switch>
       <Footer />
@@ -48,3 +45,5 @@ export default function App() {
     </AppWrapper>
   );
 }
+
+export default App;

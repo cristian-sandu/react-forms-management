@@ -27,6 +27,6 @@ describe('<ToggleOption />', () => {
         <ToggleOption value="de" />
       </IntlProvider>,
     );
-    expect(queryByText('de')).toBeDefined();
+    expect(queryByText('ar.json')).toBeDefined();
   });
 });

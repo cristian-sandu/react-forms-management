@@ -20,7 +20,7 @@ describe('<Toggle />', () => {
     });
     const { container } = render(
       <IntlProvider locale="en">
-        <Toggle values={['en', 'de']} messages={messages} />
+        <Toggle values={['en', 'ar.json']} messages={messages} />
       </IntlProvider>,
     );
     expect(container.firstChild).toMatchSnapshot();

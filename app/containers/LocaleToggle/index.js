@@ -8,23 +8,37 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
-
-import Toggle from 'components/Toggle';
+import { Select } from 'antd';
 import Wrapper from './Wrapper';
-import messages from './messages';
-import { appLocales } from '../../i18n';
+import { DEFAULT_LOCALE } from '../../i18n';
 import { changeLocale } from '../LanguageProvider/actions';
 import { makeSelectLocale } from '../LanguageProvider/selectors';
+import { convertObjectToSelectOptions } from '../../common/form/utils';
 
-export function LocaleToggle(props) {
+const LANGUAGES_DATASOURCE = {
+  en: 'English',
+  ar: 'Arabic',
+};
+
+const LANGUAGE_SELECT_OPTIONS = convertObjectToSelectOptions(
+  LANGUAGES_DATASOURCE,
+);
+
+export function LocaleToggle({ locale, onLocaleToggle }) {
+  function handleChange(language) {
+    onLocaleToggle(language);
+  }
+
   return (
     <Wrapper>
-      <Toggle
-        value={props.locale}
-        values={appLocales}
-        messages={messages}
-        onToggle={props.onLocaleToggle}
-      />
+      <Select
+        defaultValue={DEFAULT_LOCALE}
+        style={{ width: 120 }}
+        onChange={handleChange}
+        value={locale}
+      >
+        {LANGUAGE_SELECT_OPTIONS}
+      </Select>
     </Wrapper>
   );
 }
@@ -41,12 +55,9 @@ const mapStateToProps = createSelector(
   }),
 );
 
-export function mapDispatchToProps(dispatch) {
-  return {
-    onLocaleToggle: evt => dispatch(changeLocale(evt.target.value)),
-    dispatch,
-  };
-}
+export const mapDispatchToProps = {
+  onLocaleToggle: changeLocale,
+};
 
 export default connect(
   mapStateToProps,

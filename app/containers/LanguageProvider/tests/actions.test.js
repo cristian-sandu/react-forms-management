@@ -7,9 +7,9 @@ describe('LanguageProvider actions', () => {
     it('has a type of CHANGE_LOCALE', () => {
       const expected = {
         type: CHANGE_LOCALE,
-        locale: 'de',
+        locale: 'ar.json',
       };
-      expect(changeLocale('de')).toEqual(expected);
+      expect(changeLocale('ar.json')).toEqual(expected);
     });
   });
 });

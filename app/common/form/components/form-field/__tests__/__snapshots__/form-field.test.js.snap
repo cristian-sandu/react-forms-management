@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FormField /> Renders correctly 1`] = `
+<FormField
+  disabled={false}
+  id="test_field"
+  layout="horizontal"
+  required={true}
+  requiredMessage=""
+  rules={Array []}
+>
+  <Input
+    disabled={false}
+    type="text"
+  />
+</FormField>
+`;

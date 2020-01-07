@@ -1,0 +1,220 @@
+import { defineMessages } from 'react-intl';
+import { ENTITY_FORM_FIELDS_CONFIG } from './constants';
+
+export const scope = 'boilerplate.containers.HomePage.EntityForm';
+
+export default defineMessages({
+  ENTITY_NAME: {
+    LABEL: {
+      id: `${scope}.ENTITY_NAME.LABEL`,
+      defaultMessage: ENTITY_FORM_FIELDS_CONFIG.ENTITY_NAME.LABEL,
+    },
+    REQUIRED_MESSAGE: {
+      id: `${scope}.ENTITY_NAME.REQUIRED_MESSAGE`,
+      defaultMessage: ENTITY_FORM_FIELDS_CONFIG.ENTITY_NAME.REQUIRED_MESSAGE,
+    },
+  },
+  TRADE_MARK: {
+    LABEL: {
+      id: `${scope}.TRADE_MARK.LABEL`,
+      defaultMessage: ENTITY_FORM_FIELDS_CONFIG.TRADE_MARK.LABEL,
+    },
+    REQUIRED_MESSAGE: {
+      id: `${scope}.TRADE_MARK.REQUIRED_MESSAGE`,
+      defaultMessage: ENTITY_FORM_FIELDS_CONFIG.TRADE_MARK.REQUIRED_MESSAGE,
+    },
+  },
+  SPECIALIZATION: {
+    LABEL: {
+      id: `${scope}.SPECIALIZATION.LABEL`,
+      defaultMessage: ENTITY_FORM_FIELDS_CONFIG.SPECIALIZATION.LABEL,
+    },
+    REQUIRED_MESSAGE: {
+      id: `${scope}.SPECIALIZATION.REQUIRED_MESSAGE`,
+      defaultMessage: ENTITY_FORM_FIELDS_CONFIG.SPECIALIZATION.REQUIRED_MESSAGE,
+    },
+  },
+  PERSON_IN_CHARGE: {
+    LABEL: {
+      id: `${scope}.PERSON_IN_CHARGE.LABEL`,
+      defaultMessage: ENTITY_FORM_FIELDS_CONFIG.PERSON_IN_CHARGE.LABEL,
+    },
+    REQUIRED_MESSAGE: {
+      id: `${scope}.PERSON_IN_CHARGE.REQUIRED_MESSAGE`,
+      defaultMessage:
+        ENTITY_FORM_FIELDS_CONFIG.PERSON_IN_CHARGE.REQUIRED_MESSAGE,
+    },
+  },
+  GENDER: {
+    LABEL: {
+      id: `${scope}.GENDER.LABEL`,
+      defaultMessage: ENTITY_FORM_FIELDS_CONFIG.GENDER.LABEL,
+    },
+    REQUIRED_MESSAGE: {
+      id: `${scope}.GENDER.REQUIRED_MESSAGE`,
+      defaultMessage: ENTITY_FORM_FIELDS_CONFIG.GENDER.REQUIRED_MESSAGE,
+    },
+  },
+  NATIONAL_ID_NUMBER: {
+    LABEL: {
+      id: `${scope}.NATIONAL_ID_NUMBER.LABEL`,
+      defaultMessage: ENTITY_FORM_FIELDS_CONFIG.NATIONAL_ID_NUMBER.LABEL,
+    },
+    REQUIRED_MESSAGE: {
+      id: `${scope}.NATIONAL_ID_NUMBER.REQUIRED_MESSAGE`,
+      defaultMessage:
+        ENTITY_FORM_FIELDS_CONFIG.NATIONAL_ID_NUMBER.REQUIRED_MESSAGE,
+    },
+  },
+  OFFICE_TEL_NUMBER: {
+    LABEL: {
+      id: `${scope}.OFFICE_TEL_NUMBER.LABEL`,
+      defaultMessage: ENTITY_FORM_FIELDS_CONFIG.OFFICE_TEL_NUMBER.LABEL,
+    },
+    REQUIRED_MESSAGE: {
+      id: `${scope}.OFFICE_TEL_NUMBER.REQUIRED_MESSAGE`,
+      defaultMessage:
+        ENTITY_FORM_FIELDS_CONFIG.OFFICE_TEL_NUMBER.REQUIRED_MESSAGE,
+    },
+  },
+  EMAIL_ADDRESS: {
+    LABEL: {
+      id: `${scope}.EMAIL_ADDRESS.LABEL`,
+      defaultMessage: ENTITY_FORM_FIELDS_CONFIG.EMAIL_ADDRESS.LABEL,
+    },
+    REQUIRED_MESSAGE: {
+      id: `${scope}.EMAIL_ADDRESS.REQUIRED_MESSAGE`,
+      defaultMessage: ENTITY_FORM_FIELDS_CONFIG.EMAIL_ADDRESS.REQUIRED_MESSAGE,
+    },
+  },
+  SOCIAL_MEDIA: {
+    LABEL: {
+      id: `${scope}.SOCIAL_MEDIA.LABEL`,
+      defaultMessage: ENTITY_FORM_FIELDS_CONFIG.SOCIAL_MEDIA.LABEL,
+    },
+    REQUIRED_MESSAGE: {
+      id: `${scope}.SOCIAL_MEDIA.REQUIRED_MESSAGE`,
+      defaultMessage: ENTITY_FORM_FIELDS_CONFIG.SOCIAL_MEDIA.REQUIRED_MESSAGE,
+    },
+  },
+  ADDRESS: {
+    LABEL: {
+      id: `${scope}.ADDRESS.LABEL`,
+      defaultMessage: ENTITY_FORM_FIELDS_CONFIG.ADDRESS.LABEL,
+    },
+    REQUIRED_MESSAGE: {
+      id: `${scope}.ADDRESS.REQUIRED_MESSAGE`,
+      defaultMessage: ENTITY_FORM_FIELDS_CONFIG.ADDRESS.REQUIRED_MESSAGE,
+    },
+  },
+  CITY: {
+    LABEL: {
+      id: `${scope}.CITY.LABEL`,
+      defaultMessage: ENTITY_FORM_FIELDS_CONFIG.CITY.LABEL,
+    },
+    REQUIRED_MESSAGE: {
+      id: `${scope}.CITY.REQUIRED_MESSAGE`,
+      defaultMessage: ENTITY_FORM_FIELDS_CONFIG.CITY.REQUIRED_MESSAGE,
+    },
+  },
+  PROVINCE: {
+    LABEL: {
+      id: `${scope}.PROVINCE.LABEL`,
+      defaultMessage: ENTITY_FORM_FIELDS_CONFIG.PROVINCE.LABEL,
+    },
+    REQUIRED_MESSAGE: {
+      id: `${scope}.PROVINCE.REQUIRED_MESSAGE`,
+      defaultMessage: ENTITY_FORM_FIELDS_CONFIG.PROVINCE.REQUIRED_MESSAGE,
+    },
+  },
+  NUMBER_OF_NATIONAL_EMPLOYEES: {
+    LABEL: {
+      id: `${scope}.NUMBER_OF_NATIONAL_EMPLOYEES.LABEL`,
+      defaultMessage:
+        ENTITY_FORM_FIELDS_CONFIG.NUMBER_OF_NATIONAL_EMPLOYEES.LABEL,
+    },
+    REQUIRED_MESSAGE: {
+      id: `${scope}.NUMBER_OF_NATIONAL_EMPLOYEES.REQUIRED_MESSAGE`,
+      defaultMessage:
+        ENTITY_FORM_FIELDS_CONFIG.NUMBER_OF_NATIONAL_EMPLOYEES.REQUIRED_MESSAGE,
+    },
+  },
+  NUMBER_OF__NON_NATIONAL_EMPLOYEES: {
+    LABEL: {
+      id: `${scope}.NUMBER_OF__NON_NATIONAL_EMPLOYEES.LABEL`,
+      defaultMessage:
+        ENTITY_FORM_FIELDS_CONFIG.NUMBER_OF__NON_NATIONAL_EMPLOYEES.LABEL,
+    },
+    REQUIRED_MESSAGE: {
+      id: `${scope}.NUMBER_OF__NON_NATIONAL_EMPLOYEES.REQUIRED_MESSAGE`,
+      defaultMessage:
+        ENTITY_FORM_FIELDS_CONFIG.NUMBER_OF__NON_NATIONAL_EMPLOYEES
+          .REQUIRED_MESSAGE,
+    },
+  },
+  STATUS: {
+    LABEL: {
+      id: `${scope}.STATUS.LABEL`,
+      defaultMessage: ENTITY_FORM_FIELDS_CONFIG.STATUS.LABEL,
+    },
+    REQUIRED_MESSAGE: {
+      id: `${scope}.STATUS.REQUIRED_MESSAGE`,
+      defaultMessage: ENTITY_FORM_FIELDS_CONFIG.STATUS.REQUIRED_MESSAGE,
+    },
+  },
+  VALUE_OF_FUNDING: {
+    LABEL: {
+      id: `${scope}.VALUE_OF_FUNDING.LABEL`,
+      defaultMessage: ENTITY_FORM_FIELDS_CONFIG.VALUE_OF_FUNDING.LABEL,
+    },
+    REQUIRED_MESSAGE: {
+      id: `${scope}.VALUE_OF_FUNDING.REQUIRED_MESSAGE`,
+      defaultMessage:
+        ENTITY_FORM_FIELDS_CONFIG.VALUE_OF_FUNDING.REQUIRED_MESSAGE,
+    },
+  },
+  NAME_OF_ASSOCIATION: {
+    LABEL: {
+      id: `${scope}.NAME_OF_ASSOCIATION.LABEL`,
+      defaultMessage: ENTITY_FORM_FIELDS_CONFIG.NAME_OF_ASSOCIATION.LABEL,
+    },
+    REQUIRED_MESSAGE: {
+      id: `${scope}.NAME_OF_ASSOCIATION.REQUIRED_MESSAGE`,
+      defaultMessage:
+        ENTITY_FORM_FIELDS_CONFIG.NAME_OF_ASSOCIATION.REQUIRED_MESSAGE,
+    },
+  },
+  PROFILE: {
+    LABEL: {
+      id: `${scope}.PROFILE.LABEL`,
+      defaultMessage: ENTITY_FORM_FIELDS_CONFIG.PROFILE.LABEL,
+    },
+    REQUIRED_MESSAGE: {
+      id: `${scope}.PROFILE.REQUIRED_MESSAGE`,
+      defaultMessage: ENTITY_FORM_FIELDS_CONFIG.PROFILE.REQUIRED_MESSAGE,
+    },
+  },
+  COMMERCIAL_REGISTRATION: {
+    LABEL: {
+      id: `${scope}.COMMERCIAL_REGISTRATION.LABEL`,
+      defaultMessage: ENTITY_FORM_FIELDS_CONFIG.COMMERCIAL_REGISTRATION.LABEL,
+    },
+    REQUIRED_MESSAGE: {
+      id: `${scope}.COMMERCIAL_REGISTRATION.REQUIRED_MESSAGE`,
+      defaultMessage:
+        ENTITY_FORM_FIELDS_CONFIG.COMMERCIAL_REGISTRATION.REQUIRED_MESSAGE,
+    },
+  },
+  ISIC_CLASSIFICATION_NUMBER: {
+    LABEL: {
+      id: `${scope}.ISIC_CLASSIFICATION_NUMBER.LABEL`,
+      defaultMessage:
+        ENTITY_FORM_FIELDS_CONFIG.ISIC_CLASSIFICATION_NUMBER.LABEL,
+    },
+    REQUIRED_MESSAGE: {
+      id: `${scope}.ISIC_CLASSIFICATION_NUMBER.REQUIRED_MESSAGE`,
+      defaultMessage:
+        ENTITY_FORM_FIELDS_CONFIG.ISIC_CLASSIFICATION_NUMBER.REQUIRED_MESSAGE,
+    },
+  },
+});
