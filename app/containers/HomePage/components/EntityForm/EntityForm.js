@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 
@@ -21,7 +22,9 @@ import {
 } from '../../utils/select-options';
 import messages from './messages';
 
-const EntityForm = () => {
+const getMsg = msg => <FormattedMessage {...msg} />;
+
+const EntityForm = ({ isVisible }) => {
   const form = useFormContext();
   const isArabicLanguage = useSelector(isArabicLanguageSelector);
 
@@ -32,160 +35,114 @@ const EntityForm = () => {
   };
 
   return (
-    <div>
+    <div style={{ display: !isVisible && 'none' }}>
       <InputField
         id={FIELDS.ENTITY_NAME.ID}
-        label={<FormattedMessage {...messages.ENTITY_NAME.LABEL} />}
-        requiredMessage={
-          <FormattedMessage {...messages.ENTITY_NAME.REQUIRED_MESSAGE} />
-        }
+        label={getMsg(messages.ENTITY_NAME.LABEL)}
+        requiredMessage={getMsg(messages.ENTITY_NAME.REQUIRED_MESSAGE)}
       />
       <FormField
         id={FIELDS.TRADE_MARK.ID}
-        label={<FormattedMessage {...messages.TRADE_MARK.LABEL} />}
-        requiredMessage={
-          <FormattedMessage {...messages.TRADE_MARK.REQUIRED_MESSAGE} />
-        }
+        label={getMsg(messages.TRADE_MARK.LABEL)}
+        requiredMessage={getMsg(messages.TRADE_MARK.REQUIRED_MESSAGE)}
       >
         <ImageUpload onUpload={handleImageUpload(FIELDS.TRADE_MARK.ID)} />
       </FormField>
       <SelectField
         id={FIELDS.SPECIALIZATION.ID}
-        label={<FormattedMessage {...messages.SPECIALIZATION.LABEL} />}
-        requiredMessage={
-          <FormattedMessage {...messages.SPECIALIZATION.REQUIRED_MESSAGE} />
-        }
+        label={getMsg(messages.SPECIALIZATION.LABEL)}
+        requiredMessage={getMsg(messages.SPECIALIZATION.REQUIRED_MESSAGE)}
         options={SPECIALIZATION_OPTIONS}
       />
       <InputField
         id={FIELDS.PERSON_IN_CHARGE.ID}
-        label={<FormattedMessage {...messages.PERSON_IN_CHARGE.LABEL} />}
-        requiredMessage={
-          <FormattedMessage {...messages.PERSON_IN_CHARGE.REQUIRED_MESSAGE} />
-        }
+        label={getMsg(messages.PERSON_IN_CHARGE.LABEL)}
+        requiredMessage={getMsg(messages.PERSON_IN_CHARGE.REQUIRED_MESSAGE)}
       />
       <InputField
         id={FIELDS.GENDER.ID}
-        label={<FormattedMessage {...messages.GENDER.LABEL} />}
-        requiredMessage={
-          <FormattedMessage {...messages.GENDER.REQUIRED_MESSAGE} />
-        }
+        label={getMsg(messages.GENDER.LABEL)}
+        requiredMessage={getMsg(messages.GENDER.REQUIRED_MESSAGE)}
       />
       <InputNumberField
         id={FIELDS.NATIONAL_ID_NUMBER.ID}
-        label={<FormattedMessage {...messages.NATIONAL_ID_NUMBER.LABEL} />}
-        requiredMessage={
-          <FormattedMessage {...messages.NATIONAL_ID_NUMBER.REQUIRED_MESSAGE} />
-        }
+        label={getMsg(messages.NATIONAL_ID_NUMBER.LABEL)}
+        requiredMessage={getMsg(messages.NATIONAL_ID_NUMBER.REQUIRED_MESSAGE)}
       />
       <InputNumberField
         id={FIELDS.OFFICE_TEL_NUMBER.ID}
-        label={<FormattedMessage {...messages.OFFICE_TEL_NUMBER.LABEL} />}
-        requiredMessage={
-          <FormattedMessage {...messages.OFFICE_TEL_NUMBER.REQUIRED_MESSAGE} />
-        }
+        label={getMsg(messages.OFFICE_TEL_NUMBER.LABEL)}
+        requiredMessage={getMsg(messages.OFFICE_TEL_NUMBER.REQUIRED_MESSAGE)}
       />
       <InputField
         id={FIELDS.EMAIL_ADDRESS.ID}
-        label={<FormattedMessage {...messages.EMAIL_ADDRESS.LABEL} />}
-        requiredMessage={
-          <FormattedMessage {...messages.EMAIL_ADDRESS.REQUIRED_MESSAGE} />
-        }
+        label={getMsg(messages.EMAIL_ADDRESS.LABEL)}
+        requiredMessage={getMsg(messages.EMAIL_ADDRESS.REQUIRED_MESSAGE)}
         type="email"
       />
       <InputField
         id={FIELDS.SOCIAL_MEDIA.ID}
-        label={<FormattedMessage {...messages.SOCIAL_MEDIA.LABEL} />}
-        requiredMessage={
-          <FormattedMessage {...messages.SOCIAL_MEDIA.REQUIRED_MESSAGE} />
-        }
+        label={getMsg(messages.SOCIAL_MEDIA.LABEL)}
+        requiredMessage={getMsg(messages.SOCIAL_MEDIA.REQUIRED_MESSAGE)}
       />
       <InputField
         id={FIELDS.ADDRESS.ID}
-        label={<FormattedMessage {...messages.ADDRESS.LABEL} />}
-        requiredMessage={
-          <FormattedMessage {...messages.ADDRESS.REQUIRED_MESSAGE} />
-        }
+        label={getMsg(messages.ADDRESS.LABEL)}
+        requiredMessage={getMsg(messages.ADDRESS.REQUIRED_MESSAGE)}
       />
       <SelectField
         id={FIELDS.CITY.ID}
-        label={<FormattedMessage {...messages.CITY.LABEL} />}
-        requiredMessage={
-          <FormattedMessage {...messages.CITY.REQUIRED_MESSAGE} />
-        }
+        label={getMsg(messages.CITY.LABEL)}
+        requiredMessage={getMsg(messages.CITY.REQUIRED_MESSAGE)}
         options={CITIES_OPTIONS}
       />
       <SelectField
         id={FIELDS.PROVINCE.ID}
-        label={<FormattedMessage {...messages.PROVINCE.LABEL} />}
-        requiredMessage={
-          <FormattedMessage {...messages.PROVINCE.REQUIRED_MESSAGE} />
-        }
+        label={getMsg(messages.PROVINCE.LABEL)}
+        requiredMessage={getMsg(messages.PROVINCE.REQUIRED_MESSAGE)}
         options={PROVINCE_OPTIONS}
       />
       <InputNumberField
         id={FIELDS.NUMBER_OF_NATIONAL_EMPLOYEES.ID}
-        label={
-          <FormattedMessage {...messages.NUMBER_OF_NATIONAL_EMPLOYEES.LABEL} />
-        }
-        requiredMessage={
-          <FormattedMessage
-            {...messages.NUMBER_OF_NATIONAL_EMPLOYEES.REQUIRED_MESSAGE}
-          />
-        }
+        label={getMsg(messages.NUMBER_OF_NATIONAL_EMPLOYEES.LABEL)}
+        requiredMessage={getMsg(
+          messages.NUMBER_OF_NATIONAL_EMPLOYEES.REQUIRED_MESSAGE,
+        )}
       />
       <InputNumberField
         id={FIELDS.NUMBER_OF__NON_NATIONAL_EMPLOYEES.ID}
-        label={
-          <FormattedMessage
-            {...messages.NUMBER_OF__NON_NATIONAL_EMPLOYEES.LABEL}
-          />
-        }
-        requiredMessage={
-          <FormattedMessage
-            {...messages.NUMBER_OF__NON_NATIONAL_EMPLOYEES.REQUIRED_MESSAGE}
-          />
-        }
+        label={getMsg(messages.NUMBER_OF__NON_NATIONAL_EMPLOYEES.LABEL)}
+        requiredMessage={getMsg(
+          messages.NUMBER_OF__NON_NATIONAL_EMPLOYEES.REQUIRED_MESSAGE,
+        )}
       />
       <SelectField
         id={FIELDS.STATUS.ID}
-        label={<FormattedMessage {...messages.STATUS.LABEL} />}
-        requiredMessage={
-          <FormattedMessage {...messages.STATUS.REQUIRED_MESSAGE} />
-        }
+        label={getMsg(messages.STATUS.LABEL)}
+        requiredMessage={getMsg(messages.STATUS.REQUIRED_MESSAGE)}
         options={STATUS_OPTIONS}
       />
       <InputNumberField
         id={FIELDS.VALUE_OF_FUNDING.ID}
-        label={<FormattedMessage {...messages.VALUE_OF_FUNDING.LABEL} />}
-        requiredMessage={
-          <FormattedMessage {...messages.VALUE_OF_FUNDING.REQUIRED_MESSAGE} />
-        }
+        label={getMsg(messages.VALUE_OF_FUNDING.LABEL)}
+        requiredMessage={getMsg(messages.VALUE_OF_FUNDING.REQUIRED_MESSAGE)}
       />
       <InputField
         id={FIELDS.NAME_OF_ASSOCIATION.ID}
-        label={<FormattedMessage {...messages.NAME_OF_ASSOCIATION.LABEL} />}
-        requiredMessage={
-          <FormattedMessage
-            {...messages.NAME_OF_ASSOCIATION.REQUIRED_MESSAGE}
-          />
-        }
+        label={getMsg(messages.NAME_OF_ASSOCIATION.LABEL)}
+        requiredMessage={getMsg(messages.NAME_OF_ASSOCIATION.REQUIRED_MESSAGE)}
       />
       <InputField
         id={FIELDS.PROFILE.ID}
-        label={<FormattedMessage {...messages.PROFILE.LABEL} />}
-        requiredMessage={
-          <FormattedMessage {...messages.PROFILE.REQUIRED_MESSAGE} />
-        }
+        label={getMsg(messages.PROFILE.LABEL)}
+        requiredMessage={getMsg(messages.PROFILE.REQUIRED_MESSAGE)}
       />
       <FormField
         id={FIELDS.COMMERCIAL_REGISTRATION.ID}
-        label={<FormattedMessage {...messages.COMMERCIAL_REGISTRATION.LABEL} />}
-        requiredMessage={
-          <FormattedMessage
-            {...messages.COMMERCIAL_REGISTRATION.REQUIRED_MESSAGE}
-          />
-        }
+        label={getMsg(messages.COMMERCIAL_REGISTRATION.LABEL)}
+        requiredMessage={getMsg(
+          messages.COMMERCIAL_REGISTRATION.REQUIRED_MESSAGE,
+        )}
       >
         <ImageUpload
           onUpload={handleImageUpload(FIELDS.COMMERCIAL_REGISTRATION.ID)}
@@ -193,17 +150,17 @@ const EntityForm = () => {
       </FormField>
       <InputField
         id={FIELDS.ISIC_CLASSIFICATION_NUMBER.ID}
-        label={
-          <FormattedMessage {...messages.ISIC_CLASSIFICATION_NUMBER.LABEL} />
-        }
-        requiredMessage={
-          <FormattedMessage
-            {...messages.ISIC_CLASSIFICATION_NUMBER.REQUIRED_MESSAGE}
-          />
-        }
+        label={getMsg(messages.ISIC_CLASSIFICATION_NUMBER.LABEL)}
+        requiredMessage={getMsg(
+          messages.ISIC_CLASSIFICATION_NUMBER.REQUIRED_MESSAGE,
+        )}
       />
     </div>
   );
+};
+
+EntityForm.propTypes = {
+  isVisible: PropTypes.bool.isRequired,
 };
 
 export default EntityForm;

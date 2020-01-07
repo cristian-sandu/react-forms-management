@@ -16,10 +16,9 @@ import { AssociationForm, EntityForm, Footer, Header } from './components';
 const key = 'home';
 const formStyle = { height: '100%' };
 
-const { ENTITY_FORM } = FORMS;
-const isEntityForm = step => step === ENTITY_FORM.STEP;
+const { ASSOCIATION_FORM, ENTITY_FORM } = FORMS;
 
-export function HomePage({ form }) {
+export function HomePage({ form, hasAssociationForm = true }) {
   console.log(form.getFieldsValue());
   const [step, setNextStep] = useState(ENTITY_FORM.STEP);
 
@@ -32,11 +31,16 @@ export function HomePage({ form }) {
 
   return (
     <article>
-      <Header step={step} onStepChange={handleStepChange} />
+      <Header
+        hasAssociationForm={hasAssociationForm}
+        step={step}
+        onStepChange={handleStepChange}
+      />
       <Section>
         <FormProvider value={form}>
           <Form style={formStyle} hideRequiredMark>
-            {(isEntityForm(step) && <EntityForm />) || <AssociationForm />}
+            <EntityForm isVisible={step === ENTITY_FORM.STEP} />
+            <AssociationForm isVisible={step === ASSOCIATION_FORM.STEP} />
             <Footer />
           </Form>
         </FormProvider>

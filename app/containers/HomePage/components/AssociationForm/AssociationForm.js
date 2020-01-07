@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 
@@ -7,7 +8,6 @@ import {
   InputField,
   InputNumberField,
 } from 'common/form/components';
-import useFormContext from 'common/form/consumer/form-consumer';
 import { isArabicLanguageSelector } from 'common/selectors';
 
 import messages from './messages';
@@ -16,12 +16,11 @@ import { CITIES_OPTIONS, PROVINCE_OPTIONS } from '../../utils/select-options';
 
 const getMsg = msg => <FormattedMessage {...msg} />;
 
-const EntityForm = () => {
-  const form = useFormContext();
+const AssociationForm = ({ isVisible }) => {
   const isArabicLanguage = useSelector(isArabicLanguageSelector);
 
   return (
-    <div>
+    <div style={{ display: !isVisible && 'none' }}>
       <InputField
         id={FIELDS.ASSOCIATION_NAME.ID}
         label={getMsg(messages.ASSOCIATION_NAME.LABEL)}
@@ -69,4 +68,8 @@ const EntityForm = () => {
   );
 };
 
-export default EntityForm;
+AssociationForm.propTypes = {
+  isVisible: PropTypes.bool.isRequired,
+};
+
+export default AssociationForm;

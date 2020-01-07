@@ -10,12 +10,14 @@ const steps = [
   <Step title="Association Form" key="Association_Form" />,
 ];
 
-function Header({ step, onStepChange }) {
+function Header({ step, onStepChange, hasAssociationForm }) {
   return (
     <div style={{ marginTop: '3em' }}>
-      <Steps onChange={onStepChange} current={step}>
-        {steps}
-      </Steps>
+      {hasAssociationForm && (
+        <Steps onChange={onStepChange} current={step}>
+          {steps}
+        </Steps>
+      )}
       <h1 style={{ textAlign: 'center', marginTop: '1em' }}>
         {FORM_BY_STEP[step].NAME}
       </h1>
