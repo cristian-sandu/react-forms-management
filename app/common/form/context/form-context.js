@@ -1,5 +1,5 @@
-import { createContext } from 'react'
+import { createContext } from 'react';
 
-const FormContext = createContext(null)
+const FormContext = createContext(null);
 
-export default FormContext
+export default FormContext;

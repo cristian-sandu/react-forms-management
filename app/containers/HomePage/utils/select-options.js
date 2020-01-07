@@ -8,7 +8,7 @@ export const CITIES_OPTIONS = {
 };
 
 export const PROVINCE_OPTIONS = {
-  LosAngeles: 'Los Angeles',
+  LosAngels: 'Los Angels',
 };
 
 export const STATUS_OPTIONS = {

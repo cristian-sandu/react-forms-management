@@ -18,7 +18,7 @@ import {
   PROVINCE_OPTIONS,
   SPECIALIZATION_OPTIONS,
   STATUS_OPTIONS,
-} from './mocks';
+} from '../../utils/select-options';
 import messages from './messages';
 
 const EntityForm = () => {

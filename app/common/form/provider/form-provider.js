@@ -1,5 +1,5 @@
-import FormContext from '../context/form-context'
+import FormContext from '../context/form-context';
 
-const { Provider: FormProvider } = FormContext
+const { Provider: FormProvider } = FormContext;
 
-export default FormProvider
+export default FormProvider;

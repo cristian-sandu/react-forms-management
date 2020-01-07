@@ -33,7 +33,7 @@ export function LocaleToggle({ locale, onLocaleToggle }) {
     <Wrapper>
       <Select
         defaultValue={DEFAULT_LOCALE}
-        style={{ width: 120 }}
+        style={{ width: 150 }}
         onChange={handleChange}
         value={locale}
       >
