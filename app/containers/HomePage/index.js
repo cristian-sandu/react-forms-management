@@ -13,7 +13,7 @@ import { useInjectSaga } from 'utils/injectSaga';
 import Section from './Section';
 import reducer from './reducer';
 import saga from './saga';
-import { FORMS } from './constants';
+import { FORM_BY_STEP, FORMS } from './constants';
 import { AssociationForm, EntityForm, Footer, Header } from './components';
 
 const key = 'home';
@@ -32,6 +32,11 @@ export function HomePage({ form, hasAssociationForm = true }) {
     setNextStep(currentStep);
   }
 
+  function handleNextStepChange() {
+    const actualForm = FORM_BY_STEP[step];
+    setNextStep(actualForm.NEXT_STEP);
+  }
+
   return (
     <article>
       <Header
@@ -45,7 +50,11 @@ export function HomePage({ form, hasAssociationForm = true }) {
             <Form style={formStyle} hideRequiredMark>
               <EntityForm isVisible={step === ENTITY_FORM.STEP} />
               <AssociationForm isVisible={step === ASSOCIATION_FORM.STEP} />
-              <Footer />
+              <Footer
+                hasAssociationForm={hasAssociationForm}
+                onNextStep={handleNextStepChange}
+                step={step}
+              />
             </Form>
           </FormProvider>
         </TextDirectionProvider>
