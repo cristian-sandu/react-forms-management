@@ -1,18 +1,23 @@
+import PropTypes from 'prop-types';
+import { values } from 'ramda';
+import React, { useMemo } from 'react';
 import { Form } from 'antd';
 import classNames from 'classnames';
-import { EMPTY_ARRAY, EMPTY_STRING } from 'common/constants';
+
+import { EMPTY_ARRAY, EMPTY_STRING, TEXT_DIRECTION } from 'common/constants';
 import {
   FORM_FIELD_LAYOUT_CONFIG,
   FORM_LAYOUT,
   TEXT_ALIGN,
 } from 'common/form/constants';
 import useFormContext from 'common/form/consumer/form-consumer';
-import PropTypes from 'prop-types';
-import { values } from 'ramda';
-import React, { useMemo } from 'react';
+import { useTextDirection } from 'common/hooks';
+
+import './style.css';
 
 const { Item: FormItem } = Form;
 const { HORIZONTAL } = FORM_LAYOUT;
+const { LEFT_TO_RIGHT, RIGHT_TO_LEFT } = TEXT_DIRECTION;
 
 // eslint-disable-next-line max-lines-per-function
 const FormField = ({
@@ -30,6 +35,8 @@ const FormField = ({
   style,
 }) => {
   const { getFieldDecorator } = useFormContext();
+  const textDirection = useTextDirection();
+  const isRightToLeftDirection = textDirection === RIGHT_TO_LEFT;
 
   const decorateField = getFieldDecorator(id, {
     initialValue,
@@ -38,6 +45,15 @@ const FormField = ({
       ...rules,
     ],
   });
+
+  const fieldLabel = useMemo(
+    () => (
+      <bdo dir={isRightToLeftDirection ? RIGHT_TO_LEFT : LEFT_TO_RIGHT}>
+        {label}
+      </bdo>
+    ),
+    [isRightToLeftDirection, label],
+  );
 
   const formFieldLayout = useMemo(
     () =>
@@ -49,10 +65,16 @@ const FormField = ({
 
   return (
     <div
-      className={classNames(['o-container o-padding-bottom-5', className])}
+      className={classNames([
+        'o-container o-padding-bottom-5',
+        className,
+        isRightToLeftDirection
+          ? 'form-field__end-align-label'
+          : 'form-field__start-align-label',
+      ])}
       style={style}
     >
-      <FormItem label={label} labelAlign={labelAlign} {...formFieldLayout}>
+      <FormItem label={fieldLabel} labelAlign={labelAlign} {...formFieldLayout}>
         {decorateField(children)}
       </FormItem>
     </div>
@@ -80,6 +102,7 @@ FormField.defaultProps = {
   required: true,
   requiredMessage: EMPTY_STRING,
   rules: EMPTY_ARRAY,
+  style: { width: '90%', paddingLeft: '10%' },
 };
 
 export default FormField;

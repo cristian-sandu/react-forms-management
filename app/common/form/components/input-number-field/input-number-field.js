@@ -48,7 +48,7 @@ const InputNumberField = ({
 
 InputNumberField.defaultProps = {
   disabled: false,
-  inputStyle: { width: 500 },
+  inputStyle: { width: '100%' },
   required: true,
 };
 

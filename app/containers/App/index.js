@@ -9,6 +9,7 @@ import Footer from 'components/Footer';
 
 import GlobalStyle from '../../global-styles';
 import 'antd/dist/antd.css';
+import './app.css';
 
 const AppWrapper = styled.div`
   max-width: calc(768px + 16px * 2);
@@ -17,6 +18,7 @@ const AppWrapper = styled.div`
   min-height: 100%;
   padding: 0 16px;
   flex-direction: column;
+  background-color: #fafafa;
 `;
 
 function App() {

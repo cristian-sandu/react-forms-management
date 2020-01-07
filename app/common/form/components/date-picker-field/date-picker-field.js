@@ -42,7 +42,7 @@ const DatePickerField = ({
 
 DatePickerField.defaultProps = {
   allowClear: false,
-  datePickerStyle: { width: 500 },
+  datePickerStyle: { width: '100%' },
   disabled: false,
   format: 'DD/MM/YYYY',
   required: true,

@@ -1,0 +1,7 @@
+.form-field__start-align-label .ant-form-item-label {
+  text-align: start;
+}
+
+.form-field__end-align-label .ant-form-item-label {
+  text-align: end;
+}

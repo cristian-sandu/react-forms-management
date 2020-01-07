@@ -56,7 +56,7 @@ SelectField.defaultProps = {
   filterOption: caseInsensitiveSearch,
   notFoundContent: EMPTY_STRING,
   required: true,
-  selectStyle: { width: 500 },
+  selectStyle: { width: '100%' },
   showSearch: true,
 };
 
