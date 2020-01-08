@@ -1,6 +1,6 @@
 import React from 'react';
 import { Icon, Modal, Upload } from 'antd';
-import { head, pipe, prop, isEmpty } from 'ramda';
+import { head, pipe, prop, isEmpty, F } from 'ramda';
 import PropTypes from 'prop-types';
 
 import FormContext from '../../context/form-context';
@@ -69,7 +69,7 @@ class ImageUpload extends React.Component {
     return (
       <div className={`clearfix ${isRTL && 'LTRImageUpload'}`}>
         <Upload
-          action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+          beforeUpload={F}
           listType="picture-card"
           fileList={fileList}
           onPreview={this.handlePreview}
