@@ -7,9 +7,11 @@ import { locationPathnameSelector } from 'common/selectors';
 import { APP_ROUTES } from 'common/constants';
 import Login from 'containers/Login/Login';
 
+import { areLoginDetailsValid, invalidFormDetails } from './utils';
+
 const { LOGIN, HOME } = APP_ROUTES;
 
-function AppAuthentication({ children, history }) {
+function AuthenticationProvider({ children, history }) {
   const [isLoggedIn, setIsLoggedIn] = useLocalStorage('isLoggedIn', false);
   const pathName = useSelector(locationPathnameSelector);
 
@@ -17,9 +19,13 @@ function AppAuthentication({ children, history }) {
     if (!isLoggedIn) history.push(LOGIN);
   }, [pathName]);
 
-  function handleSubmit() {
-    setIsLoggedIn(true);
-    history.push(HOME);
+  function handleSubmit(form, data) {
+    if (areLoginDetailsValid(data)) {
+      setIsLoggedIn(true);
+      history.push(HOME);
+    } else {
+      form.setFields({ ...invalidFormDetails(data) });
+    }
   }
 
   return isLoggedIn ? (
@@ -33,4 +39,4 @@ function AppAuthentication({ children, history }) {
   );
 }
 
-export default withRouter(AppAuthentication);
+export default withRouter(AuthenticationProvider);

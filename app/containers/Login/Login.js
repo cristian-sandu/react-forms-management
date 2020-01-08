@@ -7,11 +7,14 @@ import { InputField } from 'common/form/components';
 
 import './styles.css';
 
+const style = { fontSize: 13 };
+export const INVALID_USERNAME_OR_PASSWORD = 'Username or password are invalid';
+
 const Login = ({ form, onSubmit }) => {
   function handleSubmit() {
     form.validateFields((err, values) => {
       if (err) return;
-      onSubmit(values);
+      onSubmit(form, values);
     });
   }
 
@@ -20,18 +23,18 @@ const Login = ({ form, onSubmit }) => {
       <TextDirectionProvider value="ltr">
         <FormProvider value={form}>
           <InputField
-            id="userName"
+            id="username"
             label="User name"
             placeholder="Username"
-            prefix={<Icon type="user" style={{ fontSize: 13 }} />}
+            prefix={<Icon type="user" style={style} />}
             requiredMessage="Please input your user name!"
           />
           <InputField
             id="password"
             label="Password"
             placeholder="Password"
-            prefix={<Icon type="lock" style={{ fontSize: 13 }} />}
-            requiredMessage="Please input your Password!"
+            prefix={<Icon type="lock" style={style} />}
+            requiredMessage="Please input your password!"
             type="password"
           />
           <Button
