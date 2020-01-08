@@ -6,10 +6,21 @@ import { TEXT_DIRECTION } from '../constants';
 const { LEFT_TO_RIGHT, RIGHT_TO_LEFT } = TEXT_DIRECTION;
 
 export const languageSelector = prop('language');
+export const routerSelector = prop('router');
 
 export const localeSelector = createSelector(
   languageSelector,
   prop('locale'),
+);
+
+export const locationSelector = createSelector(
+  routerSelector,
+  prop('location'),
+);
+
+export const locationPathnameSelector = createSelector(
+  locationSelector,
+  prop('pathname'),
 );
 
 export const isArabicLanguageSelector = createSelector(

@@ -19,6 +19,7 @@ import 'sanitize.css/sanitize.css';
 
 // Import root app
 import App from 'containers/App';
+import AppAuthentication from 'containers/AppAuthentication';
 
 // Import Language Provider
 import LanguageProvider from 'containers/LanguageProvider';
@@ -51,7 +52,9 @@ const render = messages => {
     <Provider store={store}>
       <LanguageProvider messages={messages}>
         <ConnectedRouter history={history}>
-          <App />
+          <AppAuthentication>
+            <App />
+          </AppAuthentication>
         </ConnectedRouter>
       </LanguageProvider>
     </Provider>,

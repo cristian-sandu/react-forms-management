@@ -31,6 +31,7 @@ const InputField = ({
     rules={rules}
   >
     <Input
+      autoComplete="off"
       disabled={disabled}
       placeholder={placeholder}
       style={inputStyle}
