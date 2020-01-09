@@ -2,6 +2,7 @@ import { Input } from 'antd';
 import PropTypes from 'prop-types';
 import { values } from 'ramda';
 import React, { memo } from 'react';
+import classNames from 'classnames';
 
 import { FormField } from 'common/form/components';
 import { TEXT_ALIGN } from 'common/form/constants';
@@ -25,6 +26,7 @@ const InputNumberField = ({
   requiredMessage,
   inputStyle,
   rules,
+  isRTLDirection,
 }) => (
   <FormField
     disabled={disabled}
@@ -37,6 +39,7 @@ const InputNumberField = ({
     rules={rules}
   >
     <Input
+      className={classNames({ 'rtl__input-direction': isRTLDirection })}
       type="number"
       disabled={disabled}
       formatter={formatter}

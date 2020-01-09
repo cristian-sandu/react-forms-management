@@ -5,3 +5,9 @@
 body {
   background-color: #979797;
 }
+
+.rtl__input-direction {
+  text-align: right;
+  direction: rtl !important;
+  unicode-bidi: bidi-override !important;
+}

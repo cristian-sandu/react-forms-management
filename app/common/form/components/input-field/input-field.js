@@ -2,6 +2,7 @@ import { Input } from 'antd';
 import PropTypes from 'prop-types';
 import { values } from 'ramda';
 import React, { memo } from 'react';
+import classNames from 'classnames';
 
 import { FormField } from 'common/form/components';
 import { TEXT_ALIGN } from 'common/form/constants';
@@ -18,6 +19,7 @@ const InputField = ({
   requiredMessage,
   inputStyle,
   rules,
+  isRTLDirection,
   ...rest
 }) => (
   <FormField
@@ -32,6 +34,7 @@ const InputField = ({
   >
     <Input
       autoComplete="off"
+      className={classNames({ 'rtl__input-direction': isRTLDirection })}
       disabled={disabled}
       placeholder={placeholder}
       style={inputStyle}
