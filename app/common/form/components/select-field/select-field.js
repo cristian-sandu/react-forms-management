@@ -57,6 +57,7 @@ const SelectField = ({
 SelectField.defaultProps = {
   disabled: false,
   filterOption: caseInsensitiveSearch,
+  isRTLDirection: false,
   notFoundContent: EMPTY_STRING,
   required: true,
   selectStyle: { width: '100%' },
@@ -68,6 +69,7 @@ SelectField.propTypes = {
   filterOption: PropTypes.func,
   id: PropTypes.string.isRequired,
   initialValue: PropTypes.string,
+  isRTLDirection: PropTypes.bool,
   label: PropTypes.any.isRequired,
   labelAlign: PropTypes.oneOf(values(TEXT_ALIGN)),
   notFoundContent: PropTypes.string,

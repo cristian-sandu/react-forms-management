@@ -26,7 +26,6 @@ const InputNumberField = ({
   requiredMessage,
   inputStyle,
   rules,
-  isRTLDirection,
 }) => (
   <FormField
     disabled={disabled}
@@ -39,7 +38,6 @@ const InputNumberField = ({
     rules={rules}
   >
     <Input
-      className={classNames({ 'rtl__input-direction': isRTLDirection })}
       type="number"
       disabled={disabled}
       formatter={formatter}

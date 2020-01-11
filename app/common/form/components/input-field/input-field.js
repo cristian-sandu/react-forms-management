@@ -46,6 +46,7 @@ const InputField = ({
 InputField.defaultProps = {
   disabled: false,
   inputStyle: { width: '100%' },
+  isRTLDirection: false,
   required: true,
   rules: STRING_70_CHARS_VALIDATION_RULES,
 };
@@ -55,6 +56,7 @@ InputField.propTypes = {
   id: PropTypes.string.isRequired,
   initialValue: PropTypes.string,
   inputStyle: PropTypes.instanceOf(Object),
+  isRTLDirection: PropTypes.bool,
   label: PropTypes.any.isRequired,
   labelAlign: PropTypes.oneOf(values(TEXT_ALIGN)),
   placeholder: PropTypes.string,
