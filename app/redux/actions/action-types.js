@@ -6,3 +6,8 @@ export const AUTHENTICATION = {
 export const APP = {
   INIT: '@@INIT',
 };
+
+export const FORMS = {
+  SUBMIT_ENTITY_FORM: 'SUBMIT_ENTITY_FORM',
+  SUBMIT_ASSOCIATION_FORM: 'SUBMIT_ASSOCIATION_FORM',
+};

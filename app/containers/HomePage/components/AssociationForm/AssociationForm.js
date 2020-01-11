@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
-import { Form } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
+import { pipe } from 'ramda';
+import { withRouter } from 'react-router-dom';
+import { Form, notification } from 'antd';
 
 import {
   InputField,
@@ -10,10 +12,12 @@ import {
 } from 'common/form/components';
 import FormProvider from 'common/form/provider/form-provider';
 import { useTextDirection } from 'common/hooks';
-import { TEXT_DIRECTION } from 'common/constants';
+import { APP_ROUTES, TEXT_DIRECTION } from 'common/constants';
 import { isArabicLanguageSelector } from 'redux/selectors';
+import { submitAssociationForm } from 'redux/actions/form-actions';
 import { getFormattedMessage as getMsg } from 'utils/formatted-message';
 
+import Footer from '../Footer/Footer';
 import { ASSOCIATION_FORM_FIELDS_CONFIG as FIELDS } from './constants';
 import messages from './messages';
 import * as SelectOptionsEn from '../../utils/select-options-en';
@@ -21,14 +25,30 @@ import * as SelectOptionsAr from '../../utils/select-options-ar';
 
 const { RIGHT_TO_LEFT } = TEXT_DIRECTION;
 const formStyle = { height: '100%' };
+const NOTIFICATION_CONFIG = {
+  message: 'Association Form Submitted!',
+  placement: 'bottomRight',
+  duration: 2,
+};
 
-const AssociationForm = ({ form }) => {
+const AssociationForm = ({ form, history }) => {
+  const dispatch = useDispatch();
   const textDirection = useTextDirection();
   const isRTLDirection = textDirection === RIGHT_TO_LEFT;
   const isArabicLanguage = useSelector(isArabicLanguageSelector);
   const SelectOptionsSource = isArabicLanguage
     ? SelectOptionsAr
     : SelectOptionsEn;
+
+  function handleSubmit() {
+    form.validateFields((errors, values) => {
+      if (errors) return;
+
+      dispatch(submitAssociationForm(values));
+      notification.success(NOTIFICATION_CONFIG);
+      history.push(APP_ROUTES.HOME);
+    });
+  }
 
   return (
     <FormProvider value={form}>
@@ -96,6 +116,7 @@ const AssociationForm = ({ form }) => {
             },
           ]}
         />
+        <Footer onSubmit={handleSubmit} />
       </Form>
     </FormProvider>
   );
@@ -103,8 +124,14 @@ const AssociationForm = ({ form }) => {
 
 AssociationForm.propTypes = {
   form: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired,
 };
 
 const withForm = Form.create();
 
-export default withForm(AssociationForm);
+const enhance = pipe(
+  withForm,
+  withRouter,
+);
+
+export default enhance(AssociationForm);
