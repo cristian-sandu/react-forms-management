@@ -17,7 +17,10 @@ export const convertArrayToSelectOptions = map(
   ),
 );
 
-export const convertObjectToDataSource = (objectSource, isRTLDirection) =>
+export const convertObjectToDataSource = (
+  objectSource,
+  isRTLDirection = false,
+) =>
   pipe(
     keys,
     map(key => ({

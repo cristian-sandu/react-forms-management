@@ -1,19 +1,15 @@
-/*
- *
- * LanguageToggle
- *
- */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 import { Select } from 'antd';
+
+import { convertObjectToSelectOptions } from 'common/form/utils';
+
 import Wrapper from './Wrapper';
 import { DEFAULT_LOCALE } from '../../i18n';
 import { changeLocale } from '../LanguageProvider/actions';
 import { makeSelectLocale } from '../LanguageProvider/selectors';
-import { convertObjectToSelectOptions } from '../../common/form/utils';
 
 const LANGUAGES_DATASOURCE = {
   en: 'English',
@@ -24,7 +20,7 @@ const LANGUAGE_SELECT_OPTIONS = convertObjectToSelectOptions(
   LANGUAGES_DATASOURCE,
 );
 
-export function LocaleToggle({ locale, onLocaleToggle }) {
+function LocaleToggle({ locale, onLocaleToggle }) {
   function handleChange(language) {
     onLocaleToggle(language);
   }

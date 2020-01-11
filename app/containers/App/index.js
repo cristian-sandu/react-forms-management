@@ -1,11 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Route, Switch } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import { APP_ROUTES } from 'common/constants';
+import TextDirectionProvider from 'common/hooks/text-direction/provider/text-direction-provider';
 import HomePage from 'containers/HomePage/Loadable';
 import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Header from 'components/Header';
+import { textDirectionSelector } from 'redux/selectors';
 
 import { AssociationForm, EntityForm } from '../HomePage/components';
 import GlobalStyle from '../../global-styles';
@@ -27,17 +30,20 @@ const AppWrapper = styled.div`
 `;
 
 function App() {
+  const textDirection = useSelector(textDirectionSelector);
   return (
-    <AppWrapper>
-      <Header />
-      <Switch>
-        <Route exact path={HOME} component={HomePage} />
-        <Route path={NOT_FOUND} component={NotFoundPage} />
-        <Route path={ENTITY_FORM} component={EntityForm} />
-        <Route path={ASSOCIATION_FORM} component={AssociationForm} />
-      </Switch>
-      <GlobalStyle />
-    </AppWrapper>
+    <TextDirectionProvider value={textDirection}>
+      <AppWrapper>
+        <Header />
+        <Switch>
+          <Route exact path={HOME} component={HomePage} />
+          <Route path={ENTITY_FORM} component={EntityForm} />
+          <Route path={ASSOCIATION_FORM} component={AssociationForm} />
+          <Route path={NOT_FOUND} component={NotFoundPage} />
+        </Switch>
+        <GlobalStyle />
+      </AppWrapper>
+    </TextDirectionProvider>
   );
 }
 
