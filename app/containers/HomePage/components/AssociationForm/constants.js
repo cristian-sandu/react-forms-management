@@ -1,44 +1,42 @@
-const ASSOCIATION_FORM_PREFIX = 'AssociationForm';
-
 export const ASSOCIATION_FORM_FIELDS_CONFIG = {
   ASSOCIATION_NAME: {
-    ID: `${ASSOCIATION_FORM_PREFIX}.AssociationName`,
+    ID: 'AssociationName',
     LABEL: 'Association Name',
     REQUIRED_MESSAGE: 'Association Name is required',
   },
   PERSON_IN_CHARGE: {
-    ID: `${ASSOCIATION_FORM_PREFIX}.PersonInCharge`,
+    ID: 'PersonInCharge',
     LABEL: 'Person in charge',
     REQUIRED_MESSAGE: 'Person in charge is required',
   },
   MOBILE_NUMBER: {
-    ID: `${ASSOCIATION_FORM_PREFIX}.MobileNumber`,
+    ID: 'MobileNumber',
     LABEL: 'Mobile Number',
     REQUIRED_MESSAGE: 'Mobile Number is required',
   },
   ADDRESS: {
-    ID: `${ASSOCIATION_FORM_PREFIX}.Address`,
+    ID: 'Address',
     LABEL: 'Address',
     REQUIRED_MESSAGE: 'Address is required',
   },
   CITY: {
-    ID: `${ASSOCIATION_FORM_PREFIX}.City`,
+    ID: 'City',
     LABEL: 'City',
     REQUIRED_MESSAGE: 'City is required',
   },
   PROVINCE: {
-    ID: `${ASSOCIATION_FORM_PREFIX}.Province`,
+    ID: 'Province',
     LABEL: 'Province',
     REQUIRED_MESSAGE: 'Province is required',
   },
   EMAIL: {
-    ID: `${ASSOCIATION_FORM_PREFIX}.Email`,
+    ID: 'Email',
     LABEL: 'Email',
     REQUIRED_MESSAGE: 'Email is required',
     EMAIL_INVALID_MESSAGE: 'Email is not valid',
   },
   WEBSITE: {
-    ID: `${ASSOCIATION_FORM_PREFIX}.WebSite`,
+    ID: 'WebSite',
     LABEL: 'Website',
     REQUIRED_MESSAGE: 'Website is required',
     WEBSITE_INVALID_MESSAGE: 'Website is not valid',

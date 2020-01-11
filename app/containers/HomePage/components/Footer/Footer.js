@@ -11,13 +11,11 @@ const footerStyle = {
   paddingLeft: '15%',
 };
 
-const Footer = ({ hasAssociationForm, onNextStep, step }) => {
-  const form = useFormContext();
-
+const Footer = ({ hasAssociationForm, onNextFormChange, step }) => {
   const onSubmit = () => {
-    form.validateFields((err, values) => {
-      if (!err) onNextStep();
-    });
+    //   form.validateFields((err, values) => {
+    //     if (!err) onNextFormChange();
+    //   });
   };
 
   return (
@@ -25,7 +23,7 @@ const Footer = ({ hasAssociationForm, onNextStep, step }) => {
       {hasAssociationForm ? (
         <>
           {step === 0 && (
-            <Button type="primary" onClick={onNextStep}>
+            <Button type="primary" onClick={onNextFormChange}>
               Next
             </Button>
           )}
@@ -34,7 +32,7 @@ const Footer = ({ hasAssociationForm, onNextStep, step }) => {
               <Button
                 style={{ float: 'left' }}
                 type="secondary"
-                onClick={onNextStep}
+                onClick={onNextFormChange}
               >
                 Previous
               </Button>

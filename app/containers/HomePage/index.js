@@ -1,68 +1,68 @@
-import React, { memo, useState } from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
-import { compose } from 'redux';
 import { useSelector } from 'react-redux';
-import { Form } from 'antd';
+import { Switch, withRouter } from 'react-router-dom';
+import { Card } from 'antd';
+import { compose } from 'redux';
 
-import FormProvider from 'common/form/provider/form-provider';
+import { APP_ROUTES } from 'common/constants';
 import TextDirectionProvider from 'common/hooks/text-direction/provider/text-direction-provider';
 import { textDirectionSelector } from 'redux/selectors';
 
 import Section from './Section';
-import { FORM_BY_STEP, FORMS } from './constants';
-import { AssociationForm, EntityForm, Footer, Header } from './components';
 
-const formStyle = { height: '100%' };
+import AssociationImg from './images/association.png';
+import EntityImg from './images/entity.jpg';
 
-const { ASSOCIATION_FORM, ENTITY_FORM } = FORMS;
+const { Meta } = Card;
 
-export function HomePage({ form, hasAssociationForm = true }) {
-  const [step, setNextStep] = useState(ENTITY_FORM.STEP);
+export function HomePage({ history }) {
   const textDirection = useSelector(textDirectionSelector);
 
-  function handleStepChange(currentStep) {
-    setNextStep(currentStep);
-  }
-
-  function handleNextStepChange() {
-    const actualForm = FORM_BY_STEP[step];
-    setNextStep(actualForm.NEXT_STEP);
-  }
+  const handleClick = route => () => {
+    history.push(route);
+  };
 
   return (
-    <article>
-      <Header
-        hasAssociationForm={hasAssociationForm}
-        step={step}
-        onStepChange={handleStepChange}
-      />
+    <TextDirectionProvider value={textDirection}>
       <Section>
-        <TextDirectionProvider value={textDirection}>
-          <FormProvider value={form}>
-            <Form style={formStyle} hideRequiredMark>
-              <EntityForm isVisible={step === ENTITY_FORM.STEP} />
-              <AssociationForm isVisible={step === ASSOCIATION_FORM.STEP} />
-              <Footer
-                hasAssociationForm={hasAssociationForm}
-                onNextStep={handleNextStepChange}
-                step={step}
-              />
-            </Form>
-          </FormProvider>
-        </TextDirectionProvider>
+        <Switch />
       </Section>
-    </article>
+      <article
+        style={{
+          display: 'flex',
+          justifyContent: 'space-around',
+          paddingTop: '20%',
+        }}
+      >
+        <Card
+          hoverable
+          cover={<img alt="Entity Form" src={EntityImg} />}
+          style={{ width: 240 }}
+          onClick={handleClick(APP_ROUTES.ENTITY_FORM)}
+        >
+          <Meta title="Entity Form" />
+        </Card>
+
+        <Card
+          cover={<img alt="Association Form" src={AssociationImg} />}
+          hoverable
+          onClick={handleClick(APP_ROUTES.ASSOCIATION_FORM)}
+          style={{ width: 240 }}
+        >
+          <Meta title="Association Form" />
+        </Card>
+      </article>
+    </TextDirectionProvider>
   );
 }
 
 HomePage.propTypes = {
-  form: PropTypes.object,
+  history: PropTypes.object,
 };
 
-const withForm = Form.create();
-
 const enhance = compose(
-  withForm,
+  withRouter,
   memo,
 );
 

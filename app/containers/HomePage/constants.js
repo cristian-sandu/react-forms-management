@@ -1,13 +1,15 @@
-export const CHANGE_USERNAME = 'boilerplate/Home/CHANGE_USERNAME';
+import { APP_ROUTES } from 'common/constants';
 
 export const FORMS = {
   ENTITY_FORM: {
+    ROUTE: APP_ROUTES.ENTITY_FORM,
     STEP: 0,
     NAME: 'Entity Form',
     ID: 'ENTITY_FORM',
     NEXT_STEP: 1,
   },
   ASSOCIATION_FORM: {
+    ROUTE: APP_ROUTES.ASSOCIATION_FORM,
     STEP: 1,
     NAME: 'Association Form',
     ID: 'ASSOCIATION_FORM',
@@ -18,4 +20,9 @@ export const FORMS = {
 export const FORM_BY_STEP = {
   [FORMS.ENTITY_FORM.STEP]: FORMS.ENTITY_FORM,
   [FORMS.ASSOCIATION_FORM.STEP]: FORMS.ASSOCIATION_FORM,
+};
+
+export const FORM_BY_NAME = {
+  [FORMS.ENTITY_FORM.NAME]: FORMS.ENTITY_FORM,
+  [FORMS.ASSOCIATION_FORM.NAME]: FORMS.ASSOCIATION_FORM,
 };
