@@ -34,7 +34,7 @@ function Header({ hasAssociationForm, history, location: { pathname } }) {
 
   useEffect(() => {
     const activeElementPath = ELEMENTS_BY_NAME[activeStepName].ROUTE;
-    if (activeElementPath !== pathname) {
+    if (activeElementPath !== pathname && ELEMENTS_BY_PATH[pathname]) {
       setNextStep(ELEMENTS_BY_PATH[pathname].NAME);
     }
   }, [pathname]);

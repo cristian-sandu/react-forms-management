@@ -28,6 +28,7 @@ export const APP_ROUTES = {
   HOME: '/',
   ASSOCIATION_FORM: '/association-form',
   ENTITY_FORM: '/entity-form',
+  ADMIN_DASHBOARD: '/admin-dashboard',
   NOT_FOUND: '*',
 };
 

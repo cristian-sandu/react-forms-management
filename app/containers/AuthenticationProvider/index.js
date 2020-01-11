@@ -3,25 +3,14 @@ import { Route, withRouter } from 'react-router-dom';
 import { useLocalStorage } from 'use-hooks';
 
 import { APP_ROUTES } from 'common/constants';
-import { REDUCER_KEYS } from 'common/constants/reducer-keys';
 import Login from 'containers/Login/Login';
-import authReducer from 'redux/reducers/auth-reducer';
-import { useInjectReducer } from 'utils/injectReducer';
 
 import { areLoginDetailsValid, invalidFormDetails } from './utils';
 
 const { LOGIN, HOME } = APP_ROUTES;
-const { AUTHENTICATION } = REDUCER_KEYS;
-
-const authReducerConfig = {
-  key: AUTHENTICATION,
-  reducer: authReducer,
-};
 
 function AuthenticationProvider({ children, history }) {
   const [isLoggedIn, setLogged] = useLocalStorage('isLoggedIn', false);
-
-  useInjectReducer(authReducerConfig);
 
   useEffect(() => {
     if (!isLoggedIn) history.push(LOGIN);

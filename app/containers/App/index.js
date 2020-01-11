@@ -11,12 +11,20 @@ import Header from 'components/Header';
 import { textDirectionSelector } from 'redux/selectors';
 
 import { AssociationForm, EntityForm } from '../HomePage/components';
+import AdminRoute from '../AdminRoute';
+import AdminDashboard from '../AdminDashboard';
 import GlobalStyle from '../../global-styles';
 
 import 'antd/dist/antd.css';
 import './app.css';
 
-const { NOT_FOUND, HOME, ENTITY_FORM, ASSOCIATION_FORM } = APP_ROUTES;
+const {
+  NOT_FOUND,
+  HOME,
+  ENTITY_FORM,
+  ASSOCIATION_FORM,
+  ADMIN_DASHBOARD,
+} = APP_ROUTES;
 
 const AppWrapper = styled.div`
   max-width: calc(768px + 16px * 2);
@@ -38,6 +46,7 @@ function App() {
           <Route exact path={HOME} component={HomePage} />
           <Route path={ENTITY_FORM} component={EntityForm} />
           <Route path={ASSOCIATION_FORM} component={AssociationForm} />
+          <AdminRoute path={ADMIN_DASHBOARD} component={AdminDashboard} />
           <Route path={NOT_FOUND} component={NotFoundPage} />
         </Switch>
         <GlobalStyle />

@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { always, equals, ifElse, prop, identity } from 'ramda';
+import { always, equals, ifElse, prop, identity, pipe } from 'ramda';
 
 import { TEXT_DIRECTION } from 'common/constants';
 
@@ -56,4 +56,12 @@ export const isLoggedInSelector = createSelector(
 export const userAssociationSelector = createSelector(
   userSelector,
   prop('association'),
+);
+
+export const isUserAdminSelector = createSelector(
+  userSelector,
+  pipe(
+    prop('isAdministrator'),
+    Boolean,
+  ),
 );
