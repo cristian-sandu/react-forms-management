@@ -29,13 +29,14 @@ export function HomePage({ history }) {
         style={{
           display: 'flex',
           justifyContent: 'space-around',
-          paddingTop: '20%',
+          paddingTop: '15%',
+          height: '75vh',
         }}
       >
         <Card
           hoverable
           cover={<img alt="Entity Form" src={EntityImg} />}
-          style={{ width: 240 }}
+          style={{ width: 240, height: 300 }}
           onClick={handleClick(APP_ROUTES.ENTITY_FORM)}
         >
           <Meta
@@ -48,7 +49,7 @@ export function HomePage({ history }) {
           cover={<img alt="Association Form" src={AssociationImg} />}
           hoverable
           onClick={handleClick(APP_ROUTES.ASSOCIATION_FORM)}
-          style={{ width: 240 }}
+          style={{ width: 240, height: 300 }}
         >
           <Meta
             className={classNames({ 'rtl__input-direction': isRTLDirection })}
