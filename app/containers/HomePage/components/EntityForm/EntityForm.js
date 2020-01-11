@@ -15,7 +15,10 @@ import {
   SelectField,
 } from 'common/form/components';
 import FormProvider from 'common/form/provider/form-provider';
-import { isArabicLanguageSelector } from 'redux/selectors';
+import {
+  isArabicLanguageSelector,
+  userAssociationSelector,
+} from 'redux/selectors';
 import { submitEntityForm } from 'redux/actions/form-actions';
 import { getFormattedMessage as getMsg } from 'utils/formatted-message';
 
@@ -24,9 +27,13 @@ import { ENTITY_FORM_FIELDS_CONFIG as FIELDS } from './constants';
 import messages from './messages';
 import * as SelectOptionsEn from '../../utils/select-options-en';
 import * as SelectOptionsAr from '../../utils/select-options-ar';
+import { useInjectSaga } from '../../../../utils/injectSaga';
+import saga from './sagas/entity-form-saga';
 
 const { RIGHT_TO_LEFT } = TEXT_DIRECTION;
 const formStyle = { height: '100%' };
+const SAGA_KEY = 'AssociationForm';
+
 const NOTIFICATION_CONFIG = {
   message: 'Entity Form Submitted!',
   placement: 'bottomRight',
@@ -38,9 +45,13 @@ const EntityForm = ({ form, history }) => {
   const textDirection = useTextDirection();
   const isRTLDirection = textDirection === RIGHT_TO_LEFT;
   const isArabicLanguage = useSelector(isArabicLanguageSelector);
+  const userAssociation = useSelector(userAssociationSelector);
+
   const SelectOptionsSource = isArabicLanguage
     ? SelectOptionsAr
     : SelectOptionsEn;
+
+  useInjectSaga({ key: SAGA_KEY, saga });
 
   const handleImageUpload = fieldID => img => {
     form.setFieldsValue({
@@ -179,6 +190,7 @@ const EntityForm = ({ form, history }) => {
         />
         <InputField
           id={FIELDS.NAME_OF_ASSOCIATION.ID}
+          initialValue={userAssociation}
           isRTLDirection={isRTLDirection}
           label={getMsg(messages.NAME_OF_ASSOCIATION.LABEL)}
           requiredMessage={getMsg(

@@ -16,15 +16,19 @@ import { APP_ROUTES, TEXT_DIRECTION } from 'common/constants';
 import { isArabicLanguageSelector } from 'redux/selectors';
 import { submitAssociationForm } from 'redux/actions/form-actions';
 import { getFormattedMessage as getMsg } from 'utils/formatted-message';
+import { useInjectSaga } from 'utils/injectSaga';
 
 import Footer from '../Footer/Footer';
 import { ASSOCIATION_FORM_FIELDS_CONFIG as FIELDS } from './constants';
 import messages from './messages';
+import saga from './sagas/association-form-saga';
 import * as SelectOptionsEn from '../../utils/select-options-en';
 import * as SelectOptionsAr from '../../utils/select-options-ar';
 
 const { RIGHT_TO_LEFT } = TEXT_DIRECTION;
 const formStyle = { height: '100%' };
+const SAGA_KEY = 'AssociationForm';
+
 const NOTIFICATION_CONFIG = {
   message: 'Association Form Submitted!',
   placement: 'bottomRight',
@@ -39,6 +43,8 @@ const AssociationForm = ({ form, history }) => {
   const SelectOptionsSource = isArabicLanguage
     ? SelectOptionsAr
     : SelectOptionsEn;
+
+  useInjectSaga({ key: SAGA_KEY, saga });
 
   function handleSubmit() {
     form.validateFields((errors, values) => {

@@ -1,12 +1,13 @@
-import { EMPTY_OBJECT } from 'common/constants';
-
 import { AUTHENTICATION } from '../actions/action-types';
 
 const { LOGIN, LOGOUT } = AUTHENTICATION;
 
 export const initialState = {
   loggedIn: false,
-  user: EMPTY_OBJECT,
+  user: {
+    isAdministrator: true,
+    association: 'Association Default',
+  },
 };
 
 const handleUserLogin = (authState, { user }) => ({

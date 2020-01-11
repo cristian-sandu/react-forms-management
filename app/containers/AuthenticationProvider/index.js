@@ -19,8 +19,6 @@ const authReducerConfig = {
 };
 
 function AuthenticationProvider({ children, history }) {
-  // const isLoggedIn = useSelector(isLoggedInSelector);
-  // const dispatch = useDispatch();
   const [isLoggedIn, setLogged] = useLocalStorage('isLoggedIn', false);
 
   useInjectReducer(authReducerConfig);
@@ -31,13 +29,9 @@ function AuthenticationProvider({ children, history }) {
 
   // eslint-disable-next-line consistent-return
   function handleSubmit(form, userDetails) {
-    /*
-     * @TODO this should be a post request to api/users/login
-     * */
     if (!areLoginDetailsValid(userDetails)) {
       return form.setFields(invalidFormDetails(userDetails));
     }
-    // dispatch(login(user));
     setLogged(true);
     history.push(HOME);
   }

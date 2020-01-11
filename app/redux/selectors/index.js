@@ -52,3 +52,8 @@ export const isLoggedInSelector = createSelector(
   authSelector,
   prop('loggedIn'),
 );
+
+export const userAssociationSelector = createSelector(
+  userSelector,
+  prop('association'),
+);
