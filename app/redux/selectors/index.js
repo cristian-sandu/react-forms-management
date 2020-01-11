@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
-import { always, equals, ifElse, prop } from 'ramda';
+import { always, equals, ifElse, prop, identity } from 'ramda';
 
-import { TEXT_DIRECTION } from '../constants';
+import { TEXT_DIRECTION } from 'common/constants';
 
 const { LEFT_TO_RIGHT, RIGHT_TO_LEFT } = TEXT_DIRECTION;
 
@@ -36,4 +36,19 @@ export const textDirectionSelector = createSelector(
     always(RIGHT_TO_LEFT),
     always(LEFT_TO_RIGHT),
   ),
+);
+
+export const authSelector = createSelector(
+  prop('auth'),
+  identity,
+);
+
+export const userSelector = createSelector(
+  authSelector,
+  prop('user'),
+);
+
+export const isLoggedInSelector = createSelector(
+  authSelector,
+  prop('loggedIn'),
 );

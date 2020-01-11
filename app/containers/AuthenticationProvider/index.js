@@ -1,31 +1,45 @@
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { Route, withRouter } from 'react-router-dom';
 import { useLocalStorage } from 'use-hooks';
 
-import { locationPathnameSelector } from 'common/selectors';
 import { APP_ROUTES } from 'common/constants';
+import { REDUCER_KEYS } from 'common/constants/reducer-keys';
 import Login from 'containers/Login/Login';
+import authReducer from 'redux/reducers/auth-reducer';
+import { useInjectReducer } from 'utils/injectReducer';
 
 import { areLoginDetailsValid, invalidFormDetails } from './utils';
 
 const { LOGIN, HOME } = APP_ROUTES;
+const { AUTHENTICATION } = REDUCER_KEYS;
+
+const authReducerConfig = {
+  key: AUTHENTICATION,
+  reducer: authReducer,
+};
 
 function AuthenticationProvider({ children, history }) {
-  const [isLoggedIn, setIsLoggedIn] = useLocalStorage('isLoggedIn', false);
-  const pathName = useSelector(locationPathnameSelector);
+  // const isLoggedIn = useSelector(isLoggedInSelector);
+  // const dispatch = useDispatch();
+  const [isLoggedIn, setLogged] = useLocalStorage('isLoggedIn', false);
+
+  useInjectReducer(authReducerConfig);
 
   useEffect(() => {
     if (!isLoggedIn) history.push(LOGIN);
-  }, [pathName]);
+  }, [isLoggedIn]);
 
-  function handleSubmit(form, data) {
-    if (areLoginDetailsValid(data)) {
-      setIsLoggedIn(true);
-      history.push(HOME);
-    } else {
-      form.setFields({ ...invalidFormDetails(data) });
+  // eslint-disable-next-line consistent-return
+  function handleSubmit(form, userDetails) {
+    /*
+     * @TODO this should be a post request to api/users/login
+     * */
+    if (!areLoginDetailsValid(userDetails)) {
+      return form.setFields(invalidFormDetails(userDetails));
     }
+    // dispatch(login(user));
+    setLogged(true);
+    history.push(HOME);
   }
 
   return isLoggedIn ? (

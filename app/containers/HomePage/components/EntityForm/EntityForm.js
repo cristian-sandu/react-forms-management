@@ -12,7 +12,7 @@ import {
   SelectField,
 } from 'common/form/components';
 import useFormContext from 'common/form/consumer/form-consumer';
-import { isArabicLanguageSelector } from 'common/selectors';
+import { isArabicLanguageSelector } from 'redux/selectors';
 import { getFormattedMessage as getMsg } from 'utils/formatted-message';
 
 import { ENTITY_FORM_FIELDS_CONFIG as FIELDS } from './constants';

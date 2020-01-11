@@ -6,17 +6,12 @@ import { Form } from 'antd';
 
 import FormProvider from 'common/form/provider/form-provider';
 import TextDirectionProvider from 'common/hooks/text-direction/provider/text-direction-provider';
-import { textDirectionSelector } from 'common/selectors';
-import { useInjectReducer } from 'utils/injectReducer';
-import { useInjectSaga } from 'utils/injectSaga';
+import { textDirectionSelector } from 'redux/selectors';
 
 import Section from './Section';
-import reducer from './reducer';
-import saga from './saga';
 import { FORM_BY_STEP, FORMS } from './constants';
 import { AssociationForm, EntityForm, Footer, Header } from './components';
 
-const key = 'home';
 const formStyle = { height: '100%' };
 
 const { ASSOCIATION_FORM, ENTITY_FORM } = FORMS;
@@ -24,9 +19,6 @@ const { ASSOCIATION_FORM, ENTITY_FORM } = FORMS;
 export function HomePage({ form, hasAssociationForm = true }) {
   const [step, setNextStep] = useState(ENTITY_FORM.STEP);
   const textDirection = useSelector(textDirectionSelector);
-
-  useInjectReducer({ key, reducer });
-  useInjectSaga({ key, saga });
 
   function handleStepChange(currentStep) {
     setNextStep(currentStep);

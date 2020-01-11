@@ -9,10 +9,10 @@ export const areLoginDetailsValid = ({ username, password }) =>
 export const invalidFormDetails = ({ username, password }) => ({
   username: {
     value: username,
-    errors: [Error(INVALID_USERNAME_OR_PASSWORD)],
+    errors: [],
   },
   password: {
     value: password,
-    errors: [],
+    errors: [Error(INVALID_USERNAME_OR_PASSWORD)],
   },
 });

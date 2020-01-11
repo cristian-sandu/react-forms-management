@@ -9,7 +9,7 @@ import {
 } from 'common/form/components';
 import { useTextDirection } from 'common/hooks';
 import { TEXT_DIRECTION } from 'common/constants';
-import { isArabicLanguageSelector } from 'common/selectors';
+import { isArabicLanguageSelector } from 'redux/selectors';
 import { getFormattedMessage as getMsg } from 'utils/formatted-message';
 
 import { ASSOCIATION_FORM_FIELDS_CONFIG as FIELDS } from './constants';
