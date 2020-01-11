@@ -1,0 +1,122 @@
+/**
+ * These Select Options are provided to our Select components in order to display data in the list
+ *
+ * This is a 2 step process
+ * 1. to provide a value that will be used when an option is selected
+ * 2. to display a user friendly label in the dropdown
+ *
+ * So the `value` of the _OPTIONS objects is the label you can see on the dropdown
+ * The `key` of the _OPTIONS objects on is the value you get when you select an element
+ *
+ * I assume all the values should be in English and only the label translated in any other language on the UI
+ * */
+export const SPECIALIZATION_OPTIONS = {
+  Programmer: 'سلام على اللىي ذكرنا ف',
+  Accountant: 'سلام على اللىي ذكرنا ف',
+  Architect: 'سلام على اللىي ذكرنا ف',
+  Author: 'سلام على اللىي ذكرنا ف',
+  Butcher: 'سلام على اللىي ذكرنا ف',
+  Dentist: 'سلام على اللىي ذكرنا ف',
+  Designer: 'سلام على اللىي ذكرنا ف',
+  Doctor: 'سلام على اللىي ذكرنا ف',
+  Model: 'سلام على اللىي ذكرنا ف',
+  News_Reader: 'سلام على اللىي ذكرنا ف',
+  Nurse: 'سلام على اللىي ذكرنا ف',
+  Optician: 'سلام على اللىي ذكرنا ف',
+  Painter: 'سلام على اللىي ذكرنا ف',
+  Pharmacist: 'سلام على اللىي ذكرنا ف',
+  Photographer: 'سلام على اللىي ذكرنا ف',
+  Pilot: 'سلام على اللىي ذكرنا ف',
+  Plumber: 'سلام على اللىي ذكرنا ف',
+  Politician: 'سلام على اللىي ذكرنا ف',
+  Policeman: 'سلام على اللىي ذكرنا ف',
+  Postman: 'سلام على اللىي ذكرنا ف',
+  RealEstate: 'سلام على اللىي ذكرنا ف',
+  Receptionist: 'سلام على اللىي ذكرنا ف',
+  Scientist: 'سلام على اللىي ذكرنا ف',
+  Secretary: 'سلام على اللىي ذكرنا ف',
+  Soldier: 'سلام على اللىي ذكرنا ف',
+  Tailor: 'سلام على اللىي ذكرنا ف',
+  Taxi_Driver: 'سلام على اللىي ذكرنا ف',
+  Teacher: 'سلام على اللىي ذكرنا ف',
+  Translator: 'سلام على اللىي ذكرنا ف',
+  TrafficWarden: 'سلام على اللىي ذكرنا ف',
+  TravelAgent: 'سلام على اللىي ذكرنا ف',
+  Waiter: 'سلام على اللىي ذكرنا ف',
+};
+
+export const CITIES_OPTIONS = {
+  Griffith: 'سلام على اللىي ذكرنا ف',
+  Greensborough: 'سلام على اللىي ذكرنا ف',
+  Granville: 'سلام على اللىي ذكرنا ف',
+  Goulburn: 'سلام على اللىي ذكرنا ف',
+  Gold: 'سلام على اللىي ذكرنا ف',
+  Glenroy: 'سلام على اللىي ذكرنا ف',
+  Glenferrie: 'سلام على اللىي ذكرنا ف',
+  Gladstone: 'سلام على اللىي ذكرنا ف',
+  Geelong: 'سلام على اللىي ذكرنا ف',
+  Frankston: 'سلام على اللىي ذكرنا ف',
+  Forster: 'سلام على اللىي ذكرنا ف',
+  Essendon: 'سلام على اللىي ذكرنا ف',
+  Epping: 'سلام على اللىي ذكرنا ف',
+  Engadine: 'سلام على اللىي ذكرنا ف',
+  Eltham: 'سلام على اللىي ذكرنا ف',
+  Echuca: 'سلام على اللىي ذكرنا ف',
+  Earlwood: 'سلام على اللىي ذكرنا ف',
+  Dubbo: 'سلام على اللىي ذكرنا ف',
+  Doncaster: 'سلام على اللىي ذكرنا ف',
+  Devonport: 'سلام على اللىي ذكرنا ف',
+  Deer: 'سلام على اللىي ذكرنا ف',
+  Dandenong: 'سلام على اللىي ذكرنا ف',
+  Cronulla: 'سلام على اللىي ذكرنا ف',
+  Cranbourne: 'سلام على اللىي ذكرنا ف',
+  Craigieburn: 'سلام على اللىي ذكرنا ف',
+  Coburg: 'سلام على اللىي ذكرنا ف',
+  Clayton: 'سلام على اللىي ذكرنا ف',
+  Wollongong: 'سلام على اللىي ذكرنا ف',
+  Cessnock: 'سلام على اللىي ذكرنا ف',
+  Carnegie: 'سلام على اللىي ذكرنا ف',
+  Carlingford: 'سلام على اللىي ذكرنا ف',
+  Caringbah: 'سلام على اللىي ذكرنا ف',
+  Canberra: 'سلام على اللىي ذكرنا ف',
+  Camberwell: 'سلام على اللىي ذكرنا ف',
+  Caloundra: 'سلام على اللىي ذكرنا ف',
+  Cairns: 'سلام على اللىي ذكرنا ف',
+  Caboolture: 'سلام على اللىي ذكرنا ف',
+  Burnie: 'سلام على اللىي ذكرنا ف',
+  Bundaberg: 'سلام على اللىي ذكرنا ف',
+  Buderim: 'سلام على اللىي ذكرنا ف',
+  Brunswick: 'سلام على اللىي ذكرنا ف',
+  Brisbane: 'سلام على اللىي ذكرنا ف',
+  Boronia: 'سلام على اللىي ذكرنا ف',
+  Blacktown: 'سلام على اللىي ذكرنا ف',
+  Berwick: 'سلام على اللىي ذكرنا ف',
+  Bendigo: 'سلام على اللىي ذكرنا ف',
+  Bathurst: 'سلام على اللىي ذكرنا ف',
+  Bankstown: 'سلام على اللىي ذكرنا ف',
+};
+
+export const PROVINCE_OPTIONS = {
+  Ontario: 'سلام على اللىي ذكرنا ف',
+  Quebec: 'سلام على اللىي ذكرنا ف',
+  BritishColumbia: 'سلام على اللىي ذكرنا ف',
+  Alberta: 'سلام على اللىي ذكرنا ف',
+  Manitoba: 'سلام على اللىي ذكرنا ف',
+  Saskatchewan: 'سلام على اللىي ذكرنا ف',
+  NovaScotia: 'سلام على اللىي ذكرنا ف',
+  NewBrunswick: 'سلام على اللىي ذكرنا ف',
+  NewfoundlandAndLabrador: 'سلام على اللىي ذكرنا ف',
+  Nunavut: 'سلام على اللىي ذكرنا ف',
+  Yukon: 'سلام على اللىي ذكرنا ف',
+};
+
+export const STATUS_OPTIONS = {
+  Active: 'سلام على اللىي ذكرنا ف',
+  Disabled: 'سلام على اللىي ذكرنا ف',
+  Approved: 'سلام على اللىي ذكرنا ف',
+  Confirmed: 'سلام على اللىي ذكرنا ف',
+  Pending: 'سلام على اللىي ذكرنا ف',
+  InDevelopment: 'لام على اللىي ذكرنا ف',
+  Live: 'سلام على اللىي ذكرنا ف',
+  Green: 'سلام على اللىي ذكرنا ف',
+};

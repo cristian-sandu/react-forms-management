@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
 import { useTextDirection } from 'common/hooks';
 import { TEXT_DIRECTION } from 'common/constants';
@@ -11,16 +12,13 @@ import {
   SelectField,
 } from 'common/form/components';
 import useFormContext from 'common/form/consumer/form-consumer';
+import { isArabicLanguageSelector } from 'common/selectors';
 import { getFormattedMessage as getMsg } from 'utils/formatted-message';
 
 import { ENTITY_FORM_FIELDS_CONFIG as FIELDS } from './constants';
-import {
-  CITIES_OPTIONS,
-  PROVINCE_OPTIONS,
-  SPECIALIZATION_OPTIONS,
-  STATUS_OPTIONS,
-} from '../../utils/select-options';
 import messages from './messages';
+import * as SelectOptionsEn from '../../utils/select-options-en';
+import * as SelectOptionsAr from '../../utils/select-options-ar';
 
 const { RIGHT_TO_LEFT } = TEXT_DIRECTION;
 
@@ -28,6 +26,10 @@ const EntityForm = ({ isVisible }) => {
   const form = useFormContext();
   const textDirection = useTextDirection();
   const isRTLDirection = textDirection === RIGHT_TO_LEFT;
+  const isArabicLanguage = useSelector(isArabicLanguageSelector);
+  const SelectOptionsSource = isArabicLanguage
+    ? SelectOptionsAr
+    : SelectOptionsEn;
 
   const handleImageUpload = fieldID => img => {
     form.setFieldsValue({
@@ -59,7 +61,7 @@ const EntityForm = ({ isVisible }) => {
         isRTLDirection={isRTLDirection}
         label={getMsg(messages.SPECIALIZATION.LABEL)}
         requiredMessage={getMsg(messages.SPECIALIZATION.REQUIRED_MESSAGE)}
-        options={SPECIALIZATION_OPTIONS}
+        options={SelectOptionsSource.SPECIALIZATION_OPTIONS}
       />
       <InputField
         id={FIELDS.PERSON_IN_CHARGE.ID}
@@ -115,14 +117,14 @@ const EntityForm = ({ isVisible }) => {
         isRTLDirection={isRTLDirection}
         label={getMsg(messages.CITY.LABEL)}
         requiredMessage={getMsg(messages.CITY.REQUIRED_MESSAGE)}
-        options={CITIES_OPTIONS}
+        options={SelectOptionsSource.CITIES_OPTIONS}
       />
       <SelectField
         id={FIELDS.PROVINCE.ID}
         isRTLDirection={isRTLDirection}
         label={getMsg(messages.PROVINCE.LABEL)}
         requiredMessage={getMsg(messages.PROVINCE.REQUIRED_MESSAGE)}
-        options={PROVINCE_OPTIONS}
+        options={SelectOptionsSource.PROVINCE_OPTIONS}
       />
       <InputNumberField
         id={FIELDS.NUMBER_OF_NATIONAL_EMPLOYEES.ID}
@@ -145,7 +147,7 @@ const EntityForm = ({ isVisible }) => {
         isRTLDirection={isRTLDirection}
         label={getMsg(messages.STATUS.LABEL)}
         requiredMessage={getMsg(messages.STATUS.REQUIRED_MESSAGE)}
-        options={STATUS_OPTIONS}
+        options={SelectOptionsSource.STATUS_OPTIONS}
       />
       <InputNumberField
         id={FIELDS.VALUE_OF_FUNDING.ID}

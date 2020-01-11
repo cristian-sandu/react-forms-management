@@ -1,4 +1,4 @@
-import { Input, Select } from 'antd';
+import { Select } from 'antd';
 import { EMPTY_STRING } from 'common/constants';
 import { FormField } from 'common/form/components';
 import { TEXT_ALIGN } from 'common/form/constants';
@@ -8,6 +8,8 @@ import PropTypes from 'prop-types';
 import { values } from 'ramda';
 import React, { memo, useMemo } from 'react';
 import classNames from 'classnames';
+
+import './styles.css';
 
 // eslint-disable-next-line max-lines-per-function
 const SelectField = ({
@@ -26,9 +28,11 @@ const SelectField = ({
   showSearch,
   isRTLDirection,
 }) => {
-  const selectOptions = useMemo(() => convertObjectToSelectOptions(options), [
-    options,
-  ]);
+  const selectOptions = useMemo(
+    () => convertObjectToSelectOptions(options, isRTLDirection),
+    [options, isRTLDirection],
+  );
+
   return (
     <FormField
       disabled={disabled}
@@ -40,7 +44,9 @@ const SelectField = ({
       requiredMessage={requiredMessage}
     >
       <Select
-        className={classNames({ 'rtl__input-direction': isRTLDirection })}
+        className={classNames('select-field', {
+          'rtl__input-direction': isRTLDirection,
+        })}
         disabled={disabled}
         filterOption={filterOption}
         notFoundContent={notFoundContent}

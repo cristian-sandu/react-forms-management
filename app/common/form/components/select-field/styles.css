@@ -1,0 +1,5 @@
+li.select-option__right-to-left {
+  text-align: right;
+  direction: rtl !important;
+  unicode-bidi: bidi-override !important;
+}
