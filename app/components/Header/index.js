@@ -56,7 +56,7 @@ function Header({ hasAssociationForm, history, location: { pathname } }) {
       <div style={{ marginTop: '1em' }}>
         <LocaleToggle />
       </div>
-      <div style={{ marginTop: '3em' }}>
+      <div style={{ marginTop: '1em' }}>
         <Steps onChange={handleChange} current={STEP} progressDot={customDot}>
           {hasAssociationForm ? getAllSteps(isAdmin) : BASIC_STEPS}
         </Steps>

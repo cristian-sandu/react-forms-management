@@ -32,6 +32,7 @@ function LocaleToggle({ locale, onLocaleToggle }) {
         style={{ width: 150 }}
         onChange={handleChange}
         value={locale}
+        size="small"
       >
         {LANGUAGE_SELECT_OPTIONS}
       </Select>

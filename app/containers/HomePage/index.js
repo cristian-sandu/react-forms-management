@@ -3,13 +3,16 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { Card } from 'antd';
 import { compose } from 'redux';
+import { useSelector } from 'react-redux';
 import classNames from 'classnames';
 
 import { APP_ROUTES, TEXT_DIRECTION } from 'common/constants';
 import { useTextDirection } from 'common/hooks';
+import { isUserAdminSelector } from 'redux/selectors';
 
 import AssociationImg from './images/association.png';
 import EntityImg from './images/entity.jpg';
+import AdminDashboard from './images/admin_dashboard.png';
 import { getFormattedMessage as getMsg } from '../../utils/formatted-message';
 import messages from '../../components/Header/messages';
 
@@ -18,6 +21,7 @@ const { Meta } = Card;
 export function HomePage({ history }) {
   const textDirection = useTextDirection();
   const isRTLDirection = textDirection === TEXT_DIRECTION.RIGHT_TO_LEFT;
+  const isAdmin = useSelector(isUserAdminSelector);
 
   const handleClick = route => () => {
     history.push(route);
@@ -30,7 +34,7 @@ export function HomePage({ history }) {
           display: 'flex',
           justifyContent: 'space-around',
           paddingTop: '15%',
-          height: '75vh',
+          height: '80vh',
         }}
       >
         <Card
@@ -56,6 +60,20 @@ export function HomePage({ history }) {
             title={getMsg(messages.ASSOCIATION_FORM)}
           />
         </Card>
+
+        {isAdmin && (
+          <Card
+            cover={<img alt="Admin Dashboard" src={AdminDashboard} />}
+            hoverable
+            onClick={handleClick(APP_ROUTES.ADMIN_DASHBOARD)}
+            style={{ width: 240, height: 300 }}
+          >
+            <Meta
+              className={classNames({ 'rtl__input-direction': isRTLDirection })}
+              title={getMsg(messages.ADMIN_DASHBOARD)}
+            />
+          </Card>
+        )}
       </article>
     </div>
   );
