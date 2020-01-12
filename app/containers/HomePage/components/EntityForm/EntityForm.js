@@ -59,6 +59,10 @@ const EntityForm = ({ form, history }) => {
     });
   };
 
+  function handleClear() {
+    form.resetFields();
+  }
+
   function handleSubmit() {
     form.validateFields((errors, values) => {
       if (errors) return;
@@ -81,7 +85,7 @@ const EntityForm = ({ form, history }) => {
         <FormField
           id={FIELDS.TRADE_MARK.ID}
           label={getMsg(messages.TRADE_MARK.LABEL)}
-          requiredMessage={getMsg(messages.TRADE_MARK.REQUIRED_MESSAGE)}
+          required={false}
         >
           <ImageUpload
             onUpload={handleImageUpload(FIELDS.TRADE_MARK.ID)}
@@ -106,19 +110,19 @@ const EntityForm = ({ form, history }) => {
           id={FIELDS.GENDER.ID}
           isRTLDirection={isRTLDirection}
           label={getMsg(messages.GENDER.LABEL)}
-          requiredMessage={getMsg(messages.GENDER.REQUIRED_MESSAGE)}
+          required={false}
         />
         <InputNumberField
           id={FIELDS.NATIONAL_ID_NUMBER.ID}
           isRTLDirection={isRTLDirection}
           label={getMsg(messages.NATIONAL_ID_NUMBER.LABEL)}
-          requiredMessage={getMsg(messages.NATIONAL_ID_NUMBER.REQUIRED_MESSAGE)}
+          required={false}
         />
         <InputNumberField
           id={FIELDS.OFFICE_TEL_NUMBER.ID}
           isRTLDirection={isRTLDirection}
           label={getMsg(messages.OFFICE_TEL_NUMBER.LABEL)}
-          requiredMessage={getMsg(messages.OFFICE_TEL_NUMBER.REQUIRED_MESSAGE)}
+          required={false}
         />
         <InputField
           id={FIELDS.EMAIL_ADDRESS.ID}
@@ -137,13 +141,13 @@ const EntityForm = ({ form, history }) => {
           id={FIELDS.SOCIAL_MEDIA.ID}
           isRTLDirection={isRTLDirection}
           label={getMsg(messages.SOCIAL_MEDIA.LABEL)}
-          requiredMessage={getMsg(messages.SOCIAL_MEDIA.REQUIRED_MESSAGE)}
+          required={false}
         />
         <InputField
           id={FIELDS.ADDRESS.ID}
           isRTLDirection={isRTLDirection}
           label={getMsg(messages.ADDRESS.LABEL)}
-          requiredMessage={getMsg(messages.ADDRESS.REQUIRED_MESSAGE)}
+          required={false}
         />
         <SelectField
           id={FIELDS.CITY.ID}
@@ -156,52 +160,46 @@ const EntityForm = ({ form, history }) => {
           id={FIELDS.PROVINCE.ID}
           isRTLDirection={isRTLDirection}
           label={getMsg(messages.PROVINCE.LABEL)}
-          requiredMessage={getMsg(messages.PROVINCE.REQUIRED_MESSAGE)}
+          required={false}
           options={SelectOptionsSource.PROVINCE_OPTIONS}
         />
         <InputNumberField
           id={FIELDS.NUMBER_OF_NATIONAL_EMPLOYEES.ID}
           isRTLDirection={isRTLDirection}
           label={getMsg(messages.NUMBER_OF_NATIONAL_EMPLOYEES.LABEL)}
-          requiredMessage={getMsg(
-            messages.NUMBER_OF_NATIONAL_EMPLOYEES.REQUIRED_MESSAGE,
-          )}
+          required={false}
         />
         <InputNumberField
           id={FIELDS.NUMBER_OF__NON_NATIONAL_EMPLOYEES.ID}
           isRTLDirection={isRTLDirection}
           label={getMsg(messages.NUMBER_OF__NON_NATIONAL_EMPLOYEES.LABEL)}
-          requiredMessage={getMsg(
-            messages.NUMBER_OF__NON_NATIONAL_EMPLOYEES.REQUIRED_MESSAGE,
-          )}
+          required={false}
         />
         <SelectField
           id={FIELDS.STATUS.ID}
           isRTLDirection={isRTLDirection}
           label={getMsg(messages.STATUS.LABEL)}
-          requiredMessage={getMsg(messages.STATUS.REQUIRED_MESSAGE)}
+          required={false}
           options={SelectOptionsSource.STATUS_OPTIONS}
         />
         <InputNumberField
           id={FIELDS.VALUE_OF_FUNDING.ID}
           isRTLDirection={isRTLDirection}
           label={getMsg(messages.VALUE_OF_FUNDING.LABEL)}
-          requiredMessage={getMsg(messages.VALUE_OF_FUNDING.REQUIRED_MESSAGE)}
+          required={false}
         />
         <InputField
           id={FIELDS.NAME_OF_ASSOCIATION.ID}
           initialValue={userAssociation}
           isRTLDirection={isRTLDirection}
           label={getMsg(messages.NAME_OF_ASSOCIATION.LABEL)}
-          requiredMessage={getMsg(
-            messages.NAME_OF_ASSOCIATION.REQUIRED_MESSAGE,
-          )}
+          required={false}
         />
         <InputField
           id={FIELDS.PROFILE.ID}
           isRTLDirection={isRTLDirection}
           label={getMsg(messages.PROFILE.LABEL)}
-          requiredMessage={getMsg(messages.PROFILE.REQUIRED_MESSAGE)}
+          required={false}
         />
         <FormField
           id={FIELDS.COMMERCIAL_REGISTRATION.ID}
@@ -220,11 +218,9 @@ const EntityForm = ({ form, history }) => {
           id={FIELDS.ISIC_CLASSIFICATION_NUMBER.ID}
           isRTLDirection={isRTLDirection}
           label={getMsg(messages.ISIC_CLASSIFICATION_NUMBER.LABEL)}
-          requiredMessage={getMsg(
-            messages.ISIC_CLASSIFICATION_NUMBER.REQUIRED_MESSAGE,
-          )}
+          required={false}
         />
-        <Footer onSubmit={handleSubmit} />
+        <Footer onSubmit={handleSubmit} onClear={handleClear} />
       </Form>
     </FormProvider>
   );

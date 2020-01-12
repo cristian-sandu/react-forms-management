@@ -46,6 +46,10 @@ const AssociationForm = ({ form, history }) => {
 
   useInjectSaga({ key: SAGA_KEY, saga });
 
+  function handleClear() {
+    form.resetFields();
+  }
+
   function handleSubmit() {
     form.validateFields((errors, values) => {
       if (errors) return;
@@ -122,7 +126,7 @@ const AssociationForm = ({ form, history }) => {
             },
           ]}
         />
-        <Footer onSubmit={handleSubmit} />
+        <Footer onSubmit={handleSubmit} onClear={handleClear} />
       </Form>
     </FormProvider>
   );
