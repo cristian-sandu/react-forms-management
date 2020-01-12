@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Steps } from 'antd';
 import { withRouter } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import { getFormattedMessage as getMsg } from 'utils/formatted-message';
+import { isUserAdminSelector } from 'redux/selectors';
 
 import messages from './messages';
 import {
@@ -23,14 +25,18 @@ const BASIC_STEPS = [
   <Step title={getMsg(messages.ENTITY_FORM)} key="Entity_Form" />,
 ];
 
-const ALL_STEPS = [
+const getAllSteps = isAdmin => [
   ...BASIC_STEPS,
   <Step title={getMsg(messages.ASSOCIATION_FORM)} key="Association_Form" />,
+  isAdmin && (
+    <Step title={getMsg(messages.ADMIN_DASHBOARD)} key="Admin_Dashboard" />
+  ),
 ];
 
 function Header({ hasAssociationForm, history, location: { pathname } }) {
   const [activeStepName, setNextStep] = useState(ELEMENTS.HOME.NAME);
   const { STEP, ID } = ELEMENTS_BY_NAME[activeStepName];
+  const isAdmin = useSelector(isUserAdminSelector);
 
   useEffect(() => {
     const activeElementPath = ELEMENTS_BY_NAME[activeStepName].ROUTE;
@@ -52,7 +58,7 @@ function Header({ hasAssociationForm, history, location: { pathname } }) {
       </div>
       <div style={{ marginTop: '3em' }}>
         <Steps onChange={handleChange} current={STEP} progressDot={customDot}>
-          {hasAssociationForm ? ALL_STEPS : BASIC_STEPS}
+          {hasAssociationForm ? getAllSteps(isAdmin) : BASIC_STEPS}
         </Steps>
         <h1 style={{ textAlign: 'center', marginTop: '1em' }}>
           {getMsg(messages[ID])}

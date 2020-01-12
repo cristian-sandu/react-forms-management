@@ -1,6 +1,5 @@
 const { freeze } = Object;
 
-// @TODO this should be changed with a real API address
 export const BASE_API_ENDPOINT = 'localhost:5000';
 
 export const API_ENDPOINTS = {

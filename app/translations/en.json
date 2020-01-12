@@ -5,6 +5,7 @@
   "ASSOCIATION_FORM": "Association Form",
   "STRING_70_CHARS_VALIDATOR": "The value length must be up to 70 chars",
   "NUMBER_20_CHARS_VALIDATOR": "The value length must be up to 20 numbers",
+  "ADMIN_DASHBOARD": "Admin Dashboard",
   "boilerplate.containers.HomePage.EntityForm.ENTITY_NAME.LABEL": "Entity Name",
   "boilerplate.containers.HomePage.EntityForm.ENTITY_NAME.REQUIRED_MESSAGE": "Entity Name is required",
   "boilerplate.containers.HomePage.EntityForm.TRADE_MARK.LABEL": "Trade Mark",

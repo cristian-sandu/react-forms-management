@@ -13,4 +13,8 @@ export default defineMessages({
     id: 'ASSOCIATION_FORM',
     defaultMessage: 'Association Form',
   },
+  ADMIN_DASHBOARD: {
+    id: 'ADMIN_DASHBOARD',
+    defaultMessage: 'Admin Dashboard',
+  },
 });
