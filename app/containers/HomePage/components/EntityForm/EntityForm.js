@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { pipe } from 'ramda';
 import { withRouter } from 'react-router-dom';
-import { Form, notification } from 'antd';
+import { Form } from 'antd';
 
 import { useTextDirection } from 'common/hooks';
-import { APP_ROUTES, TEXT_DIRECTION } from 'common/constants';
+import { TEXT_DIRECTION } from 'common/constants';
 import {
   FormField,
   ImageUpload,
@@ -34,13 +34,7 @@ const { RIGHT_TO_LEFT } = TEXT_DIRECTION;
 const formStyle = { height: '100%' };
 const SAGA_KEY = 'AssociationForm';
 
-const NOTIFICATION_CONFIG = {
-  message: 'Entity Form Submitted!',
-  placement: 'bottomRight',
-  duration: 2,
-};
-
-const EntityForm = ({ form, history }) => {
+const EntityForm = ({ form }) => {
   const dispatch = useDispatch();
   const textDirection = useTextDirection();
   const isRTLDirection = textDirection === RIGHT_TO_LEFT;
@@ -66,10 +60,7 @@ const EntityForm = ({ form, history }) => {
   function handleSubmit() {
     form.validateFields((errors, values) => {
       if (errors) return;
-
       dispatch(submitEntityForm(values));
-      history.push(APP_ROUTES.HOME);
-      notification.success(NOTIFICATION_CONFIG);
     });
   }
 

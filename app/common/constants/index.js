@@ -1,6 +1,6 @@
 const { freeze } = Object;
 
-export const BASE_API_ENDPOINT = 'localhost:5000';
+export const BASE_API_ENDPOINT = 'https://localhost:5000';
 
 export const API_ENDPOINTS = {
   GET: {
