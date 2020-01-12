@@ -8,6 +8,11 @@ import { FormField } from 'common/form/components';
 import { TEXT_ALIGN } from 'common/form/constants';
 import { STRING_70_CHARS_VALIDATION_RULES } from 'utils/validators/validators';
 
+import { useTextDirection } from '../../../hooks';
+import { TEXT_DIRECTION } from '../../../constants';
+
+const { RIGHT_TO_LEFT } = TEXT_DIRECTION;
+
 const InputField = ({
   disabled,
   id,
@@ -19,34 +24,37 @@ const InputField = ({
   requiredMessage,
   inputStyle,
   rules,
-  isRTLDirection,
   ...rest
-}) => (
-  <FormField
-    disabled={disabled}
-    id={id}
-    initialValue={initialValue}
-    label={label}
-    labelAlign={labelAlign}
-    required={required}
-    requiredMessage={requiredMessage}
-    rules={rules}
-  >
-    <Input
-      autoComplete="off"
-      className={classNames({ 'rtl__input-direction': isRTLDirection })}
+}) => {
+  const textDirection = useTextDirection();
+  const isRTLDirection = textDirection === RIGHT_TO_LEFT;
+
+  return (
+    <FormField
       disabled={disabled}
-      placeholder={placeholder}
-      style={inputStyle}
-      {...rest}
-    />
-  </FormField>
-);
+      id={id}
+      initialValue={initialValue}
+      label={label}
+      labelAlign={labelAlign}
+      required={required}
+      requiredMessage={requiredMessage}
+      rules={rules}
+    >
+      <Input
+        autoComplete="off"
+        className={classNames({ 'rtl__input-direction': isRTLDirection })}
+        disabled={disabled}
+        placeholder={placeholder}
+        style={inputStyle}
+        {...rest}
+      />
+    </FormField>
+  );
+};
 
 InputField.defaultProps = {
   disabled: false,
   inputStyle: { width: '100%' },
-  isRTLDirection: false,
   required: true,
   rules: STRING_70_CHARS_VALIDATION_RULES,
 };
@@ -56,7 +64,6 @@ InputField.propTypes = {
   id: PropTypes.string.isRequired,
   initialValue: PropTypes.string,
   inputStyle: PropTypes.instanceOf(Object),
-  isRTLDirection: PropTypes.bool,
   label: PropTypes.any.isRequired,
   labelAlign: PropTypes.oneOf(values(TEXT_ALIGN)),
   placeholder: PropTypes.string,

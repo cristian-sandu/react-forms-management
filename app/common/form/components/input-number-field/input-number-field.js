@@ -2,7 +2,6 @@ import { Input } from 'antd';
 import PropTypes from 'prop-types';
 import { values } from 'ramda';
 import React, { memo } from 'react';
-import classNames from 'classnames';
 
 import { FormField } from 'common/form/components';
 import { TEXT_ALIGN } from 'common/form/constants';

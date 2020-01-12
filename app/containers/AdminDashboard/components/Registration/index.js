@@ -1,0 +1,92 @@
+import React from 'react';
+import { Form } from 'antd';
+import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
+
+import Footer from 'components/Footer/Footer';
+import FormProvider from 'common/form/provider/form-provider';
+import { InputField, InputNumberField } from 'common/form/components';
+import { getFormattedMessage as getMsg } from 'utils/formatted-message';
+import { useInjectSaga } from 'utils/injectSaga';
+import { submitRegistration } from 'redux/actions/registration-actions';
+
+import { REGISTRATION_FORM_FIELDS_CONFIG as FIELDS } from './utils';
+import messages from './messages';
+import saga from './sagas';
+
+const SAGA_KEY = 'Registration';
+const formStyle = { height: '100%' };
+
+const Registration = ({ form }) => {
+  const dispatch = useDispatch();
+
+  useInjectSaga({ key: SAGA_KEY, saga });
+
+  function handleClear() {
+    form.resetFields();
+  }
+
+  function handleSubmit() {
+    form.validateFields((errors, values) => {
+      if (errors) return;
+      dispatch(submitRegistration(values));
+    });
+  }
+
+  return (
+    <FormProvider value={form}>
+      <Form style={formStyle} hideRequiredMark>
+        <InputField
+          id={FIELDS.USERNAME.ID}
+          label={getMsg(messages.USERNAME.LABEL)}
+          requiredMessage={getMsg(messages.USERNAME.REQUIRED_MESSAGE)}
+        />
+        <InputField
+          id={FIELDS.PASSWORD.ID}
+          label={getMsg(messages.PASSWORD.LABEL)}
+          requiredMessage={getMsg(messages.PASSWORD.REQUIRED_MESSAGE)}
+        />
+        <InputField
+          id={FIELDS.ENTITY_NAME.ID}
+          label={getMsg(messages.ENTITY_NAME.LABEL)}
+          requiredMessage={getMsg(messages.ENTITY_NAME.REQUIRED_MESSAGE)}
+        />
+        <InputField
+          id={FIELDS.ASSOCIATION_NAME.ID}
+          label={getMsg(messages.ASSOCIATION_NAME.LABEL)}
+          requiredMessage={getMsg(messages.ASSOCIATION_NAME.REQUIRED_MESSAGE)}
+        />
+        <InputField
+          id={FIELDS.CONTACT_PERSON.ID}
+          label={getMsg(messages.CONTACT_PERSON.LABEL)}
+          requiredMessage={getMsg(messages.CONTACT_PERSON.REQUIRED_MESSAGE)}
+        />
+        <InputNumberField
+          id={FIELDS.MOBILE_NUMBER.ID}
+          label={getMsg(messages.MOBILE_NUMBER.LABEL)}
+          requiredMessage={getMsg(messages.MOBILE_NUMBER.REQUIRED_MESSAGE)}
+        />
+        <Footer
+          style={{ paddingTop: '5em' }}
+          onSubmit={handleSubmit}
+          onClear={handleClear}
+        />
+      </Form>
+    </FormProvider>
+  );
+};
+
+Registration.propTypes = {
+  form: PropTypes.object.isRequired,
+};
+
+export default Form.create()(Registration);
+
+/**
+ Username
+ Password
+ Entity Name
+ Association Name
+ Contact Person
+ Mobile Number
+* */

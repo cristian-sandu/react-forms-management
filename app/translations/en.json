@@ -67,6 +67,21 @@
   "boilerplate.containers.HomePage.AssociationForm.WEBSITE.REQUIRED_MESSAGE": "Website is required",
   "boilerplate.containers.HomePage.AssociationForm.WEBSITE.WEBSITE_INVALID_MESSAGE": "Website is not valid",
 
+
+  "boilerplate.containers.Registration.USERNAME.LABEL": "Username",
+  "boilerplate.containers.Registration.USERNAME.REQUIRED_MESSAGE": "Username is required",
+  "boilerplate.containers.Registration.PASSWORD.LABEL": "Password",
+  "boilerplate.containers.Registration.PASSWORD.REQUIRED_MESSAGE": "Password is required",
+  "boilerplate.containers.Registration.ENTITY_NAME.LABEL": "Entity Name",
+  "boilerplate.containers.Registration.ENTITY_NAME.REQUIRED_MESSAGE": "Entity Name is required",
+  "boilerplate.containers.Registration.ASSOCIATION_NAME.LABEL": "Association Name",
+  "boilerplate.containers.Registration.ASSOCIATION_NAME.REQUIRED_MESSAGE": "Association Name is required",
+  "boilerplate.containers.Registration.CONTACT_PERSON.LABEL": "Contact Person",
+  "boilerplate.containers.Registration.CONTACT_PERSON.REQUIRED_MESSAGE": "Contact Person is required",
+  "boilerplate.containers.Registration.MOBILE_NUMBER.LABEL": "Mobile Number",
+  "boilerplate.containers.Registration.MOBILE_NUMBER.REQUIRED_MESSAGE": "Mobile Number is required",
+
+
   "boilerplate.components.Footer.author.message": "Made with love by {author}.",
   "boilerplate.components.Footer.license.message": "This project is licensed under the MIT license.",
   "boilerplate.components.Header.features": "Features",

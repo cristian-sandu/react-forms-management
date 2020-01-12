@@ -12,7 +12,7 @@ export const TABS = {
     NAME: 'Association By Name',
   },
   ENTITIES: {
-    NAME: 'Entitties',
+    NAME: 'Entities',
   },
   ASSOCIATIONS: {
     NAME: 'Associations',

@@ -10,8 +10,8 @@ const footerStyle = {
   paddingLeft: '15%',
 };
 
-const Footer = ({ onSubmit, onClear }) => (
-  <footer style={footerStyle}>
+const Footer = ({ onSubmit, onClear, style }) => (
+  <footer style={{ ...footerStyle, ...style }}>
     <Button onClick={onClear} type="secondary">
       Clear
     </Button>
@@ -24,6 +24,7 @@ const Footer = ({ onSubmit, onClear }) => (
 Footer.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   onClear: PropTypes.func.isRequired,
+  style: PropTypes.object,
 };
 
 export default Footer;

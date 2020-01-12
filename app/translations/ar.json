@@ -67,6 +67,21 @@
   "boilerplate.containers.HomePage.AssociationForm.WEBSITE.REQUIRED_MESSAGE": "سلام على اللىي ذكرنا ف",
   "boilerplate.containers.HomePage.AssociationForm.WEBSITE.WEBSITE_INVALID_MESSAGE": "سلام على اللىي ذكرنا ف",
 
+
+  "boilerplate.containers.Registration.USERNAME.LABEL": "سلام على اللىي ذكرنا ف",
+  "boilerplate.containers.Registration.USERNAME.REQUIRED_MESSAGE": "سلام على اللىي ذكرنا ف",
+  "boilerplate.containers.Registration.PASSWORD.LABEL": "سلام على اللىي ذكرنا ف",
+  "boilerplate.containers.Registration.PASSWORD.REQUIRED_MESSAGE": "سلام على اللىي ذكرنا ف",
+  "boilerplate.containers.Registration.ENTITY_NAME.LABEL": "سلام على اللىي ذكرنا ف",
+  "boilerplate.containers.Registration.ENTITY_NAME.REQUIRED_MESSAGE": "سلام على اللىي ذكرنا ف",
+  "boilerplate.containers.Registration.ASSOCIATION_NAME.LABEL": "سلام على اللىي ذكرنا ف",
+  "boilerplate.containers.Registration.ASSOCIATION_NAME.REQUIRED_MESSAGE": "سلام على اللىي ذكرنا ف",
+  "boilerplate.containers.Registration.CONTACT_PERSON.LABEL": "سلام على اللىي ذكرنا ف",
+  "boilerplate.containers.Registration.CONTACT_PERSON.REQUIRED_MESSAGE": "سلام على اللىي ذكرنا ف",
+  "boilerplate.containers.Registration.MOBILE_NUMBER.LABEL": "سلام على اللىي ذكرنا ف",
+  "boilerplate.containers.Registration.MOBILE_NUMBER.REQUIRED_MESSAGE": "سلام على اللىي ذكرنا ف",
+
+
   "boilerplate.components.Footer.author.message": "Mit Liebe gemacht von {author}.",
   "boilerplate.components.Footer.license.message": "Dieses Projekt wird unter der MIT-Lizenz veröffentlicht.",
   "boilerplate.components.Header.features": "",

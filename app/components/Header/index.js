@@ -60,7 +60,7 @@ function Header({ hasAssociationForm, history, location: { pathname } }) {
         <Steps onChange={handleChange} current={STEP} progressDot={customDot}>
           {hasAssociationForm ? getAllSteps(isAdmin) : BASIC_STEPS}
         </Steps>
-        <h1 style={{ textAlign: 'center', marginTop: '1em' }}>
+        <h1 style={{ textAlign: 'center', marginTop: '0.5em' }}>
           {getMsg(messages[ID])}
         </h1>
       </div>

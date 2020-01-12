@@ -1,15 +1,20 @@
+import React, { memo, useMemo } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import { values } from 'ramda';
 import { Select } from 'antd';
-import { EMPTY_STRING } from 'common/constants';
+
+import { EMPTY_STRING, TEXT_DIRECTION } from 'common/constants';
 import { FormField } from 'common/form/components';
 import { TEXT_ALIGN } from 'common/form/constants';
 import { convertObjectToSelectOptions } from 'common/form/utils';
 import { caseInsensitiveSearch } from 'common/form/utils/filter-utils';
-import PropTypes from 'prop-types';
-import { values } from 'ramda';
-import React, { memo, useMemo } from 'react';
-import classNames from 'classnames';
+
+import { useTextDirection } from '../../../hooks';
 
 import './styles.css';
+
+const { RIGHT_TO_LEFT } = TEXT_DIRECTION;
 
 // eslint-disable-next-line max-lines-per-function
 const SelectField = ({
@@ -26,8 +31,10 @@ const SelectField = ({
   requiredMessage,
   selectStyle,
   showSearch,
-  isRTLDirection,
 }) => {
+  const textDirection = useTextDirection();
+  const isRTLDirection = textDirection === RIGHT_TO_LEFT;
+
   const selectOptions = useMemo(
     () => convertObjectToSelectOptions(options, isRTLDirection),
     [options, isRTLDirection],
@@ -63,7 +70,6 @@ const SelectField = ({
 SelectField.defaultProps = {
   disabled: false,
   filterOption: caseInsensitiveSearch,
-  isRTLDirection: false,
   notFoundContent: EMPTY_STRING,
   required: true,
   selectStyle: { width: '100%' },
@@ -75,7 +81,6 @@ SelectField.propTypes = {
   filterOption: PropTypes.func,
   id: PropTypes.string.isRequired,
   initialValue: PropTypes.string,
-  isRTLDirection: PropTypes.bool,
   label: PropTypes.any.isRequired,
   labelAlign: PropTypes.oneOf(values(TEXT_ALIGN)),
   notFoundContent: PropTypes.string,

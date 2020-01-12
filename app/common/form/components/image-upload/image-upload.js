@@ -3,7 +3,10 @@ import { Icon, Modal, Upload } from 'antd';
 import { head, pipe, prop, isEmpty, F } from 'ramda';
 import PropTypes from 'prop-types';
 
+import { TEXT_DIRECTION } from 'common/constants';
 import FormContext from '../../context/form-context';
+import TextDirectionContext from '../../../hooks/text-direction/context/text-direction-context';
+
 import './styles.css';
 
 function getBase64(file) {
@@ -62,29 +65,36 @@ class ImageUpload extends React.Component {
   };
 
   render() {
-    const { title, isRTL } = this.props;
+    const { title } = this.props;
     const { previewVisible, previewImage, fileList } = this.state;
     const hasOneFile = fileList.length === 1;
 
     return (
-      <div className={`clearfix ${isRTL && 'LTRImageUpload'}`}>
-        <Upload
-          beforeUpload={F}
-          listType="picture-card"
-          fileList={fileList}
-          onPreview={this.handlePreview}
-          onChange={this.handleChange}
-        >
-          {hasOneFile ? null : uploadButton(title)}
-        </Upload>
-        <Modal
-          visible={previewVisible}
-          footer={null}
-          onCancel={this.handleCancel}
-        >
-          <img alt="example" style={{ width: '100%' }} src={previewImage} />
-        </Modal>
-      </div>
+      <TextDirectionContext.Consumer>
+        {textDirection => (
+          <div
+            className={`clearfix ${textDirection ===
+              TEXT_DIRECTION.RIGHT_TO_LEFT && 'LTRImageUpload'}`}
+          >
+            <Upload
+              beforeUpload={F}
+              listType="picture-card"
+              fileList={fileList}
+              onPreview={this.handlePreview}
+              onChange={this.handleChange}
+            >
+              {hasOneFile ? null : uploadButton(title)}
+            </Upload>
+            <Modal
+              visible={previewVisible}
+              footer={null}
+              onCancel={this.handleCancel}
+            >
+              <img alt="example" style={{ width: '100%' }} src={previewImage} />
+            </Modal>
+          </div>
+        )}
+      </TextDirectionContext.Consumer>
     );
   }
 }
@@ -92,13 +102,11 @@ class ImageUpload extends React.Component {
 ImageUpload.propTypes = {
   onUpload: PropTypes.func,
   title: PropTypes.any,
-  isRTL: PropTypes.bool,
 };
 
 ImageUpload.defaultProps = {
   onUpload: () => undefined,
   title: 'Upload',
-  isRTL: false,
 };
 
 ImageUpload.contextType = FormContext;

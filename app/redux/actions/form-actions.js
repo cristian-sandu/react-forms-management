@@ -16,8 +16,11 @@ export const submitAssociationForm = data => ({
   },
 });
 
-export const succesSubmitAssociationForm = () => ({
+export const successSubmitAssociationForm = response => ({
   type: SUCCESS_SUBMIT_ASSOCIATION_FORM,
+  payload: {
+    response,
+  },
 });
 
 export const errorSubmitAssociationForm = () => ({
