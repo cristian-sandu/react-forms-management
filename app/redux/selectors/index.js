@@ -67,6 +67,11 @@ export const isUserAdminSelector = createSelector(
   ),
 );
 
+export const associationByNameSelector = createSelector(
+  prop(REDUCER_KEYS.ASSOCIATION_BY_NAME),
+  identity,
+);
+
 export const entityByNameSelector = createSelector(
   prop(REDUCER_KEYS.ENTITY_BY_NAME),
   identity,

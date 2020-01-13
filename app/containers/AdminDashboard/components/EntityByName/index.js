@@ -30,10 +30,10 @@ const EntityByName = () => {
           marginLeft: '20%',
         }}
       >
-        <span> Search Entity by name</span>
+        <span> Search Entity by Name</span>
         <Input
           style={{ marginTop: 10 }}
-          placeholder="Search Entity by name"
+          placeholder="Search Entity by Name"
           onChange={handleChange}
         />
       </div>

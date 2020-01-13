@@ -104,7 +104,6 @@ const EntityForm = ({ form, disabled, initialValues }) => {
           label={getMsg(messages.GENDER.LABEL)}
           required={false}
           disabled={disabled}
-          v
         />
         <InputNumberField
           id={FIELDS.NATIONAL_ID_NUMBER.ID}
@@ -243,8 +242,8 @@ const EntityForm = ({ form, disabled, initialValues }) => {
 EntityForm.propTypes = {
   initialValues: PropTypes.object,
   form: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired,
-  disabled: PropTypes.false,
+  history: PropTypes.object,
+  disabled: PropTypes.bool,
 };
 
 EntityForm.defaultProps = {

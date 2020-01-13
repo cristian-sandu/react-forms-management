@@ -9,6 +9,7 @@ import entitiesReducer from './containers/AdminDashboard/components/Entities/red
 import associationsReducer from './containers/AdminDashboard/components/Associations/reducer';
 import entityByNameReducer from './containers/AdminDashboard/components/EntityByName/reducers';
 import entityByIdReducer from './containers/AdminDashboard/components/EntityById/reducers';
+import associationByName from './containers/AdminDashboard/components/AssociationByName/reducers';
 
 const createReducer = (injectedReducers = {}) =>
   combineReducers({
@@ -19,6 +20,7 @@ const createReducer = (injectedReducers = {}) =>
     [REDUCER_KEYS.ENTITY_BY_NAME]: entityByNameReducer,
     [REDUCER_KEYS.ENTITY_BY_ID]: entityByIdReducer,
     [REDUCER_KEYS.ASSOCIATIONS]: associationsReducer,
+    [REDUCER_KEYS.ASSOCIATION_BY_NAME]: associationByName,
     ...injectedReducers,
   });
 
