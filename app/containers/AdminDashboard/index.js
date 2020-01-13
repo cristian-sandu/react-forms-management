@@ -8,6 +8,7 @@ import AssociationByName from './components/AssociationByName';
 import Associations from './components/Associations';
 import Entities from './components/Entities';
 import EntityById from './components/EntityById';
+import EntityByName from './components/EntityByName';
 
 const { TabPane } = Tabs;
 
@@ -25,22 +26,25 @@ const renderTabBar = (props, DefaultTabBar) => (
 const AdminDashboard = () => (
   <StickyContainer>
     <Tabs
-      style={{ height: '85vh' }}
+      style={{ height: '100%' }}
       defaultActiveKey="1"
       renderTabBar={renderTabBar}
     >
-      <TabPane
-        tab={TABS.REGISTRATION.NAME}
-        key={TABS.REGISTRATION.NAME}
-        style={{ height: 200 }}
-      >
+      <TabPane tab={TABS.REGISTRATION.NAME} key={TABS.REGISTRATION.NAME}>
         <Registration />
       </TabPane>
-      <TabPane tab={TABS.ENTITIES.NAME} key={TABS.ENTITIES.NAME}>
+      <TabPane
+        style={{ padding: 10, paddingBottom: 20 }}
+        tab={TABS.ENTITIES.NAME}
+        key={TABS.ENTITIES.NAME}
+      >
         <Entities />
       </TabPane>
       <TabPane tab={TABS.ENTITY_BY_ID.NAME} key={TABS.ENTITY_BY_ID.NAME}>
         <EntityById />
+      </TabPane>
+      <TabPane tab={TABS.ENTITY_BY_NAME.NAME} key={TABS.ENTITY_BY_NAME.NAME}>
+        <EntityByName />
       </TabPane>
       <TabPane tab={TABS.ASSOCIATIONS.NAME} key={TABS.ASSOCIATIONS.NAME}>
         <Associations />

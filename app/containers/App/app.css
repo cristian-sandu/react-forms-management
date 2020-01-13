@@ -11,3 +11,10 @@ body {
   direction: rtl !important;
   unicode-bidi: bidi-override !important;
 }
+
+thead.ant-table-thead th {
+  font-weight: bold !important;
+  background-color: #9ea5ab57;
+  text-align: center;
+  white-space: nowrap;
+}

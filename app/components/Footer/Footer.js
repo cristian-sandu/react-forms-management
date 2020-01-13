@@ -6,8 +6,8 @@ const footerStyle = {
   display: 'flex',
   justifyContent: 'space-between',
   paddingBottom: '3%',
-  width: '85%',
-  paddingLeft: '15%',
+  width: '60%',
+  marginLeft: '20%',
 };
 
 const Footer = ({ onSubmit, onClear, style }) => (

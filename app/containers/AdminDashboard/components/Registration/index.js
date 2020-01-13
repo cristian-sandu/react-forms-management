@@ -67,7 +67,7 @@ const Registration = ({ form }) => {
           requiredMessage={getMsg(messages.MOBILE_NUMBER.REQUIRED_MESSAGE)}
         />
         <Footer
-          style={{ paddingTop: '5em' }}
+          style={{ paddingTop: '1em' }}
           onSubmit={handleSubmit}
           onClear={handleClear}
         />
@@ -81,12 +81,3 @@ Registration.propTypes = {
 };
 
 export default Form.create()(Registration);
-
-/**
- Username
- Password
- Entity Name
- Association Name
- Contact Person
- Mobile Number
-* */

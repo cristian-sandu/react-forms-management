@@ -7,9 +7,9 @@
 }
 
 .form-field__end-align-label .ant-form-item-label {
-  text-align: end;
+  text-align: right !important;
 }
 
 .form-field__end-align-label .ant-form-explain {
-  text-align: end;
+  text-align: end !important;
 }
