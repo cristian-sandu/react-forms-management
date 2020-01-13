@@ -7,6 +7,8 @@ import history from 'utils/history';
 import languageProviderReducer from 'containers/LanguageProvider/reducer';
 import entitiesReducer from './containers/AdminDashboard/components/Entities/reducer';
 import associationsReducer from './containers/AdminDashboard/components/Associations/reducer';
+import entityByNameReducer from './containers/AdminDashboard/components/EntityByName/reducers';
+// import entityByIdReducer from './containers/AdminDashboard/components/EntityById/reducers';
 
 const createReducer = (injectedReducers = {}) =>
   combineReducers({
@@ -14,6 +16,8 @@ const createReducer = (injectedReducers = {}) =>
     router: connectRouter(history),
     [REDUCER_KEYS.AUTHENTICATION]: authReducer,
     [REDUCER_KEYS.ENTITIES]: entitiesReducer,
+    [REDUCER_KEYS.ENTITY_BY_NAME]: entityByNameReducer,
+    // [REDUCER_KEYS.ENTITY_BY_ID]: entityByIdReducer,
     [REDUCER_KEYS.ASSOCIATIONS]: associationsReducer,
     ...injectedReducers,
   });

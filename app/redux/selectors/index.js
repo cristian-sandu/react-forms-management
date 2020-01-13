@@ -2,6 +2,7 @@ import { createSelector } from 'reselect';
 import { always, equals, ifElse, prop, identity, pipe } from 'ramda';
 
 import { TEXT_DIRECTION } from 'common/constants';
+import { REDUCER_KEYS } from '../../common/constants/reducer-keys';
 
 const { LEFT_TO_RIGHT, RIGHT_TO_LEFT } = TEXT_DIRECTION;
 
@@ -64,4 +65,14 @@ export const isUserAdminSelector = createSelector(
     prop('isAdministrator'),
     Boolean,
   ),
+);
+
+export const entityByNameSelector = createSelector(
+  prop(REDUCER_KEYS.ENTITY_BY_NAME),
+  identity,
+);
+
+export const entityByIdSelector = createSelector(
+  prop(REDUCER_KEYS.ENTITY_BY_ID),
+  identity,
 );

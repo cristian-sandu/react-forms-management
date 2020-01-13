@@ -11,6 +11,7 @@ import EntityById from './components/EntityById';
 import EntityByName from './components/EntityByName';
 
 const { TabPane } = Tabs;
+const TabPaneStyle = { padding: 10, paddingBottom: 20 };
 
 const renderTabBar = (props, DefaultTabBar) => (
   <Sticky bottomOffset={80}>
@@ -34,24 +35,37 @@ const AdminDashboard = () => (
         <Registration />
       </TabPane>
       <TabPane
-        style={{ padding: 10, paddingBottom: 20 }}
         tab={TABS.ENTITIES.NAME}
         key={TABS.ENTITIES.NAME}
+        style={TabPaneStyle}
       >
         <Entities />
       </TabPane>
-      <TabPane tab={TABS.ENTITY_BY_ID.NAME} key={TABS.ENTITY_BY_ID.NAME}>
+      <TabPane
+        tab={TABS.ENTITY_BY_ID.NAME}
+        key={TABS.ENTITY_BY_ID.NAME}
+        style={TabPaneStyle}
+      >
         <EntityById />
       </TabPane>
-      <TabPane tab={TABS.ENTITY_BY_NAME.NAME} key={TABS.ENTITY_BY_NAME.NAME}>
+      <TabPane
+        tab={TABS.ENTITY_BY_NAME.NAME}
+        key={TABS.ENTITY_BY_NAME.NAME}
+        style={TabPaneStyle}
+      >
         <EntityByName />
       </TabPane>
-      <TabPane tab={TABS.ASSOCIATIONS.NAME} key={TABS.ASSOCIATIONS.NAME}>
+      <TabPane
+        tab={TABS.ASSOCIATIONS.NAME}
+        key={TABS.ASSOCIATIONS.NAME}
+        style={TabPaneStyle}
+      >
         <Associations />
       </TabPane>
       <TabPane
         tab={TABS.ASSOCIATION_BY_NAME.NAME}
         key={TABS.ASSOCIATION_BY_NAME.NAME}
+        style={TabPaneStyle}
       >
         <AssociationByName />
       </TabPane>
