@@ -65,7 +65,7 @@ class ImageUpload extends React.Component {
   };
 
   render() {
-    const { title } = this.props;
+    const { title, disabled } = this.props;
     const { previewVisible, previewImage, fileList } = this.state;
     const hasOneFile = fileList.length === 1;
 
@@ -81,6 +81,7 @@ class ImageUpload extends React.Component {
               listType="picture-card"
               fileList={fileList}
               onPreview={this.handlePreview}
+              disabled={disabled}
               onChange={this.handleChange}
             >
               {hasOneFile ? null : uploadButton(title)}
