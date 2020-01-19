@@ -6,7 +6,6 @@ import { Select } from 'antd';
 
 import { objectToSelectOption } from 'common/form/utils';
 
-import Wrapper from './Wrapper';
 import { DEFAULT_LOCALE } from '../../i18n';
 import { changeLocale } from '../LanguageProvider/actions';
 import { makeSelectLocale } from '../LanguageProvider/selectors';
@@ -24,7 +23,7 @@ function LocaleToggle({ locale, onLocaleToggle }) {
   }
 
   return (
-    <Wrapper>
+    <div style={{ padding: 5, display: 'flex', justifyContent: 'flex-end' }}>
       <Select
         defaultValue={DEFAULT_LOCALE}
         style={{ width: 150 }}
@@ -34,7 +33,7 @@ function LocaleToggle({ locale, onLocaleToggle }) {
       >
         {LANGUAGE_SELECT_OPTIONS}
       </Select>
-    </Wrapper>
+    </div>
   );
 }
 
