@@ -9,8 +9,12 @@ import {
 } from '../actions';
 import mockAssociation from '../mocks';
 
-const getRequest = payload =>
-  axios.get(API_ENDPOINTS.GET.ASSOCIATION_BY_NAME, payload);
+const getRequest = associationName => {
+  const params = {
+    associationName,
+  };
+  return axios.get(API_ENDPOINTS.GET.ASSOCIATION_BY_NAME, params);
+};
 
 function* fetchAssociation({ payload: { value } }) {
   try {
@@ -20,7 +24,7 @@ function* fetchAssociation({ payload: { value } }) {
     }
   } catch (e) {
     yield put(fetchAssociationByNameError());
-    yield put(fetchAssociationByNameSuccess(mockAssociation)); // @TODO this is to mock successful response
+    yield put(fetchAssociationByNameSuccess(mockAssociation)); // @TODO this is to mock successful response, should be removed later
   }
 }
 

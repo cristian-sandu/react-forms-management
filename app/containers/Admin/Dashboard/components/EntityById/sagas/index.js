@@ -6,8 +6,12 @@ import { FETCH_ENTITY_BY_ID } from '../actions/types';
 import { fetchEntityByIdError, fetchEntityByIdSuccess } from '../actions';
 import mockEntity from '../mocks';
 
-const getRequest = payload =>
-  axios.get(API_ENDPOINTS.GET.ENTITY_BY_ID, payload);
+const getRequest = entityId => {
+  const params = {
+    entityId,
+  };
+  return axios.get(API_ENDPOINTS.GET.ENTITY_BY_ID, params);
+};
 
 function* fetchEntity({ payload: { value } }) {
   try {
@@ -17,7 +21,7 @@ function* fetchEntity({ payload: { value } }) {
     }
   } catch (e) {
     yield put(fetchEntityByIdError());
-    yield put(fetchEntityByIdSuccess(mockEntity)); // @TODO this is to mock successful response
+    yield put(fetchEntityByIdSuccess(mockEntity)); // @TODO this is to mock successful response, should be removed later
   }
 }
 
