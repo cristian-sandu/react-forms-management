@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { entityByNameSelector } from 'redux/selectors';
 import { useInjectSaga } from 'utils/injectSaga';
 
-import EntityForm from '../../../HomePage/components/EntityForm/EntityForm';
+import EntityForm from '../../../../HomePage/components/EntityForm/EntityForm';
 import { fetchEntityByName } from './actions';
 import saga from './sagas';
 

@@ -1,23 +1,23 @@
 import { Divider, Input } from 'antd';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { entityByIdSelector } from 'redux/selectors';
+import { associationByNameSelector } from 'redux/selectors';
 import { useInjectSaga } from 'utils/injectSaga';
 
-import EntityForm from '../../../HomePage/components/EntityForm/EntityForm';
-import { fetchEntityById } from './actions';
+import AssociationForm from '../../../../HomePage/components/AssociationForm/AssociationForm';
+import { fetchAssociationByName } from './actions';
 import saga from './sagas';
 
-const SAGA_KEY = 'EntityById';
+const SAGA_KEY = 'AssociationByName';
 
-const EntityById = () => {
-  const entity = useSelector(entityByIdSelector);
+const AssociationByName = () => {
+  const association = useSelector(associationByNameSelector);
   const dispatch = useDispatch();
 
   useInjectSaga({ key: SAGA_KEY, saga });
 
   const handleChange = ({ target: { value } }) => {
-    dispatch(fetchEntityById(value));
+    dispatch(fetchAssociationByName(value));
   };
 
   return (
@@ -30,17 +30,17 @@ const EntityById = () => {
           marginLeft: '20%',
         }}
       >
-        <span> Search Entity by ID</span>
+        <span> Search Association by Name</span>
         <Input
           style={{ marginTop: 10 }}
-          placeholder="Search Entity by ID"
+          placeholder="Search Association by Name"
           onChange={handleChange}
         />
       </div>
       <Divider style={{ color: 'black' }} />
-      <EntityForm disabled initialValues={entity} />
+      <AssociationForm disabled initialValues={association} />
     </div>
   );
 };
 
-export default EntityById;
+export default AssociationByName;

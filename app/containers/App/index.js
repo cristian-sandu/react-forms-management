@@ -11,8 +11,8 @@ import Header from 'components/Header';
 import { textDirectionSelector } from 'redux/selectors';
 
 import { AssociationForm, EntityForm } from '../HomePage/components';
-import AdminRoute from '../AdminRoute';
-import AdminDashboard from '../AdminDashboard';
+import AdminRoute from '../Admin/Route';
+import AdminDashboard from '../Admin/Dashboard';
 import GlobalStyle from '../../global-styles';
 
 import 'antd/dist/antd.css';
@@ -39,8 +39,8 @@ const AppWrapper = styled.div`
 function App() {
   const textDirection = useSelector(textDirectionSelector);
   return (
-    <TextDirectionProvider value={textDirection}>
-      <AppWrapper>
+    <AppWrapper>
+      <TextDirectionProvider value={textDirection}>
         <Header />
         <Switch>
           <Route exact path={HOME} component={HomePage} />
@@ -50,8 +50,8 @@ function App() {
           <Route path={NOT_FOUND} component={NotFoundPage} />
         </Switch>
         <GlobalStyle />
-      </AppWrapper>
-    </TextDirectionProvider>
+      </TextDirectionProvider>
+    </AppWrapper>
   );
 }
 

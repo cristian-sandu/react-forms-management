@@ -1,4 +1,4 @@
-import { ENTITY_FORM_FIELDS_CONFIG } from '../../../../HomePage/components/EntityForm/constants';
+import { ENTITY_FORM_FIELDS_CONFIG } from '../../../../../HomePage/components/EntityForm/constants';
 
 export default [
   {

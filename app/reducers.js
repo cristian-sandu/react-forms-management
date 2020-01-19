@@ -5,11 +5,11 @@ import authReducer from 'redux/reducers/auth-reducer';
 import { REDUCER_KEYS } from 'common/constants/reducer-keys';
 import history from 'utils/history';
 import languageProviderReducer from 'containers/LanguageProvider/reducer';
-import entitiesReducer from './containers/AdminDashboard/components/Entities/reducer';
-import associationsReducer from './containers/AdminDashboard/components/Associations/reducer';
-import entityByNameReducer from './containers/AdminDashboard/components/EntityByName/reducers';
-import entityByIdReducer from './containers/AdminDashboard/components/EntityById/reducers';
-import associationByName from './containers/AdminDashboard/components/AssociationByName/reducers';
+import entitiesReducer from './containers/Admin/Dashboard/components/Entities/reducer';
+import associationsReducer from './containers/Admin/Dashboard/components/Associations/reducer';
+import entityByNameReducer from './containers/Admin/Dashboard/components/EntityByName/reducers';
+import entityByIdReducer from './containers/Admin/Dashboard/components/EntityById/reducers';
+import associationByName from './containers/Admin/Dashboard/components/AssociationByName/reducers';
 
 const createReducer = (injectedReducers = {}) =>
   combineReducers({
