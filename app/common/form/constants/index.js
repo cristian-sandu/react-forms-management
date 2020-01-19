@@ -1,6 +1,3 @@
-export const DATE_DEFAULT_FORMAT = 'DD/MM/YYYY';
-export const DATE_FNS_DEFAULT_FORMAT = 'dd/MM/yyyy';
-
 export const FORM_LAYOUT = {
   HORIZONTAL: 'horizontal',
   VERTICAL: 'vertical',

@@ -3,10 +3,6 @@ export const AUTHENTICATION = {
   LOGOUT: 'LOGOUT',
 };
 
-export const APP = {
-  INIT: '@@INIT',
-};
-
 export const FORMS = {
   SUBMIT_ENTITY_FORM: 'SUBMIT_ENTITY_FORM',
   SUCCESS_SUBMIT_ENTITY_FORM: 'SUCCESS_SUBMIT_ENTITY_FORM',

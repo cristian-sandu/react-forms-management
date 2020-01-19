@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 import { Select } from 'antd';
 
-import { convertObjectToSelectOptions } from 'common/form/utils';
+import { objectToSelectOption } from 'common/form/utils';
 
 import Wrapper from './Wrapper';
 import { DEFAULT_LOCALE } from '../../i18n';
@@ -16,9 +16,7 @@ const LANGUAGES_DATASOURCE = {
   ar: 'Arabic',
 };
 
-const LANGUAGE_SELECT_OPTIONS = convertObjectToSelectOptions(
-  LANGUAGES_DATASOURCE,
-);
+const LANGUAGE_SELECT_OPTIONS = objectToSelectOption(LANGUAGES_DATASOURCE);
 
 function LocaleToggle({ locale, onLocaleToggle }) {
   function handleChange(language) {

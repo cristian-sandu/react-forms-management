@@ -34,7 +34,7 @@ export const submitEntityForm = data => ({
   },
 });
 
-export const succesSubmitEntityForm = () => ({
+export const successSubmitEntityForm = () => ({
   type: SUCCESS_SUBMIT_ENTITY_FORM,
 });
 

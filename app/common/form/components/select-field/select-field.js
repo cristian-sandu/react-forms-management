@@ -7,8 +7,8 @@ import { Select } from 'antd';
 import { EMPTY_STRING, TEXT_DIRECTION } from 'common/constants';
 import { FormField } from 'common/form/components';
 import { TEXT_ALIGN } from 'common/form/constants';
-import { convertObjectToSelectOptions } from 'common/form/utils';
-import { caseInsensitiveSearch } from 'common/form/utils/filter-utils';
+import { objectToSelectOption } from 'common/form/utils';
+import { insensitiveFilterOption } from 'common/form/utils/filter-utils';
 
 import { useTextDirection } from '../../../hooks';
 
@@ -36,7 +36,7 @@ const SelectField = ({
   const isRTLDirection = textDirection === RIGHT_TO_LEFT;
 
   const selectOptions = useMemo(
-    () => convertObjectToSelectOptions(options, isRTLDirection),
+    () => objectToSelectOption(options, isRTLDirection),
     [options, isRTLDirection],
   );
 
@@ -69,7 +69,7 @@ const SelectField = ({
 
 SelectField.defaultProps = {
   disabled: false,
-  filterOption: caseInsensitiveSearch,
+  filterOption: insensitiveFilterOption,
   notFoundContent: EMPTY_STRING,
   required: true,
   selectStyle: { width: '100%' },

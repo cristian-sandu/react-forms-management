@@ -5,22 +5,7 @@ import classNames from 'classnames';
 
 const { Option: SelectOption } = Select;
 
-export const convertArrayToSelectOptions = map(
-  ({ text, value, isRTLDirection }) => (
-    <SelectOption
-      className={classNames({ 'select-option__right-to-left': isRTLDirection })}
-      key={value}
-      value={value}
-    >
-      {text}
-    </SelectOption>
-  ),
-);
-
-export const convertObjectToDataSource = (
-  objectSource,
-  isRTLDirection = false,
-) =>
+export const objectToDataSource = (objectSource, isRTLDirection = false) =>
   pipe(
     keys,
     map(key => ({
@@ -30,7 +15,17 @@ export const convertObjectToDataSource = (
     })),
   )(objectSource);
 
-export const convertObjectToSelectOptions = pipe(
-  convertObjectToDataSource,
-  convertArrayToSelectOptions,
+export const arrayToSelectOptions = map(({ text, value, isRTLDirection }) => (
+  <SelectOption
+    className={classNames({ 'select-option__right-to-left': isRTLDirection })}
+    key={value}
+    value={value}
+  >
+    {text}
+  </SelectOption>
+));
+
+export const objectToSelectOption = pipe(
+  objectToDataSource,
+  arrayToSelectOptions,
 );

@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
 
-import useFormContext from '../consumer/form-consumer';
+import useForm from '../consumer/form-consumer';
 
 const useFormSelector = (selector, customProps) => {
-  const form = useFormContext();
+  const form = useForm();
   return useSelector(state => selector(state, { form, ...customProps }));
 };
 

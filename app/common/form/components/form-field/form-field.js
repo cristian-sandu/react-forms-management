@@ -10,7 +10,7 @@ import {
   FORM_LAYOUT,
   TEXT_ALIGN,
 } from 'common/form/constants';
-import useFormContext from 'common/form/consumer/form-consumer';
+import useForm from 'common/form/consumer/form-consumer';
 import { useTextDirection } from 'common/hooks';
 
 import './style.css';
@@ -34,7 +34,7 @@ const FormField = ({
   rules,
   style,
 }) => {
-  const { getFieldDecorator } = useFormContext();
+  const { getFieldDecorator } = useForm();
   const textDirection = useTextDirection();
   const isRightToLeftDirection = textDirection === RIGHT_TO_LEFT;
 
