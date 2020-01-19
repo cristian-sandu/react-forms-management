@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 import { API_ENDPOINTS } from 'common/constants';
 
 import { ASSOCIATIONS } from './actions/types';
@@ -25,7 +25,7 @@ function* fetchAssociations() {
 }
 
 function* associationsSaga() {
-  yield takeEvery(ASSOCIATIONS.FETCH, fetchAssociations);
+  yield takeLatest(ASSOCIATIONS.FETCH, fetchAssociations);
 }
 
 export default associationsSaga;

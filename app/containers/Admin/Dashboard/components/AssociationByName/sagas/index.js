@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { API_ENDPOINTS } from 'common/constants';
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 
 import { FETCH_ASSOCIATION_BY_NAME } from '../actions/types';
 import {
@@ -31,7 +31,7 @@ function* fetchAssociation({ payload: { value } }) {
 }
 
 function* fetchAssociationByNameSaga() {
-  yield takeEvery(FETCH_ASSOCIATION_BY_NAME.FETCH, fetchAssociation);
+  yield takeLatest(FETCH_ASSOCIATION_BY_NAME.FETCH, fetchAssociation);
 }
 
 export default fetchAssociationByNameSaga;

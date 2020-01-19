@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 import { API_ENDPOINTS } from 'common/constants';
 
 import { ENTITIES } from './actions/types';
@@ -25,7 +25,7 @@ function* fetchEntities() {
 }
 
 function* entitiesSaga() {
-  yield takeEvery(ENTITIES.FETCH, fetchEntities);
+  yield takeLatest(ENTITIES.FETCH, fetchEntities);
 }
 
 export default entitiesSaga;

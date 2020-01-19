@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { API_ENDPOINTS } from 'common/constants';
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 
 import { FETCH_ENTITY_BY_ID } from '../actions/types';
 import { fetchEntityByIdError, fetchEntityByIdSuccess } from '../actions';
@@ -28,7 +28,7 @@ function* fetchEntity({ payload: { value } }) {
 }
 
 function* fetchEntityByIdSaga() {
-  yield takeEvery(FETCH_ENTITY_BY_ID.FETCH, fetchEntity);
+  yield takeLatest(FETCH_ENTITY_BY_ID.FETCH, fetchEntity);
 }
 
 export default fetchEntityByIdSaga;

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { API_ENDPOINTS } from 'common/constants';
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { call, put, takeLatest } from 'redux-saga/effects';
 
 import { FETCH_ENTITY_BY_NAME } from '../actions/types';
 import { fetchEntityByNameError, fetchEntityByNameSuccess } from '../actions';
@@ -28,7 +28,7 @@ function* fetchEntity({ payload: { value } }) {
 }
 
 function* fetchEntityByNameSaga() {
-  yield takeEvery(FETCH_ENTITY_BY_NAME.FETCH, fetchEntity);
+  yield takeLatest(FETCH_ENTITY_BY_NAME.FETCH, fetchEntity);
 }
 
 export default fetchEntityByNameSaga;

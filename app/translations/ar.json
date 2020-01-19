@@ -11,7 +11,16 @@
 
   "containers.LocaleToggle.de": "",
   "containers.LocaleToggle.en": "",
-  "containers.NotFoundPage.header": "Seite nicht gefunden.",
+  "containers.NotFoundPage.header": "الصفحة غير موجودة",
+  "containers.Admin.Dashboard.REGISTRATION": "التسجيل",
+  "containers.Admin.Dashboard.ENTITY_BY_NAME": "الكيان بالاسم",
+  "containers.Admin.Dashboard.ENTITY_BY_ID": "الكيان بواسطة معرف",
+  "containers.Admin.Dashboard.ASSOCIATION_BY_NAME": "جمعية بالاسم",
+  "containers.Admin.Dashboard.ENTITIES": "جهات",
+  "containers.Admin.Dashboard.ASSOCIATIONS": "ذات الصلة",
+  "containers.Admin.Dashboard.components.EntityByName.ENTITY_BY_NAME": "بحث الكيان بالاسم",
+  "containers.Admin.Dashboard.components.EntityById.ENTITY_BY_ID": "بحث الكيان برقم الهوية",
+  "containers.Admin.Dashboard.components.AssociationByName.ASSOCIATION_BY_NAME": "بحث جمعية طريق الاسم",
 
   "containers.Forms.EntityForm.ENTITY_NAME.LABEL": "سلام على اللىي ذكرنا ف",
   "containers.Forms.EntityForm.ENTITY_NAME.REQUIRED_MESSAGE": "سلام على اللىي ذكرنا ف",

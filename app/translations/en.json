@@ -12,6 +12,16 @@
   "containers.LocaleToggle.de": "de",
   "containers.LocaleToggle.en": "en",
   "containers.NotFoundPage.header": "Page not found.",
+  "containers.Admin.Dashboard.REGISTRATION": "Registration",
+  "containers.Admin.Dashboard.ENTITY_BY_NAME": "Entity By Name",
+  "containers.Admin.Dashboard.ENTITY_BY_ID": "Entity By ID",
+  "containers.Admin.Dashboard.ASSOCIATION_BY_NAME": "Association By Name",
+  "containers.Admin.Dashboard.ENTITIES": "Entities",
+  "containers.Admin.Dashboard.ASSOCIATIONS": "Associations",
+  "containers.Admin.Dashboard.components.EntityByName.ENTITY_BY_NAME": "Search Entity by Name",
+  "containers.Admin.Dashboard.components.EntityById.ENTITY_BY_ID": "Search Entity by Id",
+  "containers.Admin.Dashboard.components.AssociationByName.ASSOCIATION_BY_NAME": "Search Association by Name",
+
 
   "containers.Forms.EntityForm.ENTITY_NAME.LABEL": "Entity Name",
   "containers.Forms.EntityForm.ENTITY_NAME.REQUIRED_MESSAGE": "Entity Name is required",

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { put, takeEvery, call } from 'redux-saga/effects';
+import { put, takeLatest, call } from 'redux-saga/effects';
 
 import { REGISTRATION } from 'redux/actions/action-types';
 import {
@@ -23,7 +23,7 @@ function* submitRegistration({ payload: { data } }) {
 }
 
 function* registrationSaga() {
-  yield takeEvery(REGISTRATION.SUBMIT, submitRegistration);
+  yield takeLatest(REGISTRATION.SUBMIT, submitRegistration);
 }
 
 export default registrationSaga;
