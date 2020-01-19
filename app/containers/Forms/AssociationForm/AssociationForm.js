@@ -17,12 +17,12 @@ import { isArabicLanguageSelector } from 'redux/selectors';
 import { submitAssociationForm } from 'redux/actions/form-actions';
 import { getFormattedMessage as getMsg } from 'utils/formatted-message';
 import { useInjectSaga } from 'utils/injectSaga';
+import * as SelectOptionsEn from 'utils/select-options/select-options-en';
+import * as SelectOptionsAr from 'utils/select-options/select-options-ar';
 
 import { ASSOCIATION_FORM_FIELDS_CONFIG as FIELDS } from './constants';
 import messages from './messages';
 import saga from './sagas/association-form-saga';
-import * as SelectOptionsEn from '../../../utils/select-options/select-options-en';
-import * as SelectOptionsAr from '../../../utils/select-options/select-options-ar';
 
 const formStyle = { height: '100%' };
 const SAGA_KEY = 'AssociationForm';

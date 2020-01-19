@@ -1,7 +1,7 @@
 import { defineMessages } from 'react-intl';
 import { ENTITY_FORM_FIELDS_CONFIG } from './constants';
 
-export const scope = 'boilerplate.containers.HomePage.EntityForm';
+export const scope = 'containers.Forms.EntityForm';
 
 export default defineMessages({
   ENTITY_NAME: {

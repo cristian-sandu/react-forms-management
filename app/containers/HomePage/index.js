@@ -6,15 +6,15 @@ import { compose } from 'redux';
 import { useSelector } from 'react-redux';
 import classNames from 'classnames';
 
+import messages from 'components/Header/messages';
 import { APP_ROUTES, TEXT_DIRECTION } from 'common/constants';
 import { useTextDirection } from 'common/hooks';
 import { isUserAdminSelector } from 'redux/selectors';
+import { getFormattedMessage as getMsg } from 'utils/formatted-message';
 
 import AssociationImg from './images/association.png';
 import EntityImg from './images/entity.jpg';
 import AdminDashboard from './images/admin_dashboard.png';
-import { getFormattedMessage as getMsg } from '../../utils/formatted-message';
-import messages from '../../components/Header/messages';
 
 const { Meta } = Card;
 

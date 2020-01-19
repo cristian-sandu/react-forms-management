@@ -14,19 +14,19 @@ import {
 } from 'common/form/components';
 import { EMPTY_OBJECT } from 'common/constants';
 import FormProvider from 'common/form/provider/form-provider';
+import Footer from 'components/Footer/Footer';
 import {
   isArabicLanguageSelector,
   userAssociationSelector,
 } from 'redux/selectors';
 import { submitEntityForm } from 'redux/actions/form-actions';
 import { getFormattedMessage as getMsg } from 'utils/formatted-message';
-import Footer from 'components/Footer/Footer';
+import * as SelectOptionsEn from 'utils/select-options/select-options-en';
+import * as SelectOptionsAr from 'utils/select-options/select-options-ar';
+import { useInjectSaga } from 'utils/injectSaga';
 
 import { ENTITY_FORM_FIELDS_CONFIG as FIELDS } from './constants';
 import messages from './messages';
-import * as SelectOptionsEn from '../../../utils/select-options/select-options-en';
-import * as SelectOptionsAr from '../../../utils/select-options/select-options-ar';
-import { useInjectSaga } from '../../../utils/injectSaga';
 import saga from './sagas/entity-form-saga';
 
 const formStyle = { height: '100%' };

@@ -9,8 +9,7 @@ import { FormField } from 'common/form/components';
 import { TEXT_ALIGN } from 'common/form/constants';
 import { objectToSelectOption } from 'common/form/utils';
 import { insensitiveFilterOption } from 'common/form/utils/filter-utils';
-
-import { useTextDirection } from '../../../hooks';
+import { useTextDirection } from 'common/hooks';
 
 import './styles.css';
 

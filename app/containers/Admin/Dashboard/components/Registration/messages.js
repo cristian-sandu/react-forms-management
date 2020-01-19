@@ -1,7 +1,7 @@
 import { defineMessages } from 'react-intl';
 import { REGISTRATION_FORM_FIELDS_CONFIG as FIELDS } from './utils';
 
-export const scope = 'boilerplate.containers.Registration';
+export const scope = 'containers.Registration';
 
 export default defineMessages({
   USERNAME: {

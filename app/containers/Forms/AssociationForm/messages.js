@@ -1,7 +1,7 @@
 import { defineMessages } from 'react-intl';
 import { ASSOCIATION_FORM_FIELDS_CONFIG as FIELDS } from './constants';
 
-export const scope = 'boilerplate.containers.HomePage.AssociationForm';
+export const scope = 'containers.Forms.AssociationForm';
 
 export default defineMessages({
   ASSOCIATION_NAME: {

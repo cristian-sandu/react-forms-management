@@ -6,10 +6,9 @@ import classNames from 'classnames';
 
 import { FormField } from 'common/form/components';
 import { TEXT_ALIGN } from 'common/form/constants';
+import { useTextDirection } from 'common/hooks';
+import { TEXT_DIRECTION } from 'common/constants';
 import { STRING_70_CHARS_VALIDATION_RULES } from 'utils/validators/validators';
-
-import { useTextDirection } from '../../../hooks';
-import { TEXT_DIRECTION } from '../../../constants';
 
 const { RIGHT_TO_LEFT } = TEXT_DIRECTION;
 
