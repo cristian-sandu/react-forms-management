@@ -1,9 +1,11 @@
 ## Changelog
+
 ```changelog
  - Description of Change
 ```
-  
+
 ## Change Type
+
 - [ ] `Added`: new feature - non-breaking change which adds functionality.
 - [ ] `Bug fix`: non-breaking change which fixes an issue.
 - [ ] `Changed`: for changes in existing functionality.
@@ -14,13 +16,15 @@
 - [ ] `Security`: in case of vulnerabilities.
 
 ## Required Checks
- - [ ] Documentation
- - [ ] Unit tests
- - [ ] Tested on Chrome
- - [ ] Tested on Firefox
- - [ ] Tested on IE11
- - [ ] npm run eslint
- - [ ] npm run prettier
- 
+
+- [ ] Documentation
+- [ ] Unit tests
+- [ ] Tested on Chrome
+- [ ] Tested on Firefox
+- [ ] Tested on IE11
+- [ ] npm run eslint
+- [ ] npm run prettier
+
 ## Screenshots
-________________
+
+---
