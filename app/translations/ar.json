@@ -6,6 +6,8 @@
   "STRING_70_CHARS_VALIDATOR": "يجب أن يصل طول القيمة إلى 70 حرفًا",
   "NUMBER_20_CHARS_VALIDATOR": "يجب أن يصل طول القيمة إلى 20 رقمًا",
   "ADMIN_DASHBOARD": "لوحة تحكم المشرف",
+  "button.Clear": "واضح",
+  "button.Submit": "إرسال",
 
   "containers.LocaleToggle.de": "",
   "containers.LocaleToggle.en": "",

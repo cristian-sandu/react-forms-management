@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button } from 'antd';
+import { getFormattedMessage } from 'utils/formatted-message';
+
+import messages from './messages';
 
 const footerStyle = {
   display: 'flex',
@@ -13,10 +16,10 @@ const footerStyle = {
 const Footer = ({ onSubmit, onClear, style }) => (
   <footer style={{ ...footerStyle, ...style }}>
     <Button onClick={onClear} type="secondary">
-      Clear
+      {getFormattedMessage(messages.CLEAR)}
     </Button>
     <Button onClick={onSubmit} type="primary">
-      Submit
+      {getFormattedMessage(messages.SUBMIT)}
     </Button>
   </footer>
 );

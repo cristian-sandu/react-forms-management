@@ -6,6 +6,8 @@
   "STRING_70_CHARS_VALIDATOR": "The value length must be up to 70 chars",
   "NUMBER_20_CHARS_VALIDATOR": "The value length must be up to 20 numbers",
   "ADMIN_DASHBOARD": "Admin Dashboard",
+  "button.Clear": "Clear",
+  "button.Submit": "Submit",
 
   "containers.LocaleToggle.de": "de",
   "containers.LocaleToggle.en": "en",
