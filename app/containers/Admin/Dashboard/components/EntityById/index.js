@@ -1,5 +1,6 @@
-import { Divider, Input } from 'antd';
 import React from 'react';
+import { Divider, Input } from 'antd';
+import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 
 import EntityForm from 'containers/Forms/EntityForm/EntityForm';
@@ -12,7 +13,6 @@ import { getFormattedMessage } from 'utils/formatted-message';
 import { fetchEntityById } from './actions';
 import saga from './sagas';
 import messages from './messages';
-import classNames from 'classnames';
 
 const SAGA_KEY = 'EntityById';
 const { RIGHT_TO_LEFT, LEFT_TO_RIGHT } = TEXT_DIRECTION;

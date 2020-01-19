@@ -22,7 +22,6 @@
   "containers.Admin.Dashboard.components.EntityById.ENTITY_BY_ID": "Search Entity by Id",
   "containers.Admin.Dashboard.components.AssociationByName.ASSOCIATION_BY_NAME": "Search Association by Name",
 
-
   "containers.Forms.EntityForm.ENTITY_NAME.LABEL": "Entity Name",
   "containers.Forms.EntityForm.ENTITY_NAME.REQUIRED_MESSAGE": "Entity Name is required",
   "containers.Forms.EntityForm.TRADE_MARK.LABEL": "Trade Mark",
