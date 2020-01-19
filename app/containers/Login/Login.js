@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Button, Form, Icon } from 'antd';
 
 import FormProvider from 'common/form/provider/form-provider';
@@ -48,6 +49,11 @@ const Login = ({ form, onSubmit }) => {
       </TextDirectionProvider>
     </Form>
   );
+};
+
+Login.propTypes = {
+  form: PropTypes.object,
+  onSubmit: PropTypes.func,
 };
 
 const withLogin = Form.create();

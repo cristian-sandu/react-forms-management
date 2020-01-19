@@ -7,7 +7,6 @@
   "NUMBER_20_CHARS_VALIDATOR": "The value length must be up to 20 numbers",
   "ADMIN_DASHBOARD": "Admin Dashboard",
 
-
   "containers.LocaleToggle.de": "de",
   "containers.LocaleToggle.en": "en",
   "containers.NotFoundPage.header": "Page not found.",
@@ -54,7 +53,6 @@
   "containers.Forms.EntityForm.ISIC_CLASSIFICATION_NUMBER.LABEL": "ISIC Classification Number",
   "containers.Forms.EntityForm.ISIC_CLASSIFICATION_NUMBER.REQUIRED_MESSAGE": "ISIC Classification Number is required",
 
-
   "containers.Forms.AssociationForm.ASSOCIATION_NAME.LABEL": "Association Name",
   "containers.Forms.AssociationForm.ASSOCIATION_NAME.REQUIRED_MESSAGE": "Association Name is required",
   "containers.Forms.AssociationForm.PERSON_IN_CHARGE.LABEL": "Person in charge",
@@ -73,7 +71,6 @@
   "containers.Forms.AssociationForm.WEBSITE.LABEL": "Website",
   "containers.Forms.AssociationForm.WEBSITE.REQUIRED_MESSAGE": "Website is required",
   "containers.Forms.AssociationForm.WEBSITE.WEBSITE_INVALID_MESSAGE": "Website is not valid",
-
 
   "containers.Registration.USERNAME.LABEL": "Username",
   "containers.Registration.USERNAME.REQUIRED_MESSAGE": "Username is required",

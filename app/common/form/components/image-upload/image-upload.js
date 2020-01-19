@@ -42,6 +42,7 @@ class ImageUpload extends React.Component {
 
   handlePreview = async file => {
     if (!file.url && !file.preview) {
+      // eslint-disable-next-line no-param-reassign
       file.preview = await getBase64(file.originFileObj);
     }
 
@@ -101,6 +102,7 @@ class ImageUpload extends React.Component {
 }
 
 ImageUpload.propTypes = {
+  disabled: PropTypes.bool,
   onUpload: PropTypes.func,
   title: PropTypes.any,
 };

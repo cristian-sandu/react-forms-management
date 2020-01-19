@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { Route, withRouter } from 'react-router-dom';
 import { useLocalStorage } from 'use-hooks';
 
@@ -35,5 +36,10 @@ function AuthenticationProvider({ children, history }) {
     />
   );
 }
+
+AuthenticationProvider.propTypes = {
+  children: PropTypes.element,
+  history: PropTypes.object,
+};
 
 export default withRouter(AuthenticationProvider);

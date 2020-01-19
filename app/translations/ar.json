@@ -7,11 +7,9 @@
   "NUMBER_20_CHARS_VALIDATOR": "يجب أن يصل طول القيمة إلى 20 رقمًا",
   "ADMIN_DASHBOARD": "لوحة تحكم المشرف",
 
-
   "containers.LocaleToggle.de": "",
   "containers.LocaleToggle.en": "",
   "containers.NotFoundPage.header": "Seite nicht gefunden.",
-
 
   "containers.Forms.EntityForm.ENTITY_NAME.LABEL": "سلام على اللىي ذكرنا ف",
   "containers.Forms.EntityForm.ENTITY_NAME.REQUIRED_MESSAGE": "سلام على اللىي ذكرنا ف",
@@ -73,7 +71,6 @@
   "containers.Forms.AssociationForm.WEBSITE.LABEL": "سلام على اللىي ذكرنا ف",
   "containers.Forms.AssociationForm.WEBSITE.REQUIRED_MESSAGE": "سلام على اللىي ذكرنا ف",
   "containers.Forms.AssociationForm.WEBSITE.WEBSITE_INVALID_MESSAGE": "سلام على اللىي ذكرنا ف",
-
 
   "containers.Registration.USERNAME.LABEL": "سلام على اللىي ذكرنا ف",
   "containers.Registration.USERNAME.REQUIRED_MESSAGE": "سلام على اللىي ذكرنا ف",
