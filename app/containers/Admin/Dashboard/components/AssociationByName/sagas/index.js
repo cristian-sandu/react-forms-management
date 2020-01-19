@@ -10,10 +10,12 @@ import {
 import mockAssociation from '../mocks';
 
 const getRequest = associationName => {
-  const params = {
-    associationName,
+  const config = {
+    params: {
+      associationName,
+    },
   };
-  return axios.get(API_ENDPOINTS.GET.ASSOCIATION_BY_NAME, params);
+  return axios.get(API_ENDPOINTS.GET.ASSOCIATION_BY_NAME, config);
 };
 
 function* fetchAssociation({ payload: { value } }) {

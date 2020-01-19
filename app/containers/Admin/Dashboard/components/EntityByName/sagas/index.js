@@ -7,10 +7,12 @@ import { fetchEntityByNameError, fetchEntityByNameSuccess } from '../actions';
 import mockEntity from '../mocks';
 
 const getRequest = entityName => {
-  const params = {
-    entityName,
+  const config = {
+    params: {
+      entityName,
+    },
   };
-  return axios.get(API_ENDPOINTS.GET.ENTITY_BY_NAME, params);
+  return axios.get(API_ENDPOINTS.GET.ENTITY_BY_NAME, config);
 };
 
 function* fetchEntity({ payload: { value } }) {
