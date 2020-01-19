@@ -1,4 +1,4 @@
-import { ASSOCIATION_FORM_FIELDS_CONFIG } from '../../../../../HomePage/components/AssociationForm/constants';
+import { ASSOCIATION_FORM_FIELDS_CONFIG } from '../../../../../Forms/AssociationForm/constants';
 
 export default {
   [ASSOCIATION_FORM_FIELDS_CONFIG.ASSOCIATION_NAME.ID]: 'Association one',

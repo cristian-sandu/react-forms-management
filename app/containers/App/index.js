@@ -10,7 +10,7 @@ import NotFoundPage from 'containers/NotFoundPage/Loadable';
 import Header from 'components/Header';
 import { textDirectionSelector } from 'redux/selectors';
 
-import { AssociationForm, EntityForm } from '../HomePage/components';
+import { AssociationForm, EntityForm } from '../Forms';
 import AdminRoute from '../Admin/Route';
 import AdminDashboard from '../Admin/Dashboard';
 import GlobalStyle from '../../global-styles';

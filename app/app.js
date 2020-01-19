@@ -19,7 +19,7 @@ import 'sanitize.css/sanitize.css';
 
 // Import root app
 import App from 'containers/App';
-import AuthenticationProvider from 'containers/AuthenticationProvider';
+import AuthenticationProvider from 'containers/Authentication';
 
 // Import Language Provider
 import LanguageProvider from 'containers/LanguageProvider';

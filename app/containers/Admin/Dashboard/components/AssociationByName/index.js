@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { associationByNameSelector } from 'redux/selectors';
 import { useInjectSaga } from 'utils/injectSaga';
 
-import AssociationForm from '../../../../HomePage/components/AssociationForm/AssociationForm';
+import AssociationForm from '../../../../Forms/AssociationForm/AssociationForm';
 import { fetchAssociationByName } from './actions';
 import saga from './sagas';
 

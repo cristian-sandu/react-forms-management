@@ -24,9 +24,9 @@ import Footer from 'components/Footer/Footer';
 
 import { ENTITY_FORM_FIELDS_CONFIG as FIELDS } from './constants';
 import messages from './messages';
-import * as SelectOptionsEn from '../../utils/select-options-en';
-import * as SelectOptionsAr from '../../utils/select-options-ar';
-import { useInjectSaga } from '../../../../utils/injectSaga';
+import * as SelectOptionsEn from '../../../utils/select-options/select-options-en';
+import * as SelectOptionsAr from '../../../utils/select-options/select-options-ar';
+import { useInjectSaga } from '../../../utils/injectSaga';
 import saga from './sagas/entity-form-saga';
 
 const formStyle = { height: '100%' };
@@ -242,7 +242,6 @@ const EntityForm = ({ form, disabled, initialValues }) => {
 EntityForm.propTypes = {
   initialValues: PropTypes.object,
   form: PropTypes.object.isRequired,
-  history: PropTypes.object,
   disabled: PropTypes.bool,
 };
 
