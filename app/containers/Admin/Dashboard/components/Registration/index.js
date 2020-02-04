@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Form } from 'antd';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Footer from 'components/Footer/Footer';
@@ -8,7 +8,10 @@ import FormProvider from 'common/form/provider/form-provider';
 import { InputField, InputNumberField } from 'common/form/components';
 import { getFormattedMessage as getMsg } from 'utils/formatted-message';
 import { useInjectSaga } from 'utils/injectSaga';
+
 import { submitRegistration } from 'redux/actions/registration-actions';
+import { resetForm } from 'redux/actions/form-actions';
+import { registrationSuccessResponseSelector } from 'redux/selectors';
 
 import { REGISTRATION_FORM_FIELDS_CONFIG as FIELDS } from './utils';
 import messages from './messages';
@@ -19,8 +22,16 @@ const formStyle = { height: '100%' };
 
 const Registration = ({ form }) => {
   const dispatch = useDispatch();
+  const hasSuccess = useSelector(registrationSuccessResponseSelector);
 
   useInjectSaga({ key: SAGA_KEY, saga });
+
+  useEffect(() => {
+    if (hasSuccess) {
+      form.resetFields();
+      dispatch(resetForm('registration'));
+    }
+  }, [hasSuccess, form, dispatch]);
 
   function handleClear() {
     form.resetFields();

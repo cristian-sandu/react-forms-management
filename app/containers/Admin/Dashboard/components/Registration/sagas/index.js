@@ -20,7 +20,7 @@ function* submitRegistration({ payload: { data } }) {
   try {
     const response = yield call(postRequest, data);
     if (response) {
-      yield put(registrationSuccess(response.json()));
+      yield put(registrationSuccess(response));
       notification.success(successNotification('Registration successful !'));
     }
   } catch (e) {

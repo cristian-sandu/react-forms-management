@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { pipe } from 'ramda';
@@ -16,10 +16,11 @@ import { EMPTY_OBJECT } from 'common/constants';
 import FormProvider from 'common/form/provider/form-provider';
 import Footer from 'components/Footer/Footer';
 import {
+  entityFormSuccessResponseSelector,
   isArabicLanguageSelector,
   userAssociationSelector,
 } from 'redux/selectors';
-import { submitEntityForm } from 'redux/actions/form-actions';
+import { submitEntityForm, resetForm } from 'redux/actions/form-actions';
 import { getFormattedMessage as getMsg } from 'utils/formatted-message';
 import * as SelectOptionsEn from 'utils/select-options/select-options-en';
 import * as SelectOptionsAr from 'utils/select-options/select-options-ar';
@@ -36,6 +37,14 @@ const EntityForm = ({ form, disabled, initialValues }) => {
   const dispatch = useDispatch();
   const isArabicLanguage = useSelector(isArabicLanguageSelector);
   const userAssociation = useSelector(userAssociationSelector);
+  const hasSuccess = useSelector(entityFormSuccessResponseSelector);
+
+  useEffect(() => {
+    if (hasSuccess) {
+      form.resetFields();
+      dispatch(resetForm('entityForm'));
+    }
+  }, [hasSuccess, form, dispatch]);
 
   const SelectOptionsSource = isArabicLanguage
     ? SelectOptionsAr

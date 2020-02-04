@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import { connectRouter } from 'connected-react-router';
 import authReducer from 'redux/reducers/auth-reducer';
+import successResponseReducer from 'redux/reducers/successResponseReducer';
 
 import { REDUCER_KEYS } from 'common/constants/reducer-keys';
 import history from 'utils/history';
@@ -21,6 +22,7 @@ const createReducer = (injectedReducers = {}) =>
     [REDUCER_KEYS.ENTITY_BY_ID]: entityByIdReducer,
     [REDUCER_KEYS.ASSOCIATIONS]: associationsReducer,
     [REDUCER_KEYS.ASSOCIATION_BY_NAME]: associationByName,
+    [REDUCER_KEYS.SUCCESS_RESPONSE]: successResponseReducer,
     ...injectedReducers,
   });
 

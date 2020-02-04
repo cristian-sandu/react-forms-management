@@ -7,6 +7,7 @@ const {
   SUCCESS_SUBMIT_ENTITY_FORM,
   SUBMIT_ASSOCIATION_FORM,
   SUBMIT_ENTITY_FORM,
+  RESET_FORM,
 } = FORMS;
 
 export const submitAssociationForm = data => ({
@@ -40,4 +41,11 @@ export const successSubmitEntityForm = () => ({
 
 export const errorSubmitEntityForm = () => ({
   type: ERROR_SUBMIT_ENTITY_FORM,
+});
+
+export const resetForm = key => ({
+  type: RESET_FORM,
+  payload: {
+    key,
+  },
 });

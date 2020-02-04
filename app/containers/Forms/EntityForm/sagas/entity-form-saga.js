@@ -19,7 +19,7 @@ function* submitEntity({ payload: { data } }) {
   try {
     const response = yield call(postRequest, data);
     if (response) {
-      yield put(successSubmitEntityForm(response.json()));
+      yield put(successSubmitEntityForm(response));
       notification.success(
         successNotification('The Entity Form has been successfully submitted!'),
       );

@@ -81,3 +81,23 @@ export const entityByIdSelector = createSelector(
   prop(REDUCER_KEYS.ENTITY_BY_ID),
   identity,
 );
+
+export const successResponseSelector = createSelector(
+  prop(REDUCER_KEYS.SUCCESS_RESPONSE),
+  identity,
+);
+
+export const entityFormSuccessResponseSelector = createSelector(
+  successResponseSelector,
+  prop('entityForm'),
+);
+
+export const associationFormSuccessResponseSelector = createSelector(
+  successResponseSelector,
+  prop('associationForm'),
+);
+
+export const registrationSuccessResponseSelector = createSelector(
+  successResponseSelector,
+  prop('registration'),
+);

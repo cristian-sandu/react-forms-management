@@ -20,9 +20,11 @@ function* submitAssociation({ payload: { data } }) {
   try {
     const response = yield call(postRequest, data);
     if (response) {
-      yield put(successSubmitAssociationForm(response.json()));
+      yield put(successSubmitAssociationForm(response));
       notification.success(
-        successNotification('The Entity Form has been successfully submitted!'),
+        successNotification(
+          'The Association Form has been successfully submitted!',
+        ),
       );
     }
   } catch (error) {

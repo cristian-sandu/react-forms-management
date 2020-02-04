@@ -5,4 +5,5 @@ export const REDUCER_KEYS = {
   ENTITIES: 'entities',
   ENTITY_BY_NAME: 'entityByName',
   ENTITY_BY_ID: 'entityById',
+  SUCCESS_RESPONSE: 'successResponse',
 };

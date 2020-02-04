@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { pipe } from 'ramda';
@@ -13,8 +13,11 @@ import {
   SelectField,
 } from 'common/form/components';
 import FormProvider from 'common/form/provider/form-provider';
-import { isArabicLanguageSelector } from 'redux/selectors';
-import { submitAssociationForm } from 'redux/actions/form-actions';
+import {
+  associationFormSuccessResponseSelector,
+  isArabicLanguageSelector,
+} from 'redux/selectors';
+import { resetForm, submitAssociationForm } from 'redux/actions/form-actions';
 import { getFormattedMessage as getMsg } from 'utils/formatted-message';
 import { useInjectSaga } from 'utils/injectSaga';
 import * as SelectOptionsEn from 'utils/select-options/select-options-en';
@@ -29,12 +32,21 @@ const SAGA_KEY = 'AssociationForm';
 
 const AssociationForm = ({ disabled, form, initialValues }) => {
   const dispatch = useDispatch();
+  const hasSuccess = useSelector(associationFormSuccessResponseSelector);
+
   const isArabicLanguage = useSelector(isArabicLanguageSelector);
   const SelectOptionsSource = isArabicLanguage
     ? SelectOptionsAr
     : SelectOptionsEn;
 
   useInjectSaga({ key: SAGA_KEY, saga });
+
+  useEffect(() => {
+    if (hasSuccess) {
+      form.resetFields();
+      dispatch(resetForm('associationForm'));
+    }
+  }, [hasSuccess, form, dispatch]);
 
   function handleClear() {
     form.resetFields();
