@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Route, withRouter } from 'react-router-dom';
+import { Route, useLocation, withRouter } from 'react-router-dom';
 import { useLocalStorage } from 'use-hooks';
 
 import { APP_ROUTES } from 'common/constants';
@@ -12,10 +12,12 @@ const { LOGIN, HOME } = APP_ROUTES;
 
 function AuthenticationProvider({ children, history }) {
   const [isLoggedIn, setLogged] = useLocalStorage('isLoggedIn', false);
+  const { pathname } = useLocation();
 
   useEffect(() => {
+    if (pathname === LOGIN) setLogged(false);
     if (!isLoggedIn) history.push(LOGIN);
-  }, [isLoggedIn]);
+  }, [isLoggedIn, pathname]);
 
   // eslint-disable-next-line consistent-return
   function handleSubmit(form, userDetails) {

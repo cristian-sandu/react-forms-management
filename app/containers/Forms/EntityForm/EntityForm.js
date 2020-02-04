@@ -214,9 +214,7 @@ const EntityForm = ({ form, disabled, initialValues }) => {
           id={FIELDS.COMMERCIAL_REGISTRATION.ID}
           initialValue={initialValues[FIELDS.COMMERCIAL_REGISTRATION.ID]}
           label={getMsg(messages.COMMERCIAL_REGISTRATION.LABEL)}
-          requiredMessage={getMsg(
-            messages.COMMERCIAL_REGISTRATION.REQUIRED_MESSAGE,
-          )}
+          required={false}
           disabled={disabled}
         >
           <ImageUpload

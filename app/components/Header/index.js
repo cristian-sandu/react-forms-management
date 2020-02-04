@@ -15,6 +15,7 @@ import {
   ELEMENTS_BY_STEP,
 } from './constants';
 import LocaleToggle from '../../containers/LocaleToggle';
+import Logout from '../../containers/Logout';
 
 const { Step } = Steps;
 
@@ -53,8 +54,15 @@ function Header({ hasAssociationForm, history, location: { pathname } }) {
 
   return (
     <div>
-      <div style={{ marginTop: '1em' }}>
+      <div
+        style={{
+          marginTop: '1em',
+          display: 'flex',
+          justifyContent: 'space-between',
+        }}
+      >
         <LocaleToggle />
+        <Logout />
       </div>
       <div style={{ marginTop: '1em' }}>
         <Steps onChange={handleChange} current={STEP} progressDot={customDot}>
