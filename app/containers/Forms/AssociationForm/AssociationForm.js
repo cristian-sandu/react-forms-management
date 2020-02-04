@@ -128,7 +128,8 @@ const AssociationForm = ({ disabled, form, initialValues }) => {
           requiredMessage={getMsg(messages.WEBSITE.REQUIRED_MESSAGE)}
           rules={[
             {
-              type: 'url',
+              pattern:
+                '^(https?:\\/\\/)?(www\\.)?([a-zA-Z0-9]+(-?[a-zA-Z0-9])*\\.)+[\\w]{2,}(\\/\\S*)?$',
               message: getMsg(messages.WEBSITE.WEBSITE_INVALID_MESSAGE),
             },
           ]}
