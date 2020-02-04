@@ -1,9 +1,10 @@
+import axios from 'axios';
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Route, useLocation, withRouter } from 'react-router-dom';
 import { useLocalStorage } from 'use-hooks';
 
-import { APP_ROUTES } from 'common/constants';
+import { API_ENDPOINTS, APP_ROUTES } from 'common/constants';
 import Login from 'containers/Login/Login';
 
 import { areLoginDetailsValid, invalidFormDetails } from './utils';
@@ -21,6 +22,12 @@ function AuthenticationProvider({ children, history }) {
 
   // eslint-disable-next-line consistent-return
   function handleSubmit(form, userDetails) {
+    axios
+      .post(API_ENDPOINTS.POST.LOGIN, userDetails)
+      .then(result => console.log('Successful login response!', result))
+      .catch(error => console.error('Login error', error));
+
+    // these should be reviewed once back-end sends a real response to the /login post
     if (!areLoginDetailsValid(userDetails)) {
       return form.setFields(invalidFormDetails(userDetails));
     }

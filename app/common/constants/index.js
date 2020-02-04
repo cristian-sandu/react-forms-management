@@ -12,6 +12,7 @@ export const API_ENDPOINTS = {
   },
   POST: {
     LOGIN: `${BASE_API_ENDPOINT}/login`,
+    LOGOUT: `${BASE_API_ENDPOINT}/logout`,
     REGISTRATION: `${BASE_API_ENDPOINT}/registration`,
     ENTITY: `${BASE_API_ENDPOINT}/entity`,
     ASSOCIATION: `${BASE_API_ENDPOINT}/association`,
