@@ -1,13 +1,15 @@
 import axios from 'axios';
-import { API_ENDPOINTS } from 'common/constants';
+import { notification } from 'antd';
 import { call, put, takeLatest } from 'redux-saga/effects';
+
+import { API_ENDPOINTS } from 'common/constants';
+import { errorNotification } from 'utils/notification-utils';
 
 import { FETCH_ASSOCIATION_BY_NAME } from '../actions/types';
 import {
   fetchAssociationByNameError,
   fetchAssociationByNameSuccess,
 } from '../actions';
-import mockAssociation from '../mocks';
 
 const getRequest = associationName => {
   const config = {
@@ -26,7 +28,9 @@ function* fetchAssociation({ payload: { value } }) {
     }
   } catch (e) {
     yield put(fetchAssociationByNameError());
-    yield put(fetchAssociationByNameSuccess(mockAssociation)); // @TODO this is to mock successful response, should be removed later
+    notification.error(
+      errorNotification(`Error while receiving Association ${value} by Name`),
+    );
   }
 }
 

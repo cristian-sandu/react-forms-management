@@ -1,13 +1,16 @@
 import axios from 'axios';
+import { notification } from 'antd';
 import { call, put, takeLatest } from 'redux-saga/effects';
+
 import { API_ENDPOINTS } from 'common/constants';
+import { errorNotification } from 'utils/notification-utils';
 
 import { ENTITIES } from './actions/types';
+
 import {
   receiveEntitiesError,
   receiveEntitiesSuccess,
 } from './actions/actions';
-import mockEntities from './mocks';
 
 const getRequest = () => axios.get(API_ENDPOINTS.GET.ENTITIES);
 
@@ -19,8 +22,7 @@ function* fetchEntities() {
     }
   } catch (e) {
     yield put(receiveEntitiesError());
-    // The line 22 is a temporary mock and should be removed when BackEnd is integrated
-    yield put(receiveEntitiesSuccess(mockEntities));
+    notification.error(errorNotification('Error while receiving Entities'));
   }
 }
 

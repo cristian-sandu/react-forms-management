@@ -1,10 +1,12 @@
 import axios from 'axios';
-import { API_ENDPOINTS } from 'common/constants';
+import { notification } from 'antd';
 import { call, put, takeLatest } from 'redux-saga/effects';
+
+import { API_ENDPOINTS } from 'common/constants';
+import { errorNotification } from 'utils/notification-utils';
 
 import { FETCH_ENTITY_BY_NAME } from '../actions/types';
 import { fetchEntityByNameError, fetchEntityByNameSuccess } from '../actions';
-import mockEntity from '../mocks';
 
 const getRequest = entityName => {
   const config = {
@@ -23,7 +25,9 @@ function* fetchEntity({ payload: { value } }) {
     }
   } catch (e) {
     yield put(fetchEntityByNameError());
-    yield put(fetchEntityByNameSuccess(mockEntity)); // @TODO this is to mock successful response, should be removed later
+    notification.error(
+      errorNotification(`Error while receiving Entity ${value} by Name`),
+    );
   }
 }
 
