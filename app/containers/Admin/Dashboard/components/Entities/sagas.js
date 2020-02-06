@@ -4,6 +4,7 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 
 import { API_ENDPOINTS } from 'common/constants';
 import { errorNotification } from 'utils/notification-utils';
+import { ensureArray, addKey } from 'utils/constants';
 
 import { ENTITIES } from './actions/types';
 
@@ -18,7 +19,7 @@ function* fetchEntities() {
   try {
     const response = yield call(getRequest);
     if (response) {
-      yield put(receiveEntitiesSuccess(response.json()));
+      yield put(receiveEntitiesSuccess(addKey(ensureArray(response.data))));
     }
   } catch (e) {
     yield put(receiveEntitiesError());

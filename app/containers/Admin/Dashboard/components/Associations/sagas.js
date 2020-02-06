@@ -4,6 +4,7 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 
 import { API_ENDPOINTS } from 'common/constants';
 import { errorNotification } from 'utils/notification-utils';
+import { ensureArray, addKey } from 'utils/constants';
 
 import { ASSOCIATIONS } from './actions/types';
 import {
@@ -17,7 +18,7 @@ function* fetchAssociations() {
   try {
     const response = yield call(getRequest);
     if (response) {
-      yield put(receiveAssociationsSuccess(response.json()));
+      yield put(receiveAssociationsSuccess(addKey(ensureArray(response.data))));
     }
   } catch (e) {
     yield put(receiveAssociationsError());
