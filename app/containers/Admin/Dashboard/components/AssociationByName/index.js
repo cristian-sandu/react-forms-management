@@ -1,11 +1,11 @@
-import React from 'react';
-import { Divider, Input } from 'antd';
+import React, { useState } from 'react';
+import { Button, Divider, Input } from 'antd';
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 import { associationByNameSelector } from 'redux/selectors';
 
 import AssociationForm from 'containers/Forms/AssociationForm/AssociationForm';
-import { TEXT_DIRECTION } from 'common/constants';
+import { EMPTY_STRING, TEXT_DIRECTION } from 'common/constants';
 import { useTextDirection } from 'common/hooks';
 import { useInjectSaga } from 'utils/injectSaga';
 import { getFormattedMessage } from 'utils/formatted-message';
@@ -18,6 +18,7 @@ const { RIGHT_TO_LEFT, LEFT_TO_RIGHT } = TEXT_DIRECTION;
 const SAGA_KEY = 'AssociationByName';
 
 const AssociationByName = () => {
+  const [associationName, setAssociationName] = useState(EMPTY_STRING);
   const association = useSelector(associationByNameSelector);
   const dispatch = useDispatch();
   const textDirection = useTextDirection();
@@ -27,7 +28,12 @@ const AssociationByName = () => {
   useInjectSaga({ key: SAGA_KEY, saga });
 
   const handleChange = ({ target: { value } }) => {
-    dispatch(fetchAssociationByName(value));
+    setAssociationName(value);
+  };
+
+  const handleSearch = () => {
+    if (!associationName) return;
+    dispatch(fetchAssociationByName(associationName));
   };
 
   return (
@@ -43,11 +49,20 @@ const AssociationByName = () => {
         <bdo dir={isRTLDirection ? RIGHT_TO_LEFT : LEFT_TO_RIGHT}>
           <span> {label}</span>
         </bdo>
-        <Input
-          className={classNames({ 'rtl__input-direction': isRTLDirection })}
-          style={{ marginTop: 10 }}
-          onChange={handleChange}
-        />
+        <div style={{ display: 'flex', alignItems: 'baseline' }}>
+          <Input
+            className={classNames({ 'rtl__input-direction': isRTLDirection })}
+            style={{ marginTop: 10 }}
+            onChange={handleChange}
+          />
+          <Button
+            type="primary"
+            style={{ marginLeft: 10 }}
+            onClick={handleSearch}
+          >
+            Search
+          </Button>
+        </div>
       </div>
       <Divider style={{ color: 'black' }} />
       <AssociationForm disabled initialValues={association} />

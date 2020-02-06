@@ -1,10 +1,10 @@
-import { Divider, Input } from 'antd';
-import React from 'react';
+import { Button, Divider, Input } from 'antd';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { useTextDirection } from 'common/hooks';
-import { TEXT_DIRECTION } from 'common/constants';
+import { EMPTY_STRING, TEXT_DIRECTION } from 'common/constants';
 import EntityForm from 'containers/Forms/EntityForm/EntityForm';
 import { entityByNameSelector } from 'redux/selectors';
 import { useInjectSaga } from 'utils/injectSaga';
@@ -18,6 +18,7 @@ const { RIGHT_TO_LEFT, LEFT_TO_RIGHT } = TEXT_DIRECTION;
 const SAGA_KEY = 'EntityByName';
 
 const EntityByName = () => {
+  const [entityName, setEntityName] = useState(EMPTY_STRING);
   const entity = useSelector(entityByNameSelector);
   const dispatch = useDispatch();
   const textDirection = useTextDirection();
@@ -27,7 +28,12 @@ const EntityByName = () => {
   useInjectSaga({ key: SAGA_KEY, saga });
 
   const handleChange = ({ target: { value } }) => {
-    dispatch(fetchEntityByName(value));
+    setEntityName(value);
+  };
+
+  const handleSearch = () => {
+    if (!entityName) return;
+    dispatch(fetchEntityByName(entityName));
   };
 
   return (
@@ -43,11 +49,20 @@ const EntityByName = () => {
         <bdo dir={isRTLDirection ? RIGHT_TO_LEFT : LEFT_TO_RIGHT}>
           <span> {label}</span>
         </bdo>
-        <Input
-          className={classNames({ 'rtl__input-direction': isRTLDirection })}
-          style={{ marginTop: 10 }}
-          onChange={handleChange}
-        />
+        <div style={{ display: 'flex', alignItems: 'baseline' }}>
+          <Input
+            className={classNames({ 'rtl__input-direction': isRTLDirection })}
+            style={{ marginTop: 10 }}
+            onChange={handleChange}
+          />
+          <Button
+            type="primary"
+            style={{ marginLeft: 10 }}
+            onClick={handleSearch}
+          >
+            Search
+          </Button>
+        </div>
       </div>
       <Divider style={{ color: 'black' }} />
       <EntityForm disabled initialValues={entity} />

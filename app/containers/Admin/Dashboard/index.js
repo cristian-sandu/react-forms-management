@@ -33,6 +33,7 @@ const AdminDashboard = () => (
       style={{ height: '100%' }}
       defaultActiveKey="1"
       renderTabBar={renderTabBar}
+      destroyInactiveTabPane
     >
       <TabPane
         tab={getFormattedMessage(messages.REGISTRATION)}

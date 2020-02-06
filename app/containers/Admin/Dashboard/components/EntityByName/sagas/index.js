@@ -26,7 +26,7 @@ function* fetchEntity({ payload: { value } }) {
   } catch (e) {
     yield put(fetchEntityByNameError());
     notification.error(
-      errorNotification(`Error while receiving Entity ${value} by Name`),
+      errorNotification(`Error while receiving Entity: (${value}) by Name`),
     );
   }
 }

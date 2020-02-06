@@ -29,7 +29,9 @@ function* fetchAssociation({ payload: { value } }) {
   } catch (e) {
     yield put(fetchAssociationByNameError());
     notification.error(
-      errorNotification(`Error while receiving Association ${value} by Name`),
+      errorNotification(
+        `Error while receiving Association: (${value}) by Name`,
+      ),
     );
   }
 }
