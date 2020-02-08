@@ -19,6 +19,12 @@ export const API_ENDPOINTS = {
   },
 };
 
+export const USER_ROLES = {
+  ADMIN: 'Admin',
+  ENTITY_USER: 'EntityUser',
+  ASSOCIATION_USER: 'AssociationUser',
+};
+
 export const EMPTY_ARRAY = freeze([]);
 export const EMPTY_OBJECT = freeze({});
 export const EMPTY_STRING = '';

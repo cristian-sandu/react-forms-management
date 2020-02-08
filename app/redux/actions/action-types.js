@@ -1,6 +1,7 @@
 export const AUTHENTICATION = {
   LOGIN: 'LOGIN',
   LOGOUT: 'LOGOUT',
+  SET_USER_ROLE: 'SET_USER_ROLE',
 };
 
 export const FORMS = {

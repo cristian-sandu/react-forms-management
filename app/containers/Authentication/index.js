@@ -1,19 +1,21 @@
-import axios from 'axios';
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Route, useLocation, withRouter } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { useLocalStorage } from 'use-hooks';
 
-import { API_ENDPOINTS, APP_ROUTES } from 'common/constants';
+import { APP_ROUTES } from 'common/constants';
 import Login from 'containers/Login/Login';
+import { setUserRole, login } from 'redux/actions/auth-actions';
 
-import { areLoginDetailsValid, invalidFormDetails } from './utils';
+import { getUserRole, invalidFormDetails } from './utils';
 
 const { LOGIN, HOME } = APP_ROUTES;
 
 function AuthenticationProvider({ children, history }) {
   const [isLoggedIn, setLogged] = useLocalStorage('isLoggedIn', false);
   const { pathname } = useLocation();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (pathname === LOGIN) setLogged(false);
@@ -22,16 +24,16 @@ function AuthenticationProvider({ children, history }) {
 
   // eslint-disable-next-line consistent-return
   function handleSubmit(form, userDetails) {
-    axios
-      .post(API_ENDPOINTS.POST.LOGIN, userDetails)
-      .then(result => console.log('Successful login response!', result))
-      .catch(error => console.error('Login error', error));
+    const userRole = getUserRole(userDetails);
 
-    // these should be reviewed once back-end sends a real response to the /login post
-    if (!areLoginDetailsValid(userDetails)) {
+    if (!userRole) {
       return form.setFields(invalidFormDetails(userDetails));
     }
+
+    dispatch(login(userDetails));
+    dispatch(setUserRole(userRole));
     setLogged(true);
+
     history.push(HOME);
   }
 
