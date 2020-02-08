@@ -1,24 +1,20 @@
-import axios from 'axios';
 import React from 'react';
 import { Button } from 'antd';
 import { useLocalStorage } from 'use-hooks';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
-import { API_ENDPOINTS, APP_ROUTES } from '../../common/constants';
-const { LOGOUT } = API_ENDPOINTS.POST;
+import { APP_ROUTES } from '../../common/constants';
+import { logout } from '../../redux/actions/auth-actions';
 
 const Logout = () => {
+  const dispatch = useDispatch();
   const history = useHistory();
   const [_, setLogged] = useLocalStorage('isLoggedIn', true);
 
   function handleLogout() {
-    axios
-      .post(LOGOUT)
-      .then(result => console.log('Successful logout', result))
-      .catch(error => console.error('Logout error', error));
-
-    // these should be reviewed once back-end sends a real response to the /logout post
     setLogged(undefined);
+    dispatch(logout());
     history.push(APP_ROUTES.LOGIN);
   }
 
