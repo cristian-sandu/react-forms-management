@@ -9,7 +9,10 @@ import classNames from 'classnames';
 import messages from 'components/Header/messages';
 import { APP_ROUTES, TEXT_DIRECTION } from 'common/constants';
 import { useTextDirection } from 'common/hooks';
-import { isUserAdminSelector } from 'redux/selectors';
+import {
+  isAdminUserSelector,
+  isAssociationUserSelector,
+} from 'redux/selectors';
 import { getFormattedMessage as getMsg } from 'utils/formatted-message';
 
 import AssociationImg from './images/association.png';
@@ -21,7 +24,9 @@ const { Meta } = Card;
 export function HomePage({ history }) {
   const textDirection = useTextDirection();
   const isRTLDirection = textDirection === TEXT_DIRECTION.RIGHT_TO_LEFT;
-  const isAdmin = useSelector(isUserAdminSelector);
+  const isAdmin = useSelector(isAdminUserSelector);
+  const isAssociationUser = useSelector(isAssociationUserSelector);
+  const canSeeAssociation = isAdmin || isAssociationUser;
 
   const handleClick = route => () => {
     history.push(route);
@@ -49,17 +54,21 @@ export function HomePage({ history }) {
           />
         </Card>
 
-        <Card
-          cover={<img alt="Association Form" src={AssociationImg} />}
-          hoverable
-          onClick={handleClick(APP_ROUTES.ASSOCIATION_FORM)}
-          style={{ width: 240, height: 300 }}
-        >
-          <Meta
-            className={classNames({ 'rtl__input-direction': isRTLDirection })}
-            title={getMsg(messages.ASSOCIATION_FORM)}
-          />
-        </Card>
+        {canSeeAssociation && (
+          <Card
+            cover={<img alt="Association Form" src={AssociationImg} />}
+            hoverable
+            onClick={handleClick(APP_ROUTES.ASSOCIATION_FORM)}
+            style={{ width: 240, height: 300 }}
+          >
+            <Meta
+              className={classNames({
+                'rtl__input-direction': isRTLDirection,
+              })}
+              title={getMsg(messages.ASSOCIATION_FORM)}
+            />
+          </Card>
+        )}
 
         {isAdmin && (
           <Card

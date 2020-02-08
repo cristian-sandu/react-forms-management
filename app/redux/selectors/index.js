@@ -1,10 +1,11 @@
 import { createSelector } from 'reselect';
-import { always, equals, ifElse, prop, identity, pipe } from 'ramda';
+import { always, equals, ifElse, prop, identity } from 'ramda';
 
-import { TEXT_DIRECTION } from 'common/constants';
-import { REDUCER_KEYS } from '../../common/constants/reducer-keys';
+import { TEXT_DIRECTION, USER_ROLES } from 'common/constants';
+import { REDUCER_KEYS } from 'common/constants/reducer-keys';
 
 const { LEFT_TO_RIGHT, RIGHT_TO_LEFT } = TEXT_DIRECTION;
+const { ADMIN, ASSOCIATION_USER, ENTITY_USER } = USER_ROLES;
 
 export const languageSelector = prop('language');
 export const routerSelector = prop('router');
@@ -36,34 +37,6 @@ export const textDirectionSelector = createSelector(
     Boolean,
     always(RIGHT_TO_LEFT),
     always(LEFT_TO_RIGHT),
-  ),
-);
-
-export const authSelector = createSelector(
-  prop('auth'),
-  identity,
-);
-
-export const userSelector = createSelector(
-  authSelector,
-  prop('user'),
-);
-
-export const isLoggedInSelector = createSelector(
-  authSelector,
-  prop('loggedIn'),
-);
-
-export const userAssociationSelector = createSelector(
-  userSelector,
-  prop('association'),
-);
-
-export const isUserAdminSelector = createSelector(
-  userSelector,
-  pipe(
-    prop('isAdministrator'),
-    Boolean,
   ),
 );
 
@@ -100,4 +73,45 @@ export const associationFormSuccessResponseSelector = createSelector(
 export const registrationSuccessResponseSelector = createSelector(
   successResponseSelector,
   prop('registration'),
+);
+
+// auth selectors
+export const authSelector = createSelector(
+  prop('auth'),
+  identity,
+);
+
+export const userSelector = createSelector(
+  authSelector,
+  prop('user'),
+);
+
+export const userRoleSelector = createSelector(
+  userSelector,
+  prop('role'),
+);
+
+export const isLoggedInSelector = createSelector(
+  authSelector,
+  prop('loggedIn'),
+);
+
+export const userAssociationSelector = createSelector(
+  userSelector,
+  prop('association'),
+);
+
+export const isAdminUserSelector = createSelector(
+  userRoleSelector,
+  equals(ADMIN),
+);
+
+export const isEntityUserSelector = createSelector(
+  userRoleSelector,
+  equals(ENTITY_USER),
+);
+
+export const isAssociationUserSelector = createSelector(
+  userRoleSelector,
+  equals(ASSOCIATION_USER),
 );
