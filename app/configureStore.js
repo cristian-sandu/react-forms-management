@@ -1,8 +1,18 @@
-import { createStore, applyMiddleware, compose } from 'redux';
 import { routerMiddleware } from 'connected-react-router';
+import { createStore, applyMiddleware, compose } from 'redux';
 import createDebounce from 'redux-debounced';
+import { persistReducer, persistStore } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
 import createSagaMiddleware from 'redux-saga';
+
 import createReducer from './reducers';
+
+const persistConfig = {
+  key: 'root',
+  storage,
+};
+
+let persistor = null;
 
 export default function configureStore(initialState = {}, history) {
   let composeEnhancers = compose;
@@ -25,12 +35,15 @@ export default function configureStore(initialState = {}, history) {
   ];
 
   const enhancers = [applyMiddleware(...middlewares)];
+  const mainReducer = persistReducer(persistConfig, createReducer());
 
   const store = createStore(
-    createReducer(),
+    mainReducer,
     initialState,
     composeEnhancers(...enhancers),
   );
+
+  persistor = persistStore(store);
 
   // Extensions
   store.runSaga = sagaMiddleware.run;
@@ -47,3 +60,5 @@ export default function configureStore(initialState = {}, history) {
 
   return store;
 }
+
+export { persistor };

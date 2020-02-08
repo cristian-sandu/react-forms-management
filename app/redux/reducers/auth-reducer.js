@@ -1,8 +1,16 @@
 import { EMPTY_STRING } from 'common/constants';
 
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
 import { AUTHENTICATION } from '../actions/action-types';
 
 const { LOGIN, LOGOUT, SET_USER_ROLE } = AUTHENTICATION;
+
+const persistConfig = {
+  key: 'auth-reducer',
+  storage,
+};
 
 export const initialState = {
   loggedIn: false,
@@ -42,4 +50,4 @@ const authReducer = (state = initialState, { type, payload }) => {
   }
 };
 
-export default authReducer;
+export default persistReducer(persistConfig, authReducer);
